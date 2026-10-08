@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis habilidades - Milo Mayne</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #EFECE6;
+            color: #1A1A1A;
+            overflow-x: hidden;
+        }
+
+        .font-serif-heading {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .bg-header-pink {
+            background-color: #F6DFDC;
+        }
+
+        .bg-footer-green {
+            background-color: #B2C393;
+        }
+
+        .text-accent-red {
+            color: #D9534F;
+        }
+
+        .header-curved-bottom {
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .header-curved-bottom {
+                border-bottom-left-radius: 80px;
+                border-bottom-right-radius: 80px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- HEADER & TOP NAVIGATION -->
+    <header class="bg-header-pink header-curved-bottom pt-4 pb-12 px-6 md:px-16">
+        <div class="max-w-7xl mx-auto">
+            <nav class="flex items-center justify-between py-2 text-sm text-neutral-800">
+                <!-- Logo Monogram -->
+                <a href="#" class="flex items-center">
+                    <svg class="w-10 h-7 text-neutral-900 fill-current" viewBox="0 0 100 40">
+                        <path d="M 10 30 C 15 10, 25 10, 30 30 C 35 10, 45 10, 50 30 C 55 10, 65 10, 70 30 C 75 10, 85 10, 90 30" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    </svg>
+                </a>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8 text-neutral-800 text-[15px]">
+                    <a href="#" class="hover:opacity-70 transition-opacity">Inicio</a>
+                    <a href="#" class="hover:opacity-70 transition-opacity">Productos</a>
+                    <a href="#" class="hover:opacity-70 transition-opacity">Quién soy?</a>
+                    <a href="#" class="underline underline-offset-4 decoration-1 font-medium">Qué puedo hacer?</a>
+                    <a href="#" class="hover:opacity-70 transition-opacity">Contacto</a>
+                </div>
+
+                <!-- Right Utility Icons -->
+                <div class="flex items-center space-x-4 text-neutral-800">
+                    <button aria-label="Cart"><i class="fa-solid fa-cart-shopping text-sm"></i></button>
+                    <button aria-label="Profile"><i class="fa-regular fa-user text-sm"></i></button>
+                </div>
+            </nav>
+
+            <!-- Main Title -->
+            <div class="text-center pt-10 pb-6">
+                <h1 class="font-serif-heading text-5xl md:text-6xl lg:text-7xl tracking-normal text-neutral-900 font-normal">
+                    Mis habilidades
+                </h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-6xl mx-auto px-4 md:px-8 py-16 space-y-28">
+
+        <!-- SECTION 1: Qué puedo hacer? -->
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
+            <!-- Left Large Floral Image (foto.png) -->
+            <div class="md:col-span-6">
+                <img src="{{ url_for('static', filename='images/habilidades/foto.png') }}" alt="Foto principal" class="w-full h-auto block rounded">
+            </div>
+
+            <!-- Right Content -->
+            <div class="md:col-span-6 flex flex-col justify-start pt-2">
+                <h2 class="font-serif-heading text-5xl md:text-6xl text-neutral-900 mb-8 leading-tight">
+                    Qué puedo<br />hacer<span class="text-accent-red font-serif-heading">?</span>
+                </h2>
+
+                <div class="space-y-6 text-neutral-800 text-sm md:text-base leading-relaxed">
+                    <div>
+                        <h3 class="font-bold text-neutral-900 text-base md:text-lg mb-1 flex items-center gap-2">
+                            <span class="inline-block w-1.5 h-1.5 bg-neutral-900 rounded-full"></span>
+                            Arreglos florales
+                        </h3>
+                        <p class="text-neutral-700 pl-3.5">
+                            Mis principales materiales son flores frescas y secas naturales. Esto es en lo que mejor me destaco, armo arreglos pequeños o grandes, altos o enanos, acomodándose al espacio y luciéndolo.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold text-neutral-900 text-base md:text-lg mb-1 flex items-center gap-2">
+                            <span class="inline-block w-1.5 h-1.5 bg-neutral-900 rounded-full"></span>
+                            Ambientación de eventos
+                        </h3>
+                        <p class="text-neutral-700 pl-3.5">
+                            Desde centros de mesa individuales hasta composiciones integrales en mesas. Tanto ceremoniales, bodas o eventos empresariales.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold text-neutral-900 text-base md:text-lg mb-1 flex items-center gap-2">
+                            <span class="inline-block w-1.5 h-1.5 bg-neutral-900 rounded-full"></span>
+                            Instalaciones
+                        </h3>
+                        <p class="text-neutral-700 pl-3.5">
+                            Instalaciones fijas, tanto de flores secas o frescas, como de otras materialidades más a modo de mueble o escultura.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Ramos de novia -->
+        <section class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                <!-- Text Left -->
+                <div class="md:col-span-5 text-neutral-800 text-sm md:text-base leading-relaxed">
+                    <p>
+                        Trabajo cada ramo como una pieza única, en diálogo con el vestido, el espacio y la persona. Me interesa lo orgánico, lo único, lo que parece recién cortado y todavía vivo. Uso flores de máxima calidad y evito estructuras rígidas o artificiales, buscando que el ramo respire y se mueva con quien lo lleva.
+                    </p>
+                </div>
+
+                <!-- Title Right -->
+                <div class="md:col-span-7">
+                    <h2 class="font-serif-heading text-5xl md:text-7xl text-neutral-900 leading-none">
+                        Ramos<br />de novia
+                    </h2>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-3 pt-4">
+                <!-- Top Row - Left 3 columns, Right Tall image -->
+                <div class="md:col-span-8 grid grid-cols-3 gap-3">
+                    <img src="{{ url_for('static', filename='images/habilidades/image 6.png') }}" class="w-full h-auto block" alt="Ramo 6">
+                    <img src="{{ url_for('static', filename='images/habilidades/image 5.png') }}" class="w-full h-auto block" alt="Ramo 5">
+                    <img src="{{ url_for('static', filename='images/habilidades/image 4.png') }}" class="w-full h-auto block" alt="Ramo 4">
+
+                    <!-- Wide horizontal panorama banner -->
+                    <div class="col-span-3">
+                        <img src="{{ url_for('static', filename='images/habilidades/image 1.png') }}" class="w-full h-auto block" alt="Panorama 1">
+                    </div>
+                </div>
+
+                <!-- Right Column Tall & Square Images -->
+                <div class="md:col-span-4 space-y-3">
+                    <img src="{{ url_for('static', filename='images/habilidades/image 2.png') }}" class="w-full h-auto block" alt="Ramo 2">
+                    <img src="{{ url_for('static', filename='images/habilidades/image 3.png') }}" class="w-full h-auto block" alt="Ramo 3">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Arreglos personales -->
+        <section class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                <!-- Title & Text Left -->
+                <div class="md:col-span-4 space-y-4">
+                    <div class="relative">
+                        <h2 class="font-serif-heading text-5xl md:text-6xl text-neutral-900 leading-none">
+                            Arreglos<br />personales
+                        </h2>
+                        <!-- Pink Ribbon Accent Icon -->
+                        <span class="absolute -right-2 top-0 text-accent-red">
+                            <svg class="w-8 h-8" viewBox="0 0 50 50" fill="none">
+                                <path d="M 15 35 C 5 25, 10 10, 25 10 C 40 10, 40 30, 25 35 C 15 40, 20 45, 30 45" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </div>
+
+                    <p class="text-neutral-800 text-sm leading-relaxed pt-2">
+                        Diseño arreglos personalizados a partir de cada contexto. Sin replicar propuestas, desarrollo composiciones únicas según el espacio, la luz, los materiales y quien lo recibe. Trabajo con flores de máxima calidad y estructuras orgánicas, evitando fórmulas rígidas. El resultado no es un producto estándar, sino una pieza única pensada para ese momento y ese lugar.
+                    </p>
+                </div>
+
+                <!-- Center Large Square Image -->
+                <div class="md:col-span-5">
+                    <img src="{{ url_for('static', filename='images/habilidades/image 7.png') }}" class="w-full h-auto block" alt="Arreglo 7">
+                </div>
+
+                <!-- Right Stacked Images -->
+                <div class="md:col-span-3 space-y-3">
+                    <img src="{{ url_for('static', filename='images/habilidades/image 8.png') }}" class="w-full h-auto block" alt="Arreglo 8">
+                    <img src="{{ url_for('static', filename='images/habilidades/image 9.png') }}" class="w-full h-auto block" alt="Arreglo 9">
+                </div>
+            </div>
+
+            <!-- Bottom 3 Columns Gallery -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-3 pt-2">
+                <div class="md:col-span-5">
+                    <img src="{{ url_for('static', filename='images/habilidades/image 10.png') }}" class="w-full h-auto block" alt="Arreglo 10">
+                </div>
+                <div class="md:col-span-3">
+                    <img src="{{ url_for('static', filename='images/habilidades/image 11.png') }}" class="w-full h-auto block" alt="Arreglo 11">
+                </div>
+                <div class="md:col-span-4">
+                    <img src="{{ url_for('static', filename='images/habilidades/image 12.png') }}" class="w-full h-auto block" alt="Arreglo 12">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Ambientaciones -->
+        <section class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+                <!-- Left Tall Vertical Image -->
+                <div class="md:col-span-4">
+                    <img src="{{ url_for('static', filename='images/habilidades/image 13.png') }}" class="w-full h-auto block" alt="Ambientacion 13">
+                </div>
+
+                <!-- Right Side Content & Grid -->
+                <div class="md:col-span-8 space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+                        <div class="md:col-span-7">
+                            <h2 class="font-serif-heading text-5xl md:text-6xl text-neutral-900 leading-none">
+                                Ambientaciones
+                            </h2>
+                        </div>
+                        <div class="md:col-span-5 text-neutral-800 text-sm leading-relaxed">
+                            <p>
+                                Creo escenarios que cuentan historias. A través del diseño, la selección de objetos y la composición espacial, desarrollo ambientaciones a medida para eventos, hoteles, restaurantes y experiencias efímeras.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Large Table Banner -->
+                    <img src="{{ url_for('static', filename='images/habilidades/image 14.png') }}" class="w-full h-auto block" alt="Ambientacion 14">
+
+                    <!-- Bottom 3 Images -->
+                    <div class="grid grid-cols-3 gap-3">
+                        <img src="{{ url_for('static', filename='images/habilidades/image 15.png') }}" class="w-full h-auto block" alt="Ambientacion 15">
+                        <img src="{{ url_for('static', filename='images/habilidades/image 16.png') }}" class="w-full h-auto block" alt="Ambientacion 16">
+                        <img src="{{ url_for('static', filename='images/habilidades/image 17.png') }}" class="w-full h-auto block" alt="Ambientacion 17">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-footer-green text-neutral-900 pt-10 pb-8 px-8 md:px-16 mt-16">
+        <div class="max-w-6xl mx-auto space-y-6">
+            <!-- Brand Info -->
+            <div class="space-y-1">
+                <svg class="w-12 h-8 text-neutral-900 fill-current" viewBox="0 0 100 40">
+                    <path d="M 10 30 C 15 10, 25 10, 30 30 C 35 10, 45 10, 50 30 C 55 10, 65 10, 70 30 C 75 10, 85 10, 90 30" stroke="currentColor" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                </svg>
+                <div class="font-bold text-base tracking-wider uppercase">
+                    MILO MAYNE
+                </div>
+                <div class="text-xs tracking-widest uppercase font-medium text-neutral-800">
+                    INNOVACIÓN FLORAL
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="flex items-center space-x-4 text-lg">
+                <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-xs text-neutral-800 pt-4">
+                Copyright ©2026 Milo Mayne. All Rights Reserved
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
