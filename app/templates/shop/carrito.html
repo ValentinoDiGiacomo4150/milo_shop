@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de compras</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/carrito.css') }}">
+</head>
+<body>
+    <!--header-->
+    <header class="encabezado">
+        <div class="logo">Milo Mayne</div>
+        <nav class="menu">
+            <a href="/">Inicio</a>
+            <a href="/productos">Productos</a>
+            <a href="/quien-soy">¿Quién soy?</a>
+            <a href="/que-puedo-hacer">¿Qué puedo hacer?</a>
+            <a href="/contacto">Contacto</a>
+        </nav>
+        <div class="iconos">
+            <a href="/carrito">Carrito</a>
+            <a href="/cuenta">Cuenta</a>
+        </div>
+    </header>
+
+    <section class="titulo-pagina">
+        <h1>Carrito de compras</h1>
+    </section>
+
+    <main class="carrito">
+
+        <!--detalles producto-->
+        <section class="productos">
+            <article class="producto">
+                <div class="producto-imagen"></div>
+                <div class="producto-info"></div>
+                    <h2>Ramo de flores secas</h2>
+                    <p>Premium</p>
+                    <p>Tamaño: M</p>
+                    <p>Color: Marrón</p>
+                    <p>Dedicatoria: para la batata con mucho amor</p>
+                    <p>Adicionales: Vino tinto</p>
+                    <p class="Precio">$30.200</p>
+                    <label>Cantidad</label>
+                    <div class="cantidad">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                    <button class="eliminar">Eliminar</button>
+             </article>
+        </section>
+
+        <!--resumen compra-->
+
+        <aside class="resumen">
+            <h2>Resumen de compra</h2>
+            <h3>Envío</h3>
+            <div class="codigo-postal">
+                <input type="text" placeholder="Ingrese su código postal...">
+                <button>Calcular</button>
+            </div>
+            <label class="opcion-envio">
+                <input type="radio" name="envio" checked>
+                Envío a domicilio - Correo argentino clásico <span>$4.150</span>
+            </label>
+            <label class="opcion-envio">
+                <input type="radio" name=envio>
+                Punto de retiro - <a href="#">VER DIRECCIONES</a>
+            </label>
+            <div class="totales">
+                <p>Subtotal <span>$30.200</span></p>
+                <p>Adicionales <span>$6.150</span></p>
+                <p>Envío <span>$4.150</span></p>
+                <p class="total">Total <span>$40.500</span></p>
+            </div>
+            <button class="pagar">Pagar</button>
+        </aside>
+    </main>
+
+    <!--footer-->
+    <footer class="pie">
+        <div class="logo">Milo Mayne</div>
+        <div class="redes">
+            <a href="#">WhatsApp</a>
+            <a href="#">Instagram</a>
+            <a href="#">Email</a>
+        </div>
+        <p>Copyright © 2026 Milo Mayne. All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>

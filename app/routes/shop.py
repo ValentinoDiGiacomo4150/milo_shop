@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 # Creamos el Blueprint para las rutas del cliente
 shop_bp = Blueprint("shop", __name__)

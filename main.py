@@ -22,5 +22,9 @@ def quien_soy():
 def habilidades():
     return render_template('shop/habilidades.html')
 
+@app.route('/carrito')
+def carrito():
+    return render_template('shop/carrito.html')
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
