@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de compras</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/carrito.css') }}">
+   
 </head>
 <body>
     <!--header-->
     <header class="encabezado">
         <div class="logo">
-            <a href="/"><img src="{{url_for('static',filename='app\static\images\logos\Milo Mayne_IsoLogo_26_R_MM_ISO_principal_N.png')}}"</a>
+            <a href="/"><img src="{{url_for('static',filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO_principal_N.png')}}" alt="Milo Mayne"></a>
         </div>
         <nav class="menu">
             <a href="/">Inicio</a>
@@ -20,8 +21,8 @@
             <a href="/contacto">Contacto</a>
         </nav>
         <div class="iconos">
-            <a href="/carrito">Carrito</a>
-            <a href="/cuenta">Cuenta</a>
+            <a href="/carrito"><img src="{{url_for('static',filename='images/logos/shopping-cart-01.png')}}"></a>
+            <a href="/cuenta"><img src="{{url_for('static',filename='images/logos/user.png')}}"></a>
         </div>
     </header>
 
@@ -35,12 +36,12 @@
         <section class="carrito-productos">
             <article class="carrito-producto">
                 <div class="producto-imagen"></div>
-                <div class="producto-info"></div>
+                <div class="producto-info">
                     <h2>Ramo de flores secas</h2>
                     <p>Premium</p>
                     <p>Tamaño: M</p>
                     <p>Color: Marrón</p>
-                    <p>Dedicatoria: para la batata con mucho amor</p>
+                    <p>Dedicatoria: .....</p>
                     <p>Adicionales: Vino tinto</p>
                     <p class="Precio">$30.200</p>
                     <label>Cantidad</label>
@@ -50,6 +51,7 @@
                         <button>+</button>
                     </div>
                     <button class="eliminar">Eliminar</button>
+                </div>
              </article>
         </section>
 
@@ -82,11 +84,13 @@
 
     <!--footer-->
     <footer class="pie">
-        <div class="logo">Milo Mayne</div>
+        <div class="logo">
+            <img src="{{url_for('static',filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO-LOGO_2_N.png')}}" alt="Milo Mayne">
+        </div>
         <div class="redes">
-            <a href="#">WhatsApp</a>
-            <a href="#">Instagram</a>
-            <a href="#">Email</a>
+            <a href="#"><img src="{{url_for('static',filename='images/logos/whatsapp.png')}}"></a>
+            <a href="#"><img src="{{url_for('static',filename='images/logos/instagram.png')}}"></a>
+            <a href="#"><img src="{{url_for('static',filename='images/logos/correo-electronico.png')}}"></a>
         </div>
         <p>Copyright © 2026 Milo Mayne. All Rights Reserved</p>
     </footer>

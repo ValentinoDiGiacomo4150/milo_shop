@@ -1,22 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 @font-face{
     font-family: 'Tan Pearl';
-    src: url('app/static/fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.otf') format('opentype'), url('app/static/fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.ttf') format('truetype'), url('app/static/fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.woff2') format('woff2');
+    src: url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.otf') format('opentype'), url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.ttf') format('truetype'), url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.woff2') format('woff2');
     font-display: swap;
 }
 @font-face {
     font-family: 'The Seasons';
-    src: url('app/static/fuentes/The.Seasons/TheSeasonsRegular.ttf') format('truetype'), url('app/static/fuentes/The.Seasons/TheSeasonsBold.ttf') format('truetype');
+    src: url('../fuentes/The.Seasons/TheSeasonsRegular.ttf') format('truetype'), url('../fuentes/The.Seasons/TheSeasonsBold.ttf') format('truetype');
     font-display: swap;
 }
 @font-face {
     font-family: 'Gendy';
-    src: url('app/static/fuentes/gendy/Gendy.otf') format('opentype');
+    src: url('../fuentes/gendy/Gendy.otf') format('opentype');
     font-display: swap;
 }
 @font-face {
     font-family: 'Glacial Indifference';
-    src: url('app/static/fuentes/glacial-indifference/GlacialIndifference-Regular.otf') format('opentype'), url('app/static/fuentes/glacial-indifference/GlacialIndifference-Bold.otf') format('opentype');
+    src: url('../fuentes/glacial-indifference/GlacialIndifference-Regular.otf') format('opentype'), url('../fuentes/glacial-indifference/GlacialIndifference-Bold.otf') format('opentype');
     font-display: swap;
 }
 
@@ -57,9 +57,97 @@ button {
 
 }
 
-.header{
+/*header*/
+
+.encabezado{
+    background-color: var(--rosa-claro);
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    padding: 1rem 2.5rem;
+    padding: 16px 40px;
+    gap: 30px;
+}
+
+.menu{
+    display: flex;
+    gap: 28px;
+}
+
+.iconos{
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+     align-items: center;
+}
+
+.iconos img{
+    display: block;
+    height: 27px;
+    width: 27px;
+}
+
+/*logos*/
+
+.logo{
+   display: block;
+}
+
+.logo img{
+    display: block;
+    height: 60px;
+    width: 92px;
+}
+
+.pie .logo img{
+    height: 184px;
+    width: 223px;
+}
+
+/*titulo*/
+
+.titulo-pagina{
+    background-color: var(--rosa-claro);
+    border-radius: 0 0 50px 50px;
+    text-align: center;
+    font-family: var(--the-seasons);
+    font-size: 40px;
+}
+
+/*productos*/
+
+/*precios*/
+
+/*resumen compra*/
+.resumen{
+    background-color: var(--rosa-claro);
+    padding: 28px 24px 32px;
+    border-radius: 40px;
+}
+
+/*footer*/
+
+.pie{
+    background-color: var(--verde);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 40px 40px;
+    font-size: 14px;
+}
+
+.pie .redes{
+   display: flex;
+   align-items: center;
+   gap: 20px;
+}
+
+.pie .redes img{
+    display: block;
+    width:24px;
+    height: 24px;
+}
+
+.pie .redes a:nth-child(3) img{ /*mail*/
+    height: 30px;
+    width: 24px;
 }
