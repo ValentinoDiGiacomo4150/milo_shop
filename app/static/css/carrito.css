@@ -114,14 +114,37 @@ button {
 }
 
 /*productos*/
-
-/*precios*/
+.carrito-producto{
+    display: flex;
+    gap: 24px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #a9a9a9;
+}
+.producto-imagen{
+    flex: 0 0 200px;
+    height: 200px;
+    /*background-color: var(#000000);*/
+    border-radius: 50px;
+}
 
 /*resumen compra*/
+
+.carrito{
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 36px;
+    align-items: start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 32px 64px;
+}
+
 .resumen{
     background-color: var(--rosa-claro);
     padding: 28px 24px 32px;
     border-radius: 40px;
+    height: 893px;
 }
 
 /*footer*/
