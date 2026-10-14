@@ -3,13 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const producto = document.querySelector('.carrito-producto');
     if (!producto) return;
 
-    /* ---------- Datos ---------- */
+    
     const precioUnitario = Number(producto.dataset.precio);
     const adicionalesUnitario = Number(producto.dataset.adicionales);
     let cantidad = 1;
     let vacio = false;
 
-    /* ---------- Elementos ---------- */
+    
     const precioEl = producto.querySelector('.Precio strong') || producto.querySelector('.Precio');
     const cantidadEl = producto.querySelector('.cantidad span');
     const [btnMenos, btnMas] = producto.querySelectorAll('.cantidad button');
@@ -22,11 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const opcionesEnvio = document.querySelectorAll('input[name="envio"]');
     const btnPagar = document.querySelector('.pagar');
 
-    /* ---------- Formato: 30200 -> $30.200 ---------- */
+    
     const formatear = (numero) =>
         '$' + String(numero).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
-    /* ---------- Actualizar pantalla ---------- */
+   
     function actualizar() {
         const envioElegido = document.querySelector('input[name="envio"]:checked');
         const costoEnvio = vacio || !envioElegido ? 0 : Number(envioElegido.dataset.costo);
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btnPagar.disabled = vacio;
     }
 
-    /* ---------- Cantidad ---------- */
+    /* Cantidad */
     btnMenos.addEventListener('click', () => {
         if (cantidad > 1) {
             cantidad--;
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    /* ---------- Eliminar producto ---------- */
+    /* Eliminar producto*/
     btnEliminar.addEventListener('click', () => {
         const contenedor = producto.parentElement;
         producto.remove();
@@ -77,11 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
         actualizar();
     });
 
-    /* ---------- Cambiar tipo de envío ---------- */
+    /* envio*/
     opcionesEnvio.forEach((opcion) => {
         opcion.addEventListener('change', actualizar);
     });
 
-    /* ---------- Inicio ---------- */
+    
     actualizar();
 });
