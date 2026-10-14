@@ -16,7 +16,7 @@
 }
 @font-face {
     font-family: 'Glacial Indifference';
-    src: url('../fuentes/glacial-indifference/GlacialIndifference-Regular.otf') format('opentype'), url('../fuentes/glacial-indifference/GlacialIndifference-Bold.otf') format('opentype');
+    src: url('../fuentes/glacial-indifference/GlacialIndifference-Regular.otf') format('opentype');
     font-display: swap;
 }
 
@@ -42,7 +42,7 @@
 body{
     font-family: var(--montserrat);
     background: var(--fondo);
-    color: var(#000000);
+    color: #000000;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -99,6 +99,7 @@ button {
 }
 
 .pie .logo img{
+    margin: -15px 0 -25px -50px;
     height: 184px;
     width: 223px;
 }
@@ -123,13 +124,106 @@ button {
 .producto-imagen{
     flex: 0 0 200px;
     height: 200px;
-    /*background-color: var(#000000);*/
     border-radius: 50px;
+}
+.producto-info {
+    display: grid;
+    align-content: start;
+    font-family: var(--montserrat);
+    font-size: 17px;
+}
+.producto-info > *{
+    grid-column: 1 / -1;
+}
+.producto-info h2{
+    font-family: var(--montserrat);
+    font-size: 20px;
+}
+.producto-info p{
+    margin-bottom: 4px;
+}
+.producto-info p:nth-of-type(1){
+    color: #515151;
+    margin-bottom: 3px;
+}
+.producto-info strong{
+    font-weight: 600;
+}
+.Precio{
+    margin-top: 10px;
+    font-family: var(--montserrat);
+}
+.producto-info label {
+    font-size: 10px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin-top: 6px;
+}
+
+.producto-info > .cantidad {
+    grid-column: 1;
+    display: inline-flex;
+    align-items: stretch;
+    width: fit-content;
+    height: 24px;
+    margin-top: 4px;
+    border: 1px solid #4a4a4a;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.cantidad span {
+    order: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    background-color: var(--rosa-claro);
+    font-size: 13px;
+}
+
+.cantidad button {
+    width: 22px;
+    padding: 0;
+    border: none;
+    border-left: 1px solid #4a4a4a;
+    background: transparent;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+}
+.cantidad button:last-of-type {
+    border-left: none;
+}
+
+.producto-info > .eliminar{
+    grid-column: 2;
+    justify-self: start;
+    align-self: center;
+    margin-left: 12px;
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background-color: var(--rosa-oscuro);
+    -webkit-mask: url('../images/logos/trash.png') center / contain no-repeat;
+    mask: url('../images/logos/trash.png') center / contain no-repeat;
+}
+.carrito-vacio {
+    font-size: 18px;
+    padding: 24px 0;
+}
+
+.pagar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 /*resumen compra*/
 
 .carrito{
+    flex:1;
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 36px;
@@ -142,9 +236,107 @@ button {
 
 .resumen{
     background-color: var(--rosa-claro);
-    padding: 28px 24px 32px;
+    padding: 28px 32px 32px;
     border-radius: 40px;
-    height: 893px;
+    height: 800px;
+}
+.resumen h2{
+    font-family: var(--montserrat);
+    font-size: 25px;
+    margin-bottom: 16px;
+}
+.resumen h3{
+    color: var(--rosa-oscuro);
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+.codigo-postal {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 8px 6px 12px;
+    margin-bottom: 10px;
+    background: var(--rosa-claro);
+    border: 1px solid var(--rosa-oscuro);
+    border-radius: 8px;
+    height: 56px;
+}
+.codigo-postal input{
+    flex: 1;
+    border:none;
+    background: transparent;
+    font-family: var(--montserrat);
+    font-size: 16px;
+    color: var(--rosa-oscuro);
+    outline: none;
+}
+.codigo-postal input::placeholder{
+    color: var(--rosa-oscuro);
+}
+.codigo-postal button {
+    padding: 6px 16px;
+    border-radius: 4px;
+    border: none;
+    background-color: var(--rosa-oscuro);
+    cursor: pointer;
+    font-size: 13px;
+    font-family: var(--montserrat);
+    color: white;
+}
+.resumen .opcion-envio{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    font-family: var(--montserrat);
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #4a4a4a;
+    background-color: #f3f3f3;
+}
+.opcion-envio span {
+    margin-left: auto;
+    font-weight: 600;
+}
+
+.opcion-envio a {
+    text-decoration: underline;
+}
+.totales {
+    margin-top: 20px;
+    padding-top: 40px;
+    border-top: 1px solid #8a8a8a;
+}
+.totales p {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--glacial-indifference);
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+.totales .total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--montserrat);
+    font-size: 33px;
+    margin-top: 28px;
+    font-weight: 650;
+}
+.pagar{
+    display: block;
+    background-color: var(--rosa-oscuro);
+    border: none;
+    border-radius: 32px;
+    width: 75%;
+    margin: 28px auto 0;
+    padding: 10px;
+    color: white;
+    font-family: var(--montserrat);
+    font-size: 48px;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 /*footer*/

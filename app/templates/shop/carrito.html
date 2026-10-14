@@ -34,23 +34,23 @@
 
         <!--detalles producto-->
         <section class="carrito-productos">
-            <article class="carrito-producto">
+            <article class="carrito-producto"  data-precio="30200" data-adicionales="6150">
                 <div class="producto-imagen"></div>
                 <div class="producto-info">
                     <h2>Ramo de flores secas</h2>
                     <p>Premium</p>
-                    <p>Tamaño: M</p>
-                    <p>Color: Marrón</p>
-                    <p>Dedicatoria: .....</p>
-                    <p>Adicionales: Vino tinto</p>
-                    <p class="Precio">$30.200</p>
+                    <p><strong>Tamaño:</strong> M</p>
+                    <p><strong>Color:</strong> Marrón</p>
+                    <p><strong>Dedicatoria:</strong> .....</p>
+                    <p><strong>Adicionales:</strong> Vino tinto</p>
+                    <p class="Precio"><strong>$30.200</strong></p>
                     <label>Cantidad</label>
                     <div class="cantidad">
                         <button>-</button>
                         <span>1</span>
                         <button>+</button>
                     </div>
-                    <button class="eliminar">Eliminar</button>
+                    <button class="eliminar" aria-label="Eliminar"></button>
                 </div>
              </article>
         </section>
@@ -65,18 +65,18 @@
                 <button>Calcular</button>
             </div>
             <label class="opcion-envio">
-                <input type="radio" name="envio" checked>
+                <input type="radio" name="envio" data-costo="4150" checked>
                 Envío a domicilio - Correo argentino clásico <span>$4.150</span>
             </label>
             <label class="opcion-envio">
-                <input type="radio" name=envio>
-                Punto de retiro - <a href="#">VER DIRECCIONES</a>
+                <input type="radio" name=envio data-costo="3000">
+                Punto de retiro - <a href="#">VER DIRECCIONES</a> <span>$3.000</span>
             </label>
             <div class="totales">
-                <p>Subtotal <span>$30.200</span></p>
-                <p>Adicionales <span>$6.150</span></p>
-                <p>Envío <span>$4.150</span></p>
-                <p class="total">Total <span>$40.500</span></p>
+                <p>Subtotal <span id="subtotal">$30.200</span></p>
+                <p>Adicionales <span id="adicionales">$6.150</span></p>
+                <p>Envío <span id="envio">$4.150</span></p>
+                <p class="total">Total <span id="total">$40.500 </span></p>
             </div>
             <button class="pagar">Pagar</button>
         </aside>
@@ -94,6 +94,6 @@
         </div>
         <p>Copyright © 2026 Milo Mayne. All Rights Reserved</p>
     </footer>
-
+    <script src="{{url_for('static', filename='js/carrito.js')}}"></script>
 </body>
 </html>
