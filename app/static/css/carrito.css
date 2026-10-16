@@ -299,15 +299,18 @@ button {
     margin-left: auto;
     font-weight: 600;
 }
-
 .opcion-envio a {
     text-decoration: underline;
+}
+.opcion-envio input[type="radio"] {
+    accent-color: var(--rosa-oscuro);
 }
 .totales {
     margin-top: 20px;
     padding-top: 40px;
     border-top: 1px solid #8a8a8a;
 }
+
 .totales p {
     display: flex;
     justify-content: space-between;
@@ -315,6 +318,7 @@ button {
     font-size: 24px;
     margin-bottom: 16px;
 }
+
 .totales .total {
     display: flex;
     justify-content: space-between;
@@ -324,7 +328,8 @@ button {
     margin-top: 28px;
     font-weight: 650;
 }
-.pagar{
+
+.pagar {
     display: block;
     background-color: var(--rosa-oscuro);
     border: none;
@@ -338,10 +343,9 @@ button {
     font-weight: 600;
     cursor: pointer;
 }
-
 /*footer*/
 
-.pie{
+.pie {
     background-color: var(--verde);
     display: flex;
     flex-direction: column;
@@ -350,19 +354,19 @@ button {
     font-size: 14px;
 }
 
-.pie .redes{
-   display: flex;
-   align-items: center;
-   gap: 20px;
-}
+    .pie .redes {
+        display: flex;
+            align-items: center;
+            gap: 20px;
+        }
 
-.pie .redes img{
-    display: block;
-    width:24px;
-    height: 24px;
-}
+            .pie .redes img {
+                display: block;
+                width: 24px;
+                height: 24px;
+            }
 
-.pie .redes a:nth-child(3) img{ /*mail*/
-    height: 30px;
-    width: 24px;
-}
+            .pie .redes a:nth-child(3) img { /*mail*/
+                height: 30px;
+                width: 24px;
+            }

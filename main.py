@@ -26,5 +26,9 @@ def habilidades():
 def carrito():
     return render_template('shop/carrito.html')
 
+@app.route('/cuenta')
+def cuenta():
+    return render_template('shop/usuario.html')
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

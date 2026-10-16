@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/usuario.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/carrito.css') }}">
+</head>
+<body>
+    <!--header-->
+    <header class="encabezado">
+        <div class="logo">
+            <a href="/"><img src="{{url_for('static',filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO_principal_N.png')}}" alt="Milo Mayne"></a>
+        </div>
+        <nav class="menu">
+            <a href="/">Inicio</a>
+            <a href="/productos">Productos</a>
+            <a href="/quien-soy">¿Quién soy?</a>
+            <a href="/que-puedo-hacer">¿Qué puedo hacer?</a>
+            <a href="/contacto">Contacto</a>
+        </nav>
+        <div class="iconos">
+            <a href="/carrito"><img src="{{url_for('static',filename='images/logos/shopping-cart-01.png')}}" alt="Carrito"></a>
+            <a href="/cuenta"><img src="{{url_for('static',filename='images/logos/user.png')}}" alt="Cuenta"></a>
+        </div>
+    </header>
+
+    <main class="usuario">
+
+        <!--login-->
+        <section class="usuario-columna">
+            <h2>Iniciar sesión</h2>
+            <form class="formulario" action="/login" method="post">
+                <label for="login-usuario">Nombre de usuario o correo electrónico</label>
+                <input type="text" id="login-usuario" name="usuario" autocomplete="username" required>
+
+                <label for="login-clave">Contraseña</label>
+                <input type="password" id="login-clave" name="clave" autocomplete="current-password" required>
+
+                <label class="recordar">
+                    <input type="checkbox" name="recordar">
+                    Recordarme
+                </label>
+
+                <button type="submit">Iniciar sesión</button>
+            </form>
+        </section>
+
+        <!--sing up-->
+        <section class="usuario-columna">
+            <h2>Registrarme</h2>
+            <form class="formulario" action="/registro" method="post">
+                <label for="registro-usuario">Nombre de usuario</label>
+                <input type="text" id="registro-usuario" name="usuario" autocomplete="username" required>
+
+                <label for="registro-correo">Correo electrónico</label>
+                <input type="email" id="registro-correo" name="correo" autocomplete="email" required>
+
+                <label for="registro-clave">Contraseña</label>
+                <input type="password" id="registro-clave" name="clave" autocomplete="current-password" required>
+
+                <button type="submit">Registrarme</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!--footer-->
+    <footer class="pie">
+        <div class="logo">
+            <img src="{{url_for('static',filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO-LOGO_2_N.png')}}" alt="Milo Mayne">
+        </div>
+        <div class="redes">
+            <a href="#"><img src="{{url_for('static',filename='images/logos/whatsapp.png')}}"></a>
+            <a href="#"><img src="{{url_for('static',filename='images/logos/instagram.png')}}"></a>
+            <a href="#"><img src="{{url_for('static',filename='images/logos/correo-electronico.png')}}"></a>
+        </div>
+        <p>Copyright © 2026 Milo Mayne. All Rights Reserved</p>
+    </footer>
+    <script src="{{url_for('static', filename='js/carrito.js')}}"></script>
+</body>
+</html>
