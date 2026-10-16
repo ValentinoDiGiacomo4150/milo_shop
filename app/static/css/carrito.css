@@ -85,6 +85,27 @@ button {
     height: 27px;
     width: 27px;
 }
+.nombre-usuario{
+    font-family: var(--montserrat);
+    font-size: 16px;
+    font-weight: 400;
+}
+.btn-salir {
+    border: none;
+    background: none;
+    font-family: var(--montserrat);
+    font-size: 14px;
+    color: var(--rosa-oscuro);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.mensaje-error {
+    margin-bottom: 16px;
+    font-family: var(--montserrat);
+    font-size: 14px;
+    color: var(--rosa-oscuro);
+}
 
 /*logos*/
 
