@@ -30,5 +30,9 @@ def carrito():
 def cuenta():
     return render_template('shop/usuario.html')
 
+@app.route('/contacto')
+def contacto():
+    return render_template('shop/contacto.html')
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

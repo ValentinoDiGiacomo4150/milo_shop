@@ -47,7 +47,7 @@
             </form>
         </section>
 
-        <!--sing up-->
+        <!--sign up-->
         <section class="usuario-columna">
             <h2>Registrarme</h2>
             <form class="formulario" action="/registro" method="post">
@@ -58,7 +58,7 @@
                 <input type="email" id="registro-correo" name="correo" autocomplete="email" required>
 
                 <label for="registro-clave">Contraseña</label>
-                <input type="password" id="registro-clave" name="clave" autocomplete="current-password" required>
+                <input type="password" id="registro-clave" name="clave" autocomplete="new-password" required>
 
                 <button type="submit">Registrarme</button>
             </form>
@@ -79,5 +79,6 @@
         <p>Copyright © 2026 Milo Mayne. All Rights Reserved</p>
     </footer>
     <script src="{{url_for('static', filename='js/carrito.js')}}"></script>
+    <script src="{{url_for('static', filename='js/sesion.js')}}"></script>
 </body>
 </html>

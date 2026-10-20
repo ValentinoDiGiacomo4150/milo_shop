@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let vacio = false;
 
     
-    const precioEl = producto.querySelector('.Precio strong') || producto.querySelector('.Precio');
     const cantidadEl = producto.querySelector('.cantidad span');
     const [btnMenos, btnMas] = producto.querySelectorAll('.cantidad button');
     const btnEliminar = producto.querySelector('.eliminar');
@@ -37,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!vacio) {
             cantidadEl.textContent = cantidad;
-            precioEl.textContent = formatear(subtotal);
         }
 
         subtotalEl.textContent = formatear(subtotal);

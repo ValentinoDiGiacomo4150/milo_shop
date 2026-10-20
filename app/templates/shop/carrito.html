@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de compras</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/carrito.css') }}">
-   
 </head>
 <body>
     <!--header-->
@@ -34,7 +33,7 @@
 
         <!--detalles producto-->
         <section class="carrito-productos">
-            <article class="carrito-producto"  data-precio="30200" data-adicionales="6150">
+            <article class="carrito-producto" data-precio="30200" data-adicionales="6150">
                 <div class="producto-imagen"></div>
                 <div class="producto-info">
                     <h2>Ramo de flores secas</h2>
@@ -52,7 +51,7 @@
                     </div>
                     <button class="eliminar" aria-label="Eliminar"></button>
                 </div>
-             </article>
+            </article>
         </section>
 
         <!--resumen compra-->
@@ -95,5 +94,6 @@
         <p>Copyright © 2026 Milo Mayne. All Rights Reserved</p>
     </footer>
     <script src="{{url_for('static', filename='js/carrito.js')}}"></script>
+    <script src="{{url_for('static', filename='js/sesion.js')}}"></script>
 </body>
 </html>
