@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+@font-face {
+    font-family: 'Tan Pearl';
+    src: url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.otf') format('opentype'), url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.ttf') format('truetype'), url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.woff2') format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'The Seasons';
+    src: url('../fuentes/The.Seasons/TheSeasonsRegular.ttf') format('truetype'), url('../fuentes/The.Seasons/TheSeasonsBold.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gendy';
+    src: url('../fuentes/gendy/Gendy.otf') format('opentype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Glacial Indifference';
+    src: url('../fuentes/glacial-indifference/GlacialIndifference-Regular.otf') format('opentype');
+    font-display: swap;
+}
+
+:root {
+    --fondo: #f4f2ef;
+    --rosa-claro: #f4dbdb;
+    --rosa-oscuro: #cd4662;
+    --verde: #aec289;
+    --montserrat: 'Montserrat', Arial, sans-serif;
+    --the-seasons: 'The Seasons', Georgia, serif;
+    --tan-pearl: 'Than Pearl', Georgia, serif;
+    --glacial-indifference: 'Glacial Indifference', Arial, sans-serif;
+    --gendy: 'Gendy', cursive;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: var(--fondo);
+}
+
+.menu a.activo {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.titulo-pagina {
+    background-color: var(--rosa-claro);
+    border-radius: 0 0 50px 50px;
+    text-align: center;
+    font-family: var(--the-seasons);
+    font-size: 40px;
+}
+
+.contacto {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 72px 24px 88px;
+}
+
+.contacto-lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.contacto-lista a {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #000;
+    text-decoration: none;
+    font-family: var(--montserrat);
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.contacto-lista img {
+    width: 62px;
+    height: 62px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.contacto-lista a:hover span,
+.contacto-lista a:focus-visible span {
+    color: var(--rosa-oscuro);
+}
+
+.contacto-lista a:focus-visible {
+    outline: 2px solid var(--rosa-oscuro);
+    outline-offset: 4px;
+    border-radius: 4px;
+}

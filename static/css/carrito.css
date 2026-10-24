@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@font-face{
+    font-family: 'Tan Pearl';
+    src: url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.otf') format('opentype'), url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.ttf') format('truetype'), url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.woff2') format('woff2');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'The Seasons';
+    src: url('../fuentes/The.Seasons/TheSeasonsRegular.ttf') format('truetype'), url('../fuentes/The.Seasons/TheSeasonsBold.ttf') format('truetype');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Gendy';
+    src: url('../fuentes/gendy/Gendy.otf') format('opentype');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Glacial Indifference';
+    src: url('../fuentes/glacial-indifference/GlacialIndifference-Regular.otf') format('opentype');
+    font-display: swap;
+}
+
+:root{
+    --fondo: #f4f2ef;
+    --rosa-claro: #f4dbdb;
+    --rosa-oscuro: #cd4662;
+    --verde: #aec289;
+
+    --montserrat: 'Montserrat', Arial, sans-serif;
+    --the-seasons: 'The Seasons', Georgia, serif;
+    --tan-pearl: 'Than Pearl', Georgia, serif;
+    --glacial-indifference: 'Glacial Indifference', Arial, sans-serif;
+    --gendy: 'Gendy', cursive;
+}
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family: var(--montserrat);
+    background: var(--fondo);
+    color: #000000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+
+}
+
+/*header*/
+
+.encabezado{
+    background-color: var(--rosa-claro);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 16px 40px;
+    gap: 30px;
+}
+
+.menu{
+    display: flex;
+    gap: 28px;
+}
+
+.iconos{
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+     align-items: center;
+}
+
+.iconos img{
+    display: block;
+    height: 27px;
+    width: 27px;
+}
+.nombre-usuario{
+    font-family: var(--montserrat);
+    font-size: 16px;
+    font-weight: 400;
+}
+.btn-salir {
+    border: none;
+    background: none;
+    font-family: var(--montserrat);
+    font-size: 14px;
+    color: var(--rosa-oscuro);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.mensaje-error {
+    margin-bottom: 16px;
+    font-family: var(--montserrat);
+    font-size: 14px;
+    color: var(--rosa-oscuro);
+}
+
+/*logos*/
+
+.logo{
+   display: block;
+}
+
+.logo img{
+    display: block;
+    height: 60px;
+    width: 92px;
+}
+
+.pie .logo img{
+    margin: -15px 0 -25px -50px;
+    height: 184px;
+    width: 223px;
+}
+
+/*titulo*/
+
+.titulo-pagina{
+    background-color: var(--rosa-claro);
+    border-radius: 0 0 50px 50px;
+    text-align: center;
+    font-family: var(--the-seasons);
+    font-size: 40px;
+}
+
+/*productos*/
+.carrito-producto{
+    display: flex;
+    gap: 24px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #a9a9a9;
+}
+.producto-imagen{
+    flex: 0 0 200px;
+    height: 200px;
+    border-radius: 50px;
+}
+.producto-info {
+    display: grid;
+    align-content: start;
+    font-family: var(--montserrat);
+    font-size: 17px;
+}
+.producto-info > *{
+    grid-column: 1 / -1;
+}
+.producto-info h2{
+    font-family: var(--montserrat);
+    font-size: 20px;
+}
+.producto-info p{
+    margin-bottom: 4px;
+}
+.producto-info p:nth-of-type(1){
+    color: #515151;
+    margin-bottom: 3px;
+}
+.producto-info strong{
+    font-weight: 600;
+}
+.Precio{
+    margin-top: 10px;
+    font-family: var(--montserrat);
+}
+.producto-info label {
+    font-size: 10px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin-top: 6px;
+}
+
+.producto-info > .cantidad {
+    grid-column: 1;
+    display: inline-flex;
+    align-items: stretch;
+    width: fit-content;
+    height: 24px;
+    margin-top: 4px;
+    border: 1px solid #4a4a4a;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.cantidad span {
+    order: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    background-color: var(--rosa-claro);
+    font-size: 13px;
+}
+
+.cantidad button {
+    width: 22px;
+    padding: 0;
+    border: none;
+    border-left: 1px solid #4a4a4a;
+    background: transparent;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+}
+.cantidad button:last-of-type {
+    border-left: none;
+}
+
+.producto-info > .eliminar{
+    grid-column: 2;
+    justify-self: start;
+    align-self: center;
+    margin-left: 12px;
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background-color: var(--rosa-oscuro);
+    -webkit-mask: url('../images/logos/trash.png') center / contain no-repeat;
+    mask: url('../images/logos/trash.png') center / contain no-repeat;
+}
+.carrito-vacio {
+    font-size: 18px;
+    padding: 24px 0;
+}
+
+.pagar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/*resumen compra*/
+
+.carrito{
+    flex:1;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 36px;
+    align-items: start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 32px 64px;
+}
+
+.resumen{
+    background-color: var(--rosa-claro);
+    padding: 28px 32px 32px;
+    border-radius: 40px;
+    height: 800px;
+}
+.resumen h2{
+    font-family: var(--montserrat);
+    font-size: 25px;
+    margin-bottom: 16px;
+}
+.resumen h3{
+    color: var(--rosa-oscuro);
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+.codigo-postal {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 8px 6px 12px;
+    margin-bottom: 10px;
+    background: var(--rosa-claro);
+    border: 1px solid var(--rosa-oscuro);
+    border-radius: 8px;
+    height: 56px;
+}
+.codigo-postal input{
+    flex: 1;
+    border:none;
+    background: transparent;
+    font-family: var(--montserrat);
+    font-size: 16px;
+    color: var(--rosa-oscuro);
+    outline: none;
+}
+.codigo-postal input::placeholder{
+    color: var(--rosa-oscuro);
+}
+.codigo-postal button {
+    padding: 6px 16px;
+    border-radius: 4px;
+    border: none;
+    background-color: var(--rosa-oscuro);
+    cursor: pointer;
+    font-size: 13px;
+    font-family: var(--montserrat);
+    color: white;
+}
+.resumen .opcion-envio{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    font-family: var(--montserrat);
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #4a4a4a;
+    background-color: #f3f3f3;
+}
+.opcion-envio span {
+    margin-left: auto;
+    font-weight: 600;
+}
+.opcion-envio a {
+    text-decoration: underline;
+}
+.opcion-envio input[type="radio"] {
+    accent-color: var(--rosa-oscuro);
+}
+.totales {
+    margin-top: 20px;
+    padding-top: 40px;
+    border-top: 1px solid #8a8a8a;
+}
+
+.totales p {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--glacial-indifference);
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.totales .total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--montserrat);
+    font-size: 33px;
+    margin-top: 28px;
+    font-weight: 650;
+}
+
+.pagar {
+    display: block;
+    background-color: var(--rosa-oscuro);
+    border: none;
+    border-radius: 32px;
+    width: 75%;
+    margin: 28px auto 0;
+    padding: 10px;
+    color: white;
+    font-family: var(--montserrat);
+    font-size: 48px;
+    font-weight: 600;
+    cursor: pointer;
+}
+/*footer*/
+
+.pie {
+    background-color: var(--verde);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 40px 40px;
+    font-size: 14px;
+}
+
+    .pie .redes {
+        display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+            .pie .redes img {
+                display: block;
+                width: 24px;
+                height: 24px;
+            }
+
+            .pie .redes a:nth-child(3) img { /*mail*/
+                height: 30px;
+                width: 24px;
+            }

@@ -1,0 +1,211 @@
+:root{
+    --clr-main: #F4F2EF;
+    --clr-rosaclaro: #F4DBDB;
+    --clr-rosaoscuro: #CD4662;
+    --clr-verde: #AEC289;
+    --texto: #111;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: sans-serif; */
+}
+
+h1, h2, h3, h4, h5, h6, p, a, input, textarea{
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: var(--texto);
+}
+
+body{
+    background-color: var(--clr-main);
+    font-family: serif;
+}
+
+button{
+    font-family: inherit;
+}
+
+/*  Header  */
+
+.header{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 20px 25px;
+    background-color: var(--clr-rosaclaro);
+}
+
+.logo-simple{
+    height: 70px;
+    width: auto;
+}
+
+.menu{
+    display: flex;
+    gap: 15px;
+    list-style: none;
+}
+
+.menu a {
+  font-size: 1.8rem;
+  padding-bottom: 2px;
+}
+
+.menu a.activo {
+  border-bottom: 2px solid var(--texto);
+}
+
+.iconos{
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+}
+
+.iconos button{
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/*  Título de la página  */
+
+.titulo-pagina{
+    background-color: var(--clr-rosaclaro);
+    text-align: center;
+    padding: 10px 20px 40px;
+    border-radius: 0 0 50px 50px;
+}
+
+.titulo-pagina h1{
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 400;
+}
+
+/*  Categorías  */
+
+.titulo-categoria{
+    text-align: center;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 400;
+    margin: 60px 0 40px;
+}
+
+/*  Carrusel  */
+
+.carrusel{
+    display: grid;
+    grid-template-columns: 36px 1fr 36px;
+    align-items: start;
+    gap: 10px;
+    max-width: 1292px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.carrusel-pista{
+    grid-column: 2;
+    display: flex;
+    justify-content: flex-start;
+    gap: 40px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.carrusel-pista::-webkit-scrollbar{
+    display: none;                     /* oculta la barra (Chrome, Safari) */
+}
+
+/* 3 tarjetas visibles a la vez */
+.producto{
+    flex: 0 0 calc((100% - 80px) / 3);
+    scroll-snap-align: start;
+}
+
+.producto-imagen{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+}
+
+.placeholder{
+    background-color: #D9D9D9;
+    display: grid;
+    place-items: center;
+    color: #7a7a7a;
+    font-size: 4rem;
+}
+
+.producto-detalles{
+    padding: 14px 10px 0;
+}
+
+.producto-titulo{
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.producto-precio{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.producto-comprar{
+    display: inline-block;
+    background-color: var(--clr-rosaclaro);
+    border: none;
+    border-radius: 999px;
+    padding: 4px 16px;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.producto-comprar:hover{
+    background-color: var(--clr-rosaoscuro);
+    color: #fff;
+}
+
+.producto-titulo a:hover{
+    text-decoration: underline;
+}
+
+/*  Flechas  */
+
+.carrusel-flecha{
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    background: none;
+    border: 2px solid var(--clr-rosaoscuro);
+    border-radius: 50%;
+    color: var(--clr-rosaoscuro);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color .2s, color .2s;
+    margin-top: 170px;
+}
+
+.carrusel-flecha:hover{
+    background-color: var(--clr-rosaoscuro);
+    color: #fff;
+}

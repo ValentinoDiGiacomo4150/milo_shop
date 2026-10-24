@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+@font-face {
+    font-family: 'Tan Pearl';
+    src: url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.otf') format('opentype'), url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.ttf') format('truetype'), url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.woff2') format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'The Seasons';
+    src: url('../fuentes/The.Seasons/TheSeasonsRegular.ttf') format('truetype'), url('../fuentes/The.Seasons/TheSeasonsBold.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gendy';
+    src: url('../fuentes/gendy/Gendy.otf') format('opentype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Glacial Indifference';
+    src: url('../fuentes/glacial-indifference/GlacialIndifference-Regular.otf') format('opentype');
+    font-display: swap;
+}
+
+:root {
+    --fondo: #f4f2ef;
+    --rosa-claro: #f4dbdb;
+    --rosa-oscuro: #cd4662;
+    --verde: #aec289;
+    --montserrat: 'Montserrat', Arial, sans-serif;
+    --the-seasons: 'The Seasons', Georgia, serif;
+    --tan-pearl: 'Than Pearl', Georgia, serif;
+    --glacial-indifference: 'Glacial Indifference', Arial, sans-serif;
+    --gendy: 'Gendy', cursive;
+}
+
+
+.usuario {
+    flex: 1;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 64px 32px 80px;
+}
+.usuario-columna {
+    flex: 1;
+    min-width: 0;
+}
+
+.usuario-columna h2{
+    font-family: var(--montserrat);
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+
+.formulario{
+    background-color: var(--rosa-claro);
+    border-radius: 20px;
+    padding: 28px 24px 32px;
+}
+.formulario label{
+    display: block;
+    margin-bottom: 8px;
+    font-family: var(--montserrat);
+    font-size: 18px;
+    font-weight: 600;
+}
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario input[type="password"] {
+    display: block;
+    width: 100%;
+    height: 38px;
+    margin-bottom: 20px;
+    padding: 0 8px;
+    border: 1px solid #cd4662;
+    border-radius: 8px;
+    font-family: var(--montserrat);
+    font-size: 14px;
+    outline: none;
+}
+
+.formulario .recordar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.formulario .recordar input {
+    -webkit-appearance: none;
+    appearance: none;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    border: 1px solid #8a8a8a;
+    border-radius: 3px;
+    background-color: #faf6f6;
+    cursor: pointer;
+}
+.formulario .recordar input:checked {
+    background-color: var(--rosa-oscuro);
+    border-color: var(--rosa-oscuro);
+    box-shadow: inset 0 0 0 3px #faf6f6;
+}
+
+.formulario button{
+    border: none;
+    border-radius: 20px;
+    padding: 9px 22px;
+    background-color: var(--rosa-oscuro);
+    font-family: var(--montserrat);
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+}

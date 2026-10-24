@@ -1,0 +1,73 @@
+/* ==========================================================
+   TIPOGRAFÍA PARA EL MENÚ DE NAVEGACIÓN
+   ========================================================== */
+
+/* Las opciones del menú superior llevarán 'The Seasons' */
+.menu-nav a {
+    font-family: 'The Seasons', Georgia, serif;
+    font-size: 18px; /* Tamaño elegante para las opciones del header */
+    letter-spacing: 0.5px;
+}
+/* ==========================================================
+   CARGA DE FUENTES LOCALES Y DE AUTOR
+   ========================================================== */
+
+@font-face {
+    font-family: 'The Seasons';
+    src: url('../fonts/TheSeasons.woff2') format('woff2'),
+         url('../fonts/TheSeasons.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ==========================================================
+   ESTILOS GENERALES Y MAQUETACIÓN - PÁGINA "QUIÉN SOY?"
+   ========================================================== */
+
+/* Cuerpo general en Montserrat (tamaño legible equilibrado) */
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #F3F1EA;
+    color: #1A1A1A;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Títulos principales en 'The Seasons' (tamaño equilibrado de 48px) */
+.font-serif-title {
+    font-family: 'The Seasons', Georgia, serif;
+    font-size: 48px;
+    line-height: 1.2;
+    font-weight: normal;
+    color: #111827;
+}
+
+/* Subtítulos de secciones */
+h3.font-serif-title {
+    font-size: 36px;
+}
+
+/* Fondo y curvatura curva del Header */
+.header-bg {
+    background-color: #F8E2E2;
+    border-bottom-left-radius: 50% 20px;
+    border-bottom-right-radius: 50% 20px;
+}
+
+/* Fondo verde característico del Footer */
+.footer-bg {
+    background-color: #B5C49A;
+}
+
+/* Adaptación suave para celulares */
+@media (max-width: 768px) {
+    .font-serif-title {
+        font-size: 32px;
+    }
+    h3.font-serif-title {
+        font-size: 28px;
+    }
+}

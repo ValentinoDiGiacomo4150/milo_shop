@@ -1,0 +1,295 @@
+:root{
+    --clr-main: #F4F2EF;
+    --clr-rosaclaro: #F4DBDB;
+    --clr-rosaoscuro: #CD4662;
+    --clr-verde: #AEC289;
+    --texto: #111;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: sans-serif; */
+}
+
+h1, h2, h3, h4, h5, h6, p, a, input, textarea{
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: var(--texto);
+}
+
+body{
+    background-color: var(--clr-main);
+    font-family: serif;
+}
+
+button{
+    font-family: inherit;
+}
+
+/*  Header  */
+
+.header{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 20px 25px;
+    background-color: var(--clr-rosaclaro);
+}
+
+.logo-simple{
+    height: 70px;
+    width: auto;
+}
+
+.menu{
+    display: flex;
+    gap: 15px;
+    list-style: none;
+}
+
+.menu a {
+  font-size: 1.8rem;
+  padding-bottom: 2px;
+}
+
+.menu a.activo {
+  border-bottom: 2px solid var(--texto);
+}
+
+.iconos{
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+}
+
+.iconos button{
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* Página producto */
+
+.pp{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 40px;
+    align-items: start;
+}
+
+.pp-imagen{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 30px;
+    font-size: 8rem;
+}
+
+.pp-detalles{
+    background: var(--clr-rosaclaro);
+    border-radius: 30px;
+    padding: 25px 35px;
+    margin-top: 30px;
+}
+
+.pp-nota{
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.pp-detalles h2{
+    font-size: 2.4rem;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.pp-detalles p,
+.pp-detalles li{
+    font-size: 1.5rem;
+    line-height: 1.4;
+}
+
+.pp-detalles ul{
+    padding-left: 25px;
+    margin: 12px 0 22px;
+}
+
+.pp-detalles li{
+    margin-bottom: 2px;
+}
+
+.pp-nota{
+    font-size: 1.3rem;
+}
+
+.pp-der h1{ font-size: 2.4rem; font-weight: 700; }
+.pp-precio{ font-size: 2rem; margin: 10px 0 25px; }
+
+fieldset{ border: none; margin-bottom: 25px; }
+legend{ font-size: 1.3rem; margin-bottom: 10px; }
+
+.pp-colores{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px 10px;
+}
+
+.pp-color input{ accent-color: var(--clr-rosaoscuro); margin-right: 6px; }
+
+.pp-calidades{ display: flex; gap: 15px; }
+
+.pp-calidad input{ position: absolute; opacity: 0; }   /* ocultamos el radio */
+.pp-calidad span{
+    display: inline-block;
+    padding: 6px 28px;
+    border: 1.5px solid var(--clr-rosaoscuro);
+    border-radius: 999px;
+    cursor: pointer;
+}
+.pp-calidad input:checked + span{ background: var(--clr-rosaclaro); }
+
+.pp-der label{ display: block; font-size: 1.3rem; margin-bottom: 8px; }
+.pp-der textarea,
+.pp-der input[type="text"]{
+    width: 100%;
+    border: 1.5px solid var(--clr-rosaoscuro);
+    border-radius: 8px;
+    background: var(--clr-main);
+    padding: 10px;
+    margin-bottom: 25px;
+}
+
+.pp-compra{ display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
+
+.pp-der legend{
+    font-size: 1.8rem;
+    margin-bottom: 14px;
+}
+
+.pp-der label{
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.pp-color{
+    font-size: 1.4rem;
+    margin-bottom: 0;
+}
+
+.pp-color input{
+    width: 1.1em;
+    height: 1.1em;
+}
+
+.pp-calidad span{
+    font-size: 1.6rem;
+    padding: 8px 36px;
+}
+
+.pp-der textarea,
+.pp-der input[type="text"]{
+    font-size: 1.4rem;
+    padding: 14px;
+    font-family: inherit;
+}
+
+.pp-der textarea{
+    min-height: 200px;
+    resize: none;
+}
+
+.pp-cantidad span{
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.pp-cantidad > div{
+    display: inline-flex;
+    border: 1px solid #999;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.pp-cantidad input{
+    width: 55px;
+    height: 48px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: inherit;
+    border: none;
+    background: var(--clr-rosaclaro);
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* saca las flechitas nativas del input number */
+.pp-cantidad input::-webkit-outer-spin-button,
+.pp-cantidad input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.pp-cantidad button{
+    width: 45px;
+    height: 48px;
+    border: none;
+    background: var(--clr-main);
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.pp-cantidad button:hover{
+    background: var(--clr-rosaclaro);
+}
+
+#btn-agregar,
+.pp-whatsapp{
+    background: var(--clr-rosaoscuro);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 14px 40px;
+    font-size: 1.7rem;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#bloque-whatsapp{
+    margin-top: 30px;
+}
+
+#bloque-whatsapp p{
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin-bottom: 25px;
+}
+
+.pp-whatsapp{
+    font-size: 1.7rem;
+    padding: 14px 40px;
+}
+
+#btn-agregar:disabled{ opacity: .4; cursor: not-allowed; }
+.pp-aviso{ color: var(--clr-rosaoscuro); margin-top: 10px; }
+
+@media (max-width: 768px){
+    .pp{ grid-template-columns: 1fr; padding: 0 20px; }
+}

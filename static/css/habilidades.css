@@ -1,0 +1,215 @@
+/* ==========================================================
+   1. VARIABLES GENERALES Y CONFIGURACIÓN BASE
+   ========================================================== */
+:root {
+    --bg-main: #F4F2EF;
+    --bg-header: #F4DBDB;
+    --bg-footer: #AEC289;
+    --accent-red: #CD4662;
+    --text-dark: #000000;
+
+    --font-sans: 'Montserrat', sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-title: 'The Seasons', 'Playfair Display', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+.font-serif-heading {
+    font-family: var(--font-title);
+}
+
+/* ==========================================================
+   2. CLASES UTILITARIAS Y HEADER
+   ========================================================== */
+.bg-header-pink {
+    background-color: var(--bg-header);
+}
+
+.bg-footer-green {
+    background-color: var(--bg-footer);
+}
+
+.text-accent-red {
+    color: var(--accent-red);
+}
+
+.header-curved-bottom {
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.logo-header {
+    width: 92px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.logo-footer {
+    width: 223px;
+    height: auto;
+    object-fit: contain;
+}
+
+.icono-redes {
+    font-size: 24px;
+    color: var(--text-dark);
+    transition: opacity 0.2s ease;
+}
+
+.icono-redes:hover {
+    opacity: 0.7;
+}
+
+/* ==========================================================
+   3. REGLA BASE DE IMÁGENES (Con centrado y adaptabilidad)
+   ========================================================== */
+.seccion-img {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Foto Principal */
+.img-principal {
+    height: auto;
+    max-height: 550px;
+    border-radius: 4px;
+    object-fit: contain;
+}
+
+@media (min-width: 768px) {
+    .img-principal {
+        height: 550px;
+    }
+}
+
+/* ==========================================================
+   4. RAMOS DE NOVIA
+   ========================================================== */
+.img-ramo-6,
+.img-ramo-5,
+.img-ramo-4 {
+    width: 100%;
+    height: auto;
+    max-height: 330px;
+    object-fit: cover;
+    /* Clave: Obliga a las 3 a rellenar exactamente el mismo espacio */
+    object-position: cover;
+}
+
+@media (min-width: 768px) {
+
+    .img-ramo-6,
+    .img-ramo-5,
+    .img-ramo-4 {
+        height: 327px;
+        /* Las tres tendrán exactamente 327px de alto y el ancho de su columna */
+    }
+}
+
+.img-panorama {
+    height: auto;
+    max-height: 111px;
+    object-fit: contain;
+}
+
+@media (min-width: 768px) {
+    .img-panorama {
+        height: 111px;
+    }
+}
+
+.img-ramo-2,
+.img-ramo-3 {
+    width: 100%;
+    height: auto;
+    max-height: 330px;
+    object-fit: cover;
+    /* Clave para que llenen su espacio sin huecos internos */
+    object-position: center;
+}
+
+@media (min-width: 768px) {
+    .img-ramo-2 {
+        height: 330px;
+    }
+
+    .img-ramo-3 {
+        height: 332px;
+    }
+}
+
+/* ==========================================================
+   SECCIÓN: ARREGLOS PERSONALES (Ajustes de proporción)
+   ========================================================== */
+.img-arreglo-7,
+.img-arreglo-8,
+.img-arreglo-9,
+.img-arreglo-10,
+.img-arreglo-11,
+.img-arreglo-12 {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (min-width: 768px) {
+
+    /* Mantiene las fotos de la base alineadas en la misma horizontal */
+    .img-arreglo-10,
+    .img-arreglo-11,
+    .img-arreglo-12 {
+        height: 200px;
+    }
+}
+
+
+/* ==========================================================
+   SECCIÓN AMBIENTACIONES (Ajuste estricto de alturas)
+   ========================================================== */
+.img-ambientacion-13,
+.img-ambientacion-14,
+.img-ambientacion-15,
+.img-ambientacion-16,
+.img-ambientacion-17 {
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (min-width: 768px) {
+
+    /* Forzamos a que la Foto 13 y Foto 17 se adapten perfectamente a sus contenedores verticales */
+    .img-ambientacion-13,
+    .img-ambientacion-17 {
+        min-height: 100%;
+    }
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Opciones del menú superior con The Seasons */
+.menu-nav a {
+    font-family: var(--font-title);
+    font-size: 18px;
+}

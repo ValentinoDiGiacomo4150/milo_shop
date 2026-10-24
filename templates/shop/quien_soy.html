@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quién soy? - Milo Mayne</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts (Montserrat para el cuerpo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Archivo CSS Personalizado -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quien_soy.css') }}">
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- HEADER / NAVEGACIÓN -->
+    <header class="header-bg pt-4 pb-12 px-6 text-center relative">
+        <nav class="max-w-6xl mx-auto flex justify-between items-center mb-8">
+            <!-- Logo principal pequeño navegación -->
+            <a href="{{ url_for('inicio') }}" class="flex items-center">
+                <img src="{{ url_for('static', filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO_principal_N.png') }}" alt="Milo Mayne Logo" class="h-8 w-auto object-contain">
+            </a>
+
+            <!-- Menú principal con tipografía 'The Seasons' y enlaces url_for -->
+            <div class="hidden md:flex space-x-6 text-gray-800 menu-nav">
+                <a href="{{ url_for('inicio') }}" class="hover:opacity-75">Inicio</a>
+                <a href="{{ url_for('productos') }}" class="hover:opacity-75">Productos</a>
+                <a href="{{ url_for('quien_soy') }}" class="underline underline-offset-4 decoration-1 font-semibold">Quién soy?</a>
+                <a href="{{ url_for('habilidades') }}" class="hover:opacity-75">Qué puedo hacer?</a>
+                <a href="{{ url_for('contacto') }}" class="hover:opacity-75">Contacto</a>
+            </div>
+
+            <!-- Íconos derechos (Carrito y Usuario con redireccionamiento) -->
+            <div class="flex items-center space-x-4">
+                <a href="{{ url_for('carrito') }}" class="p-1 hover:opacity-75 transition-opacity" aria-label="Carrito de Compras">
+                    <img src="{{ url_for('static', filename='images/logos/shopping-cart-01.png') }}" alt="Carrito" class="w-5 h-5 object-contain">
+                </a>
+                <a href="{{ url_for('cuenta') }}" class="p-1 hover:opacity-75 transition-opacity" aria-label="Perfil de Usuario">
+                    <img src="{{ url_for('static', filename='images/logos/user.png') }}" alt="Usuario" class="w-5 h-5 object-contain">
+                </a>
+            </div>
+        </nav>
+
+        <!-- Título Principal -->
+        <h1 class="font-serif-title mt-2">
+            Quién soy?
+        </h1>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="max-w-5xl mx-auto px-6 py-12 space-y-16 flex-grow">
+
+        <!-- SECCIÓN INTRODUCCIÓN -->
+        <section class="space-y-6">
+            <div class="flex flex-col md:flex-row md:items-baseline justify-between gap-4">
+                <h2 class="font-serif-title">
+                    Introducción
+                </h2>
+                <p class="max-w-lg">
+                    Trabajo con plantas hace 5 años, comenzó como un hobby y una mini colección de plantas exóticas, hasta que fue mutando hacia lo que hago hoy, más orientado a la flor.
+                </p>
+            </div>
+            <!-- Foto de Introducción -->
+            <div class="w-full overflow-hidden shadow-sm">
+                <img src="{{ url_for('static', filename='images/quien_soy/intro-anthurium.jpg') }}" alt="Ilustración Anthurium" class="w-full h-auto object-cover block">
+            </div>
+        </section>
+
+        <!-- SECCIÓN HOLA SOY MILO -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+
+            <!-- Columna Izquierda: Texto Hola Soy Milo -->
+            <div class="space-y-6">
+                <div class="flex items-center space-x-2">
+                    <h2 class="font-serif-title">
+                        Hola! Soy<br>Milo
+                    </h2>
+                    <span class="text-pink-500 text-2xl self-end mb-2">🌸</span>
+                </div>
+
+                <p>
+                    Soy diseñador floral con sede en Mendoza, especializado en composiciones contemporáneas que buscan ir más allá de lo decorativo.<br><br>
+                    Tengo con una mirada artística, audaz y emocional, explorando el lenguaje de las flores como una forma de expresión.<br><br>
+                    Mi enfoque combina técnicas del diseño floral con una sensibilidad visual influenciada por el arte, la arquitectura y el movimiento, dando lugar a arreglos que narran historias, evocan sensaciones y resaltan espacios.
+                </p>
+            </div>
+
+            <!-- Columna Derecha: Foto Milo -->
+            <div class="w-full shadow-sm">
+                <img src="{{ url_for('static', filename='images/quien_soy/milo-profile.jpg') }}" alt="Foto de Milo" class="w-full h-auto object-cover block">
+            </div>
+        </section>
+
+        <!-- SECCIÓN FORMACIÓN Y EXPERIENCIAS -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start pt-4">
+
+            <!-- Columna Izquierda: Ilustración vertical -->
+            <div class="w-full shadow-sm">
+               <img src="{{ url_for('static', filename='images/quien_soy/milo-sketches.jpg') }}" alt="Bocetos de arreglos florales" class="w-full h-auto object-cover block">
+            </div>
+
+            <!-- Columna Derecha: Listas -->
+            <div class="space-y-10">
+
+                <!-- Mi Formación -->
+                <div class="space-y-4">
+                    <h3 class="font-serif-title">
+                        <span class="text-rose-500 italic">Mi</span> formación
+                    </h3>
+                    <ul class="list-disc list-inside space-y-2 pl-1">
+                        <li>En curso. 3er año en Diseño de Interiores. Universidad de Mendoza</li>
+                        <li>Curso completo de Molderia, Composicion y Diseño dictado por Ivan Hernandez</li>
+                        <li>Tecnicatura en Tecnologia de los Alimentos - Liceo Agricola y Enologico (2017-2022)</li>
+                    </ul>
+                </div>
+
+                <!-- Mis Experiencias -->
+                <div class="space-y-4">
+                    <h3 class="font-serif-title">
+                        <span class="text-rose-500 italic">Mis</span> experiencias
+                    </h3>
+                    <ul class="list-disc list-inside space-y-3 pl-1">
+                        <li><strong>2021-actualidad</strong> Cursos DAMM: Profesor de historia de la flor, Confección de Moldería.</li>
+                        <li><strong>2022-2023</strong> Winifred Estación de Flores: Florista y Ambientador</li>
+                        <li><strong>2024-actualidad</strong> MM Innovación Floral: Diseño floral. Fundador, ambientación de eventos. Escenografía. Instalaciones efímeras y permanente</li>
+                        <li><strong>2025-actualidad</strong> Garabedian Studio: Florista principal, ambientacion de eventos, diseño floral</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer-bg py-10 px-6 text-center text-gray-800">
+        <div class="max-w-5xl mx-auto space-y-6">
+            <div class="flex flex-col items-center justify-center space-y-1">
+                <img src="{{ url_for('static', filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO-LOGO_2_N.png') }}" alt="Milo Mayne Logo" class="h-24 w-auto object-contain">
+                <h4 class="font-bold tracking-widest text-sm uppercase pt-1">MILO MAYNE</h4>
+                <p class="text-xs uppercase tracking-wider text-gray-700">INNOVACIÓN FLORAL</p>
+            </div>
+
+            <!-- Redes sociales -->
+            <div class="flex justify-center items-center space-x-6 text-gray-800 pt-2">
+                <a href="#" class="hover:opacity-70 transition-opacity" aria-label="WhatsApp">
+                    <img src="{{ url_for('static', filename='images/logos/whatsapp.png') }}" alt="WhatsApp" class="w-5 h-5 object-contain">
+                </a>
+                <a href="#" class="hover:opacity-70 transition-opacity" aria-label="Instagram">
+                    <img src="{{ url_for('static', filename='images/logos/instagram.png') }}" alt="Instagram" class="w-5 h-5 object-contain">
+                </a>
+                <a href="#" class="hover:opacity-70 transition-opacity" aria-label="Correo">
+                    <img src="{{ url_for('static', filename='images/logos/correo-electronico.png') }}" alt="Email" class="w-5 h-5 object-contain">
+                </a>
+            </div>
+
+            <!-- Copyright -->
+            <p class="text-xs text-gray-700 font-light pt-2">
+                Copyright ©2026 Milo Mayne. All Rights Reserved
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
