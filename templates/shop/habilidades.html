@@ -273,36 +273,17 @@
 
     </main>
 
-    <!-- FOOTER -->
-    <footer class="w-full bg-[#a3b18b] text-black py-12 mt-20">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center text-center space-y-6">
-
-            <div class="flex flex-col items-center space-y-1">
-                <img src="{{ url_for('static', filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO-LOGO_2_N.png') }}"
-                    class="h-24 w-auto object-contain" alt="Milo Mayne Logo">
-                <span class="text-xs uppercase tracking-widest font-serif">Innovación Floral</span>
-            </div>
-
-            <div class="flex items-center justify-center space-x-6 pt-2">
-                <a href="#" aria-label="WhatsApp" class="hover:opacity-70 transition-opacity">
-                    <img src="{{ url_for('static', filename='images/logos/whatsapp.png') }}"
-                        class="w-6 h-6 object-contain" alt="WhatsApp">
-                </a>
-                <a href="#" aria-label="Instagram" class="hover:opacity-70 transition-opacity">
-                    <img src="{{ url_for('static', filename='images/logos/instagram.png') }}"
-                        class="w-6 h-6 object-contain" alt="Instagram">
-                </a>
-                <a href="#" aria-label="Correo" class="hover:opacity-70 transition-opacity">
-                    <img src="{{ url_for('static', filename='images/logos/correo-electronico.png') }}"
-                        class="w-6 h-6 object-contain" alt="Email">
-                </a>
-            </div>
-
-            <div class="text-[11px] font-light opacity-75 pt-6 border-t border-black/15 w-full max-w-md">
-                <p>Copyright © 2026 Milo Mayne. All Rights Reserved.</p>
-            </div>
-
+    <!--footer-->
+    <footer class="pie">
+        <div class="logo">
+            <img src="{{url_for('static',filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO-LOGO_2_N.png')}}" alt="Milo Mayne">
         </div>
+        <div class="redes">
+            <a href="#"><img src="{{url_for('static',filename='images/logos/whatsapp.png')}}"></a>
+            <a href="#"><img src="{{url_for('static',filename='images/logos/instagram.png')}}"></a>
+            <a href="#"><img src="{{url_for('static',filename='images/logos/correo-electronico.png')}}"></a>
+        </div>
+        <p>Copyright © 2026 Milo Mayne. All Rights Reserved</p>
     </footer>
 
 </body>
