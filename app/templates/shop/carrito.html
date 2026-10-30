@@ -1,86 +1,95 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de compras</title>
-    <link rel="stylesheet" href="/app/static/css/carrito.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-</head>
-<body>
-    <!--header-->
-    <header class="encabezado">
-        <div class="logo">
-            <a href="/app/static/images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO-LOGO_principal_N.png" alt="Milo Mayne"></a>
-        </div>
-        <nav class="menu">
-            <a href="/app/templates/shop/index.html">Inicio</a>
-            <a href="/app/templates/shop/productos.html">Productos</a>
-            <a href="/app/templates/shop/quien_soy.html">Quién soy?</a>
-            <a href="/app/templates/shop/habilidades.html">Qué puedo hacer?</a>
-            <a href="/app/templates/shop/contacto.html">Contacto</a>
-            
-        </nav>
-        <div class="iconos">
-            <a href="/app/templates/shop/carrito.html" aria-label="Carrito"><i class="bi bi-cart2"></i></a>
-            <a href="/app/static/images/logos/user.png" alt="Cuenta"></a>
-        </div>
-    </header>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Carrito de compras | Milo Mayne</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/carrito.css') }}">
+    </head>
+    <body>
 
-    <section class="titulo-pagina">
-        <h1>Carrito de compras</h1>
-    </section>
+        <header class="header">
+            <a href="/" class="logo-header">
+                <img class="logo-simple" src="{{ url_for('static', filename='images/fotos-main/MiloMayne-logo-simple.png') }}" alt="Logo de Milo Mayne">
+            </a>
 
-    <main class="carrito">
+            <nav>
+                <ul class="menu">
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/productos">Productos</a></li>
+                    <li><a href="/quien-soy">Quién soy?</a></li>
+                    <li><a href="/habilidades">Qué puedo hacer?</a></li>
+                    <li><a href="/contacto">Contacto</a></li>
+                </ul>
+            </nav>
 
-        <!--detalles producto-->
-        <section class="carrito-productos">
-            <div id="lista-carrito"></div>
-            <button id="vaciar" class="vaciar">Vaciar carrito</button>
+            <div class="iconos">
+                <a href="/carrito" class="icono-carrito" aria-label="Carrito">
+                    <i class="bi bi-cart2"></i>
+                    <span class="contador-carrito" hidden>0</span>
+                </a>
+                <a href="/cuenta" aria-label="Cuenta"><i class="bi bi-person-circle"></i></a>
+            </div>
+        </header>
+
+        <section class="titulo-pagina">
+            <h1>Carrito de compras</h1>
         </section>
 
-        <!--resumen compra-->
+        <main class="carrito">
 
-        <aside class="resumen">
-            <h2>Resumen de compra</h2>
-            <h3>Envío</h3>
-            <div class="codigo-postal">
-                <input type="text" placeholder="Ingrese su código postal...">
-                <button>Calcular</button>
+            <!--detalles producto-->
+            <section class="carrito-productos">
+                <div id="lista-carrito"></div>
+                <button id="vaciar" class="vaciar">Vaciar carrito</button>
+            </section>
+
+            <!--resumen compra-->
+            <aside class="resumen">
+                <h2>Resumen de compra</h2>
+                <h3>Envío</h3>
+                <div class="codigo-postal">
+                    <input type="text" placeholder="Ingrese su código postal...">
+                    <button>Calcular</button>
+                </div>
+                <label class="opcion-envio">
+                    <input type="radio" name="envio" data-costo="4150" checked>
+                    Envío a domicilio - Correo argentino clásico <span>$4.150</span>
+                </label>
+                <label class="opcion-envio">
+                    <input type="radio" name="envio" data-costo="3000">
+                    Punto de retiro - <a href="#">VER DIRECCIONES</a> <span>$3.000</span>
+                </label>
+                <div class="totales">
+                    <p>Subtotal <span id="subtotal">$0</span></p>
+                    <p>Adicionales <span id="adicionales">$0</span></p>
+                    <p>Envío <span id="envio">$0</span></p>
+                    <p class="total">Total <span id="total">$0</span></p>
+                </div>
+                <button class="pagar">Pagar</button>
+            </aside>
+        </main>
+
+        <footer>
+            <div class="logo-footer">
+                <img class="logo-completo" src="{{ url_for('static', filename='images/fotos-main/MiloMayne-logo-completo.png') }}" alt="Milo Mayne">
             </div>
-            <label class="opcion-envio">
-                <input type="radio" name="envio" data-costo="4150" checked>
-                Envío a domicilio - Correo argentino clásico <span>$4.150</span>
-            </label>
-            <label class="opcion-envio">
-                <input type="radio" name=envio data-costo="3000">
-                Punto de retiro - <a href="#">VER DIRECCIONES</a> <span>$3.000</span>
-            </label>
-            <div class="totales">
-                <p>Subtotal <span id="subtotal">$30.200</span></p>
-                <p>Adicionales <span id="adicionales">$6.150</span></p>
-                <p>Envío <span id="envio">$4.150</span></p>
-                <p class="total">Total <span id="total">$40.500 </span></p>
+
+            <div class="botones-redes">
+                <ul>
+                    <li><a href="https://wa.me/5492616003474" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a></li>
+                    <li><a href="https://www.instagram.com/mm.innovacionfloral" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
+                    <li><a href="mailto:milomayne@gmail.com" aria-label="Correo"><i class="bi bi-envelope"></i></a></li>
+                </ul>
             </div>
-            <button class="pagar">Pagar</button>
-        </aside>
-    </main>
 
-    <!--footer-->
-    <footer class="pie">
-        <div class="logo">
-            <img src="/app/static/images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO-LOGO_2_N.png" alt="Milo Mayne">
-        </div>
-        <div class="redes">
-            <a href="/app/static/images/logos/whatsapp.png"></a>
-            <a href="/app/static/images/logos/instagram.png"></a>
-            <a href="/app/static/images/logos/correo-electronico.png"></a>
-        </div>
-        <p>Copyright © 2026 Milo Mayne. All Rights Reserved</p>
-    </footer>
+            <p class="texto-footer">Copyright ©2026 Milo Mayne. All Rights Reserved</p>
+        </footer>
 
-    <script src="/app/static/js/carrito.js"></script>
-    <script src="/app/static/js/sesion.js"></script>
-
-</body>
+        <script src="{{ url_for('static', filename='js/contador.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/carrito.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/sesion.js') }}"></script>
+    </body>
 </html>

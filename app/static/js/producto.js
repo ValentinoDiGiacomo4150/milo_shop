@@ -4,7 +4,7 @@ const producto = PRODUCTOS[id];
 const $ = sel => document.querySelector(sel);
 
 if (!producto) {
-    $('.pp').innerHTML = '<p>Producto no encontrado. <a href="productos.html">Volver a productos</a></p>';
+    $('.pp').innerHTML = '<p>Producto no encontrado. <a href="/productos">Volver a productos</a></p>';
 } else {
     $('#titulo').textContent = producto.nombre;
     document.title = `${producto.nombre} | Milo Mayne`;
@@ -106,7 +106,7 @@ function iniciarCompra() {
         carrito.push(pedido);
         localStorage.setItem('carrito', JSON.stringify(carrito));
 
-        window.location.href = 'carrito.html';
+        window.location.href = '/carrito';
     });
 
     mostrarVariante();

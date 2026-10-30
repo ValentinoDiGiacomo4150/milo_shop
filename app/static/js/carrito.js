@@ -8,8 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalEl = document.getElementById('total');
     const opcionesEnvio = document.querySelectorAll('input[name="envio"]');
     const btnPagar = document.querySelector('.pagar');
+    const btnVaciar = document.getElementById('vaciar');
 
-    let items = JSON.parse(localStorage.getItem('carrito') || '[]');
+    let items = [];
+    try {
+        items = JSON.parse(localStorage.getItem('carrito') || '[]');
+    } catch (e) {
+        items = [];
+    }
 
     const formatear = n => '$' + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
@@ -17,7 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const esc = t => String(t ?? '').replace(/[&<>"']/g, c =>
         ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
-    const guardar = () => localStorage.setItem('carrito', JSON.stringify(items));
+    const guardar = () => {
+        localStorage.setItem('carrito', JSON.stringify(items));
+        if (typeof actualizarContadorCarrito === 'function') {
+            actualizarContadorCarrito();   // actualiza el numerito del header
+        }
+    };
 
     function htmlItem(it) {
         return `
@@ -51,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const envioElegido = document.querySelector('input[name="envio"]:checked');
         const vacio = items.length === 0;
-        document.getElementById('vaciar').hidden = vacio;
+        if (btnVaciar) btnVaciar.hidden = vacio;
         const costoEnvio = vacio || !envioElegido ? 0 : Number(envioElegido.dataset.costo);
 
         const subtotal = items.reduce((s, it) => s + it.precioUnitario * it.cantidad, 0);
@@ -72,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const uid = Number(boton.closest('.carrito-producto').dataset.uid);
         const item = items.find(it => it.uid === uid);
+        if (!item) return;
 
         if (boton.dataset.accion === 'mas' && item.cantidad < 99) item.cantidad++;
         if (boton.dataset.accion === 'menos' && item.cantidad > 1) item.cantidad--;
@@ -82,12 +94,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     opcionesEnvio.forEach(o => o.addEventListener('change', render));
-    
-    document.getElementById('vaciar').addEventListener('click', () => {
-        items = [];
-        guardar();
-        render();
-    });
+
+    if (btnVaciar) {
+        btnVaciar.addEventListener('click', () => {
+            items = [];
+            guardar();
+            render();
+        });
+    }
 
     render();
 });
