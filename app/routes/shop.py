@@ -6,28 +6,29 @@ shop_bp = Blueprint("shop", __name__)
 
 @shop_bp.route("/")
 def index():
-    return "<h1>Servidor iniciado correctamente</h1><p>E-commerce en marcha.</p>"
+    return render_template("shop/index.html")
 
-@bp.route('/')
-def index():
-    return render_template('shop/index.html')
 
-@bp.route('/productos')
+@shop_bp.route("/productos")
 def productos():
-    return render_template('shop/productos.html')
+    return render_template("shop/productos.html")
 
-@bp.route('/producto')
+
+@shop_bp.route("/producto")
 def producto():
-    return render_template('shop/producto.html')
+    return render_template("shop/producto.html")
 
-@bp.route('/carrito')
+
+@shop_bp.route("/carrito")
 def carrito():
-    return render_template('shop/carrito.html')
+    return render_template("shop/carrito.html")
 
-@bp.route('/contacto')
+
+@shop_bp.route("/contacto")
 def contacto():
-    return render_template('shop/contacto.html')
+    return render_template("shop/contacto.html")
 
-@bp.route('/cuenta')
+
+@shop_bp.route("/cuenta")
 def cuenta():
-    return render_template('shop/usuario.html')
+    return render_template("shop/usuario.html")
