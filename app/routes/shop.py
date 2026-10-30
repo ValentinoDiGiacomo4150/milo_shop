@@ -5,6 +5,7 @@ shop_bp = Blueprint("shop", __name__)
 
 
 @shop_bp.route("/")
+@shop_bp.route("/index")
 def index():
     return render_template("shop/index.html")
 
@@ -32,3 +33,13 @@ def contacto():
 @shop_bp.route("/cuenta")
 def cuenta():
     return render_template("shop/usuario.html")
+
+
+@shop_bp.route("/quien-soy")
+def quien_soy():
+    return render_template("shop/quien_soy.html")
+
+
+@shop_bp.route("/habilidades")
+def habilidades():
+    return render_template("shop/habilidades.html")
