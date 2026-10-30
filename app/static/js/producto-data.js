@@ -35,6 +35,7 @@ const PRODUCTOS = {};
   }
   PRODUCTOS[`fresco-${t.toLowerCase()}`] = {
     nombre: `Ramo de flores frescas - ${t}`,
+    talle: t,
     colores: COLORES_FRESCAS,
     variantes
   };
@@ -44,6 +45,7 @@ const PRODUCTOS = {};
 ["XS","S","M","L","XL"].forEach(t => {
   PRODUCTOS[`seco-${t.toLowerCase()}`] = {
     nombre: `Ramo de flores secas - ${t}`,
+    talle: t,
     colores: COLORES_SECAS,
     variantes: {
       unica: { precio: PRECIOS[t].estacion,

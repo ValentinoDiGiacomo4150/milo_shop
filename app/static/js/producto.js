@@ -89,16 +89,24 @@ function iniciarCompra() {
         e.preventDefault();
         const v = producto.variantes[claveActual];
         const pedido = {
+            uid: Date.now(),                      // identifica cada línea del carrito
             id,
             nombre: producto.nombre,
+            talle: producto.talle || null,
             calidad: v.etiqueta || null,
             colores: [...document.querySelectorAll('input[name="color"]:checked')].map(i => i.value),
             dedicatoria: $('#dedicatoria').value.trim(),
             adicionales: $('#adicionales').value.trim(),
+            adicionalesPrecio: 0,                 // por ahora el adicional es texto libre, sin precio
             cantidad: Number($('#cantidad').value),
             precioUnitario: v.precio
         };
-        console.log(pedido);   // acá después se guarda en el carrito
+
+        const carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
+        carrito.push(pedido);
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+
+        window.location.href = 'carrito.html';
     });
 
     mostrarVariante();

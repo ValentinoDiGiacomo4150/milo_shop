@@ -147,6 +147,11 @@ button {
     height: 200px;
     border-radius: 50px;
 }
+
+.producto-imagen.placeholder{
+    background-color: #D9D9D9;
+}
+
 .producto-info {
     display: grid;
     align-content: start;
@@ -217,20 +222,45 @@ button {
     border-left: none;
 }
 
+
 .producto-info > .eliminar{
-    grid-column: 2;
+    grid-column: 1;
     justify-self: start;
-    align-self: center;
-    margin-left: 12px;
-    width: 18px;
-    height: 18px;
+    margin-top: 10px;
     padding: 0;
     border: none;
+    background: none;
+    color: var(--rosa-oscuro);
+    font-size: 1.4rem;
     cursor: pointer;
-    background-color: var(--rosa-oscuro);
-    -webkit-mask: url('../images/logos/trash.png') center / contain no-repeat;
-    mask: url('../images/logos/trash.png') center / contain no-repeat;
 }
+
+.producto-info > .eliminar:hover{
+    opacity: .7;
+}
+
+.vaciar{
+    display: block;
+    margin: 24px 0 0;
+    padding: 8px 28px;
+    border: none;
+    border-radius: 32px;
+    background-color: var(--rosa-oscuro);
+    color: #fff;
+    font-family: var(--montserrat);
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.vaciar:hover{
+    opacity: .85;
+}
+
+.vaciar[hidden]{
+    display: none;
+}
+
 .carrito-vacio {
     font-size: 18px;
     padding: 24px 0;
