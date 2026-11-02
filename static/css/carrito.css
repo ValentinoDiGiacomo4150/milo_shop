@@ -405,3 +405,41 @@ button {
     height: 30px;
     width: 24px;
 }
+
+/* ---- Vaciar carrito y eliminar ---- */
+.vaciar{
+    display: block;
+    margin: 24px 0 0;
+    padding: 8px 28px;
+    border: none;
+    border-radius: 32px;
+    background-color: var(--rosa-oscuro);
+    color: #fff;
+    font-family: var(--montserrat);
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.vaciar:hover{ opacity: .85; }
+.vaciar[hidden]{ display: none; }
+
+.producto-info > .eliminar{
+    grid-column: 1;
+    justify-self: start;
+    width: auto;
+    height: auto;
+    margin: 10px 0 0;
+    padding: 0;
+    border: none;
+    background: none;
+    -webkit-mask: none;
+    mask: none;               /* trash.png no existe en main: sin esto el botón queda invisible */
+    color: var(--rosa-oscuro);
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.producto-imagen.placeholder{
+    background-color: #D9D9D9;
+}

@@ -36,6 +36,12 @@
     --tan-pearl: 'Than Pearl', Georgia, serif;
     --glacial-indifference: 'Glacial Indifference', Arial, sans-serif;
     --gendy: 'Gendy', cursive;
+        /* alias para los CSS de producto y productos */
+    --clr-main: var(--fondo);
+    --clr-rosaclaro: var(--rosa-claro);
+    --clr-rosaoscuro: var(--rosa-oscuro);
+    --clr-verde: var(--verde);
+    --texto: #111;
 }
 
 * {

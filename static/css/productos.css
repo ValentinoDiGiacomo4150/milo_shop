@@ -1,215 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+/* ========== Título de la página ========== */
 
-@font-face {
-    font-family: 'Tan Pearl';
-    src: url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.otf') format('opentype'), url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.ttf') format('truetype'), url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.woff2') format('woff2');
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'The Seasons';
-    src: url('../fuentes/The.Seasons/The%20Seasons%20Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Gendy';
-    src: url('../fuentes/gendy/Gendy.otf') format('opentype');
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Glacial Indifference';
-    src: url('../fuentes/glacial-indifference/GlacialIndifference-Regular.otf') format('opentype');
-    font-display: swap;
-}
-
-:root {
-    --fondo: #f4f2ef;
-    --rosa-claro: #f4dbdb;
-    --rosa-oscuro: #cd4662;
-    --verde: #aec289;
-    --montserrat: 'Montserrat', Arial, sans-serif;
-    --the-seasons: 'The Seasons', Georgia, serif;
-    --tan-pearl: 'Than Pearl', Georgia, serif;
-    --glacial-indifference: 'Glacial Indifference', Arial, sans-serif;
-    --gendy: 'Gendy', cursive;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: var(--montserrat);
-    background: var(--fondo);
-    color: #000000;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-h1, h2, h3, h4, h5, h6, p, a, input, textarea {
-    margin: 0;
-    padding: 0;
-}
-
-ul {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-button {
-    font-family: inherit;
-}
-
-/*  Header */
-
-.encabezado {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+.titulo-pagina{
     background-color: var(--rosa-claro);
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    padding: 14px 40px;
-    gap: 30px;
-    font-family: var(--montserrat);
-    color: #000;
-}
-
-.encabezado a {
-    color: inherit;
-}
-
-.encabezado .menu {
-    display: flex;
-    gap: 28px;
-    font-size: 15px;
-}
-
-.encabezado .menu a.activo {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-}
-
-.encabezado .iconos {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 14px;
-}
-
-.encabezado .iconos img {
-    display: block;
-    height: 24px;
-    width: 24px;
-}
-
-.encabezado .logo {
-    display: block;
-}
-
-.encabezado .logo img {
-    display: block;
-    height: 52px;
-    width: 80px;
-}
-
-.nombre-usuario {
-    font-family: var(--montserrat);
-    font-size: 15px;
-    font-weight: 400;
-}
-
-.btn-salir {
-    border: none;
-    background: none;
-    font-family: var(--montserrat);
-    font-size: 13px;
-    color: var(--rosa-claro);
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-.mensaje-error {
-    margin-bottom: 16px;
-    font-family: var(--montserrat);
-    font-size: 14px;
-    color: var(--rosa-oscuro);
-}
-
-/*logos*/
-
-.logo {
-    display: block;
-}
-
-.logo img {
-    display: block;
-    height: 60px;
-    width: 92px;
-}
-
-.pie .logo img {
-    margin: -15px 0 -25px -50px;
-    height: 184px;
-    width: 223px;
-}
-
-/*  Título de página  */
-
-.titulo-pagina {
-    background-color: var(--rosa-claro);
-    border-radius: 0 0 50px 50px;
-    padding: 20px 24px 28px;
     text-align: center;
+    padding: 10px 20px 40px;
+    border-radius: 0 0 50px 50px;
+}
+
+.titulo-pagina h1{
     font-family: var(--the-seasons);
-    font-size: 60px;
-}
-
-.titulo-pagina h1 {
-    font-size: inherit;
+    font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 400;
-    line-height: 1.1;
 }
 
-/*  Categorías  */
+/* ========== Categorías ========== */
 
-.titulo-categoria {
+.titulo-categoria{
+    font-family: var(--the-seasons);
     text-align: center;
     font-size: clamp(2rem, 3.5vw, 3rem);
     font-weight: 400;
     margin: 60px 0 40px;
 }
-.titulo-pagina,
-.titulo-categoria{
-    font-family: var(--the-seasons);  /* títulos en The Seasons */
-}
 
-/*  Carrusel  */
+/* ========== Carrusel ========== */
 
-.carrusel {
+.carrusel{
     display: grid;
-    grid-template-columns: 36px 1fr 36px;
-    align-items: start;
+    grid-template-columns: 36px 1fr 36px;   /* flecha | tarjetas | flecha */
+    align-items: center;
     gap: 10px;
+    width: 100%;
     max-width: 1292px;
     margin: 0 auto;
     padding: 0;
 }
 
-.carrusel-pista {
-    grid-column: 2;
+.carrusel-pista{
+    grid-column: 2;                 /* siempre en la columna del medio */
     display: flex;
     justify-content: flex-start;
     gap: 40px;
@@ -219,48 +47,43 @@ button {
     scrollbar-width: none;
 }
 
-.carrusel-pista::-webkit-scrollbar {
-    display: none; /* oculta la barra (Chrome, Safari) */
+.carrusel-pista::-webkit-scrollbar{
+    display: none;
 }
 
 /* 3 tarjetas visibles a la vez */
-.producto {
-    flex: 0 0 calc((100% - 80px) / 3);
+.producto{
+    flex: 0 0 calc((100% - 80px) / 3);   /* 80px = 2 gaps de 40px */
     scroll-snap-align: start;
 }
 
-.producto-imagen {
+.producto-imagen{
     width: 100%;
     aspect-ratio: 1 / 1;
-    object-fit: cover;
     border-radius: 12px;
     display: block;
 }
 
-.placeholder {
-    background-color: #D9D9D9;
-    display: grid;
-    place-items: center;
-    color: #7a7a7a;
-    font-size: 4rem;
-}
-
-.producto-detalles {
+.producto-detalles{
     padding: 14px 10px 0;
 }
 
-.producto-titulo {
+.producto-titulo{
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 4px;
 }
 
-.producto-precio {
+.producto-titulo a:hover{
+    text-decoration: underline;
+}
+
+.producto-precio{
     font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
-.producto-comprar {
+.producto-comprar{
     display: inline-block;
     background-color: var(--rosa-claro);
     border: none;
@@ -270,96 +93,43 @@ button {
     cursor: pointer;
 }
 
-.producto-comprar:hover {
+.producto-comprar:hover{
     background-color: var(--rosa-oscuro);
     color: #fff;
 }
 
-.producto-titulo a:hover {
-    text-decoration: underline;
-}
+/* ========== Flechas ========== */
 
-/*  Flechas  */
-
-.carrusel-flecha {
+.carrusel-flecha{
+    grid-column: auto;
     width: 36px;
     height: 36px;
     display: grid;
     place-items: center;
     background: none;
-    border: 2px solid var(--rosa-claro);
+    border: 2px solid var(--rosa-oscuro);
     border-radius: 50%;
     color: var(--rosa-oscuro);
     font-size: 1rem;
     cursor: pointer;
     transition: background-color .2s, color .2s;
-    margin-top: 170px;
 }
 
-.carrusel-flecha:hover {
+.carrusel-flecha:hover{
     background-color: var(--rosa-oscuro);
     color: #fff;
 }
 
-/*  Footer*/
+.prev{ grid-column: 1; }
+.next{ grid-column: 3; }
 
-.pie {
-    background-color: var(--verde);
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-top: 80px;
-    padding: 28px 40px;
-    font-family: var(--montserrat);
-    font-size: 13px;
-    color: #000;
-}
+/* ========== Celular ========== */
 
-.pie a {
-    color: inherit;
-}
-
-.pie .logo {
-    display: block;
-}
-.pie .redes {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.pie .redes img {
-    display: block;
-    width: 24px;
-    height: 24px;
-}
-
-.pie .redes a:nth-child(3) img { /* mail */
-    height: 30px;
-    width: 24px;
-}
-
-/*  Celular  */
-
-@media (max-width: 800px) {
-    .encabezado {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        padding: 14px 20px;
-        gap: 12px;
-    }
-
-        .encabezado .menu {
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 16px;
-        }
-
-        .encabezado .iconos {
-            justify-content: center;
-        }
-
-    .pie {
-        padding: 24px 20px;
-    }
+@media (max-width: 768px){
+    .producto{ flex: 0 0 calc((100% - 40px) / 2); }   /* 2 tarjetas */
+    .carrusel{ gap: 6px; padding: 0 10px; }
+    .carrusel-pista{ gap: 40px; }
+    .producto-titulo{ font-size: 1.3rem; }
+    .producto-precio{ font-size: 1.15rem; }
+    .producto-comprar{ font-size: 1.1rem; }
 }
