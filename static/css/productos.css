@@ -1,113 +1,204 @@
-:root{
-    --clr-main: #F4F2EF;
-    --clr-rosaclaro: #F4DBDB;
-    --clr-rosaoscuro: #CD4662;
-    --clr-verde: #AEC289;
-    --texto: #111;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+@font-face {
+    font-family: 'Tan Pearl';
+    src: url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.otf') format('opentype'), url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.ttf') format('truetype'), url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.woff2') format('woff2');
+    font-display: swap;
 }
 
-*{
-    margin: 0;
-    padding: 0;
+@font-face {
+    font-family: 'The Seasons';
+    src: url('../fuentes/The.Seasons/The%20Seasons%20Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gendy';
+    src: url('../fuentes/gendy/Gendy.otf') format('opentype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Glacial Indifference';
+    src: url('../fuentes/glacial-indifference/GlacialIndifference-Regular.otf') format('opentype');
+    font-display: swap;
+}
+
+:root {
+    --fondo: #f4f2ef;
+    --rosa-claro: #f4dbdb;
+    --rosa-oscuro: #cd4662;
+    --verde: #aec289;
+    --montserrat: 'Montserrat', Arial, sans-serif;
+    --the-seasons: 'The Seasons', Georgia, serif;
+    --tan-pearl: 'Than Pearl', Georgia, serif;
+    --glacial-indifference: 'Glacial Indifference', Arial, sans-serif;
+    --gendy: 'Gendy', cursive;
+}
+
+* {
     box-sizing: border-box;
-    /* font-family: sans-serif; */
-}
-
-h1, h2, h3, h4, h5, h6, p, a, input, textarea{
     margin: 0;
     padding: 0;
 }
 
-ul{
+body {
+    font-family: var(--montserrat);
+    background: var(--fondo);
+    color: #000000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, input, textarea {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
     list-style: none;
 }
 
-a{
+a {
     text-decoration: none;
-    color: var(--texto);
+    color: inherit;
 }
 
-body{
-    background-color: var(--clr-main);
-    font-family: serif;
-}
-
-button{
+button {
     font-family: inherit;
 }
 
-/*  Header  */
+/*  Header */
 
-.header{
+.encabezado {
     position: sticky;
     top: 0;
     z-index: 1000;
+    background-color: var(--rosa-claro);
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    padding: 20px 25px;
-    background-color: var(--clr-rosaclaro);
+    padding: 14px 40px;
+    gap: 30px;
+    font-family: var(--montserrat);
+    color: #000;
 }
 
-.logo-simple{
-    height: 70px;
-    width: auto;
+.encabezado a {
+    color: inherit;
 }
 
-.menu{
+.encabezado .menu {
     display: flex;
-    gap: 15px;
-    list-style: none;
+    gap: 28px;
+    font-size: 15px;
 }
 
-.menu a {
-  font-size: 1.8rem;
-  padding-bottom: 2px;
+.encabezado .menu a.activo {
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
 
-.menu a.activo {
-  border-bottom: 2px solid var(--texto);
-}
-
-.iconos{
+.encabezado .iconos {
     display: flex;
     justify-content: flex-end;
-    gap: 40px;
+    align-items: center;
+    gap: 14px;
 }
 
-.iconos button{
-    background: none;
+.encabezado .iconos img {
+    display: block;
+    height: 24px;
+    width: 24px;
+}
+
+.encabezado .logo {
+    display: block;
+}
+
+.encabezado .logo img {
+    display: block;
+    height: 52px;
+    width: 80px;
+}
+
+.nombre-usuario {
+    font-family: var(--montserrat);
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.btn-salir {
     border: none;
-    font-size: 1.8rem;
+    background: none;
+    font-family: var(--montserrat);
+    font-size: 13px;
+    color: var(--rosa-claro);
+    text-decoration: underline;
     cursor: pointer;
 }
 
-/*  Título de la página  */
-
-.titulo-pagina{
-    background-color: var(--clr-rosaclaro);
-    text-align: center;
-    padding: 10px 20px 40px;
-    border-radius: 0 0 50px 50px;
+.mensaje-error {
+    margin-bottom: 16px;
+    font-family: var(--montserrat);
+    font-size: 14px;
+    color: var(--rosa-oscuro);
 }
 
-.titulo-pagina h1{
-    font-size: clamp(2.5rem, 5vw, 4rem);
+/*logos*/
+
+.logo {
+    display: block;
+}
+
+.logo img {
+    display: block;
+    height: 60px;
+    width: 92px;
+}
+
+.pie .logo img {
+    margin: -15px 0 -25px -50px;
+    height: 184px;
+    width: 223px;
+}
+
+/*  Título de página  */
+
+.titulo-pagina {
+    background-color: var(--rosa-claro);
+    border-radius: 0 0 50px 50px;
+    padding: 20px 24px 28px;
+    text-align: center;
+    font-family: var(--the-seasons);
+    font-size: 60px;
+}
+
+.titulo-pagina h1 {
+    font-size: inherit;
     font-weight: 400;
+    line-height: 1.1;
 }
 
 /*  Categorías  */
 
-.titulo-categoria{
+.titulo-categoria {
     text-align: center;
     font-size: clamp(2rem, 3.5vw, 3rem);
     font-weight: 400;
     margin: 60px 0 40px;
 }
+.titulo-pagina,
+.titulo-categoria{
+    font-family: var(--the-seasons);  /* títulos en The Seasons */
+}
 
 /*  Carrusel  */
 
-.carrusel{
+.carrusel {
     display: grid;
     grid-template-columns: 36px 1fr 36px;
     align-items: start;
@@ -117,7 +208,7 @@ button{
     padding: 0;
 }
 
-.carrusel-pista{
+.carrusel-pista {
     grid-column: 2;
     display: flex;
     justify-content: flex-start;
@@ -128,17 +219,17 @@ button{
     scrollbar-width: none;
 }
 
-.carrusel-pista::-webkit-scrollbar{
-    display: none;                     /* oculta la barra (Chrome, Safari) */
+.carrusel-pista::-webkit-scrollbar {
+    display: none; /* oculta la barra (Chrome, Safari) */
 }
 
 /* 3 tarjetas visibles a la vez */
-.producto{
+.producto {
     flex: 0 0 calc((100% - 80px) / 3);
     scroll-snap-align: start;
 }
 
-.producto-imagen{
+.producto-imagen {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
@@ -146,7 +237,7 @@ button{
     display: block;
 }
 
-.placeholder{
+.placeholder {
     background-color: #D9D9D9;
     display: grid;
     place-items: center;
@@ -154,24 +245,24 @@ button{
     font-size: 4rem;
 }
 
-.producto-detalles{
+.producto-detalles {
     padding: 14px 10px 0;
 }
 
-.producto-titulo{
+.producto-titulo {
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 4px;
 }
 
-.producto-precio{
+.producto-precio {
     font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
-.producto-comprar{
+.producto-comprar {
     display: inline-block;
-    background-color: var(--clr-rosaclaro);
+    background-color: var(--rosa-claro);
     border: none;
     border-radius: 999px;
     padding: 4px 16px;
@@ -179,33 +270,96 @@ button{
     cursor: pointer;
 }
 
-.producto-comprar:hover{
-    background-color: var(--clr-rosaoscuro);
+.producto-comprar:hover {
+    background-color: var(--rosa-oscuro);
     color: #fff;
 }
 
-.producto-titulo a:hover{
+.producto-titulo a:hover {
     text-decoration: underline;
 }
 
 /*  Flechas  */
 
-.carrusel-flecha{
+.carrusel-flecha {
     width: 36px;
     height: 36px;
     display: grid;
     place-items: center;
     background: none;
-    border: 2px solid var(--clr-rosaoscuro);
+    border: 2px solid var(--rosa-claro);
     border-radius: 50%;
-    color: var(--clr-rosaoscuro);
+    color: var(--rosa-oscuro);
     font-size: 1rem;
     cursor: pointer;
     transition: background-color .2s, color .2s;
     margin-top: 170px;
 }
 
-.carrusel-flecha:hover{
-    background-color: var(--clr-rosaoscuro);
+.carrusel-flecha:hover {
+    background-color: var(--rosa-oscuro);
     color: #fff;
+}
+
+/*  Footer*/
+
+.pie {
+    background-color: var(--verde);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 80px;
+    padding: 28px 40px;
+    font-family: var(--montserrat);
+    font-size: 13px;
+    color: #000;
+}
+
+.pie a {
+    color: inherit;
+}
+
+.pie .logo {
+    display: block;
+}
+.pie .redes {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.pie .redes img {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+.pie .redes a:nth-child(3) img { /* mail */
+    height: 30px;
+    width: 24px;
+}
+
+/*  Celular  */
+
+@media (max-width: 800px) {
+    .encabezado {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 14px 20px;
+        gap: 12px;
+    }
+
+        .encabezado .menu {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .encabezado .iconos {
+            justify-content: center;
+        }
+
+    .pie {
+        padding: 24px 20px;
+    }
 }

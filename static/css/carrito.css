@@ -135,7 +135,7 @@ button {
     border-radius: 0 0 50px 50px;
     text-align: center;
     font-family: var(--the-seasons);
-    font-size: 40px;
+    font-size: 30px;
 }
 
 /*productos*/
@@ -367,22 +367,33 @@ button {
     font-weight: 600;
     cursor: pointer;
 }
-/*footer*/
+/*  Footer*/
 
 .pie {
     background-color: var(--verde);
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding: 40px 40px;
-    font-size: 14px;
+    gap: 14px;
+    margin-top: 80px;
+    padding: 28px 40px;
+    font-family: var(--montserrat);
+    font-size: 13px;
+    color: #000;
+}
+
+.pie a {
+    color: inherit;
+}
+
+.pie .logo {
+    display: block;
 }
 
 .pie .redes {
     display: flex;
-        align-items: center;
-        gap: 20px;
-    }
+    align-items: center;
+    gap: 20px;
+}
 
 .pie .redes img {
     display: block;
@@ -390,7 +401,7 @@ button {
     height: 24px;
 }
 
-.pie .redes a:nth-child(3) img { /*mail*/
+.pie .redes a:nth-child(3) img { /* mail */
     height: 30px;
     width: 24px;
 }
