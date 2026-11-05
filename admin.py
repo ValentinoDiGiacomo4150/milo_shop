@@ -64,3 +64,8 @@ def gestionar_colores():
 @admin_bp.route('/banner')
 def gestionar_banner():
     return render_template('admin/banner.html')
+
+@admin_bp.route("/productos")
+def listar_productos():
+    productos = Producto.query.all()
+    return render_template("admin/productos_admin.html", productos=productos)
