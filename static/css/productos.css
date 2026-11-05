@@ -1,0 +1,129 @@
+/* El título de página ahora está en main.css,
+   así es el mismo en todas las páginas. Los tamaños (--fs-..., --esp, --ancho-...)
+   también salen de main.css. */
+
+/* ========== Categorías ========== */
+
+.titulo-categoria{
+    font-family: var(--the-seasons);
+    text-align: center;
+    font-size: var(--fs-titulo-seccion);
+    font-weight: 400;
+    margin: max(36px, calc(var(--u) * 3.16)) 0 max(24px, calc(var(--u) * 2.1));
+}
+
+/* ========== Carrusel ========== */
+
+.carrusel{
+    --sep-tarjetas: var(--esp);     /* espacio entre tarjetas */
+    display: grid;
+    grid-template-columns: 36px 1fr 36px;   /* flecha | tarjetas | flecha */
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: var(--ancho-carrusel);
+    margin: 0 auto;
+    padding: 0;
+}
+
+.carrusel-pista{
+    grid-column: 2;                 /* siempre en la columna del medio */
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--sep-tarjetas);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.carrusel-pista::-webkit-scrollbar{
+    display: none;
+}
+
+/* 3 tarjetas visibles a la vez */
+.producto{
+    flex: 0 0 calc((100% - 2 * var(--sep-tarjetas)) / 3);   /* 2 espacios entre 3 tarjetas */
+    scroll-snap-align: start;
+}
+
+.producto-imagen{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    display: block;
+}
+
+.placeholder{
+    background-color: #D9D9D9;
+    display: grid;
+    place-items: center;
+    color: #7a7a7a;
+    font-size: max(2.5rem, calc(var(--u) * 3.4));
+}
+
+.producto-detalles{
+    padding: 14px 10px 0;
+}
+
+.producto-titulo{
+    font-size: var(--fs-subtitulo);
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.producto-titulo a:hover{
+    text-decoration: underline;
+}
+
+.producto-precio{
+    font-size: var(--fs-texto);
+    margin-bottom: 10px;
+}
+
+.producto-comprar{
+    display: inline-block;
+    background-color: var(--rosa-claro);
+    border: none;
+    border-radius: 999px;
+    padding: 4px 16px;
+    font-size: var(--fs-boton);
+    cursor: pointer;
+}
+
+.producto-comprar:hover{
+    background-color: var(--rosa-oscuro);
+    color: #fff;
+}
+
+/* ========== Flechas ========== */
+
+.carrusel-flecha{
+    grid-column: auto;
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    background: none;
+    border: 2px solid var(--rosa-oscuro);
+    border-radius: 50%;
+    color: var(--rosa-oscuro);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color .2s, color .2s;
+}
+
+.carrusel-flecha:hover{
+    background-color: var(--rosa-oscuro);
+    color: #fff;
+}
+
+.prev{ grid-column: 1; }
+.next{ grid-column: 3; }
+
+/* ========== Celular ========== */
+
+@media (max-width: 768px){
+    .carrusel{ --sep-tarjetas: 20px; gap: 6px; padding: 0 10px; }
+    .producto{ flex: 0 0 calc((100% - var(--sep-tarjetas)) / 2); }   /* 2 tarjetas */
+}

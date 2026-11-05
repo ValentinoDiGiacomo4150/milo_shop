@@ -1,0 +1,30 @@
+/* ==========================================================
+   ESTILOS GENERALES Y MAQUETACIÓN - PÁGINA "QUIÉN SOY?"
+   ========================================================== */
+
+/* Tipografía base y colores del body */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #F3F1EA;
+    color: #1A1A1A;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Tipografía Serif para títulos principales */
+.font-serif-title {
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Fondo y curvatura curva del Header */
+.header-bg {
+    background-color: #F8E2E2;
+    border-bottom-left-radius: 50% 20px;
+    border-bottom-right-radius: 50% 20px;
+}
+
+/* Fondo verde característico del Footer */
+.footer-bg {
+    background-color: #B5C49A;
+}

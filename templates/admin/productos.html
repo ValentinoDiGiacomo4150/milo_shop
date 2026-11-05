@@ -1,0 +1,39 @@
+{% extends "admin/base.html" %}
+
+{% block titulo %}Productos{% endblock %}
+
+{% block contenido %}
+<article class="admin-producto">
+    <div class="admin-foto placeholder"><i class="bi bi-flower1"></i></div>
+    <div class="admin-info">
+        <h2>Ramo de flores frescas - M</h2>
+        <p class="admin-detalle">Estación y Premium</p>
+        <p><strong>Tamaño:</strong> M</p>
+        <p><strong>Precio desde:</strong> $30.200</p>
+        <form method="post">
+            <input type="hidden" name="producto_id" value="1">
+            <label class="admin-visible">
+                <input type="checkbox" name="visible" data-autoenviar checked> Visible en la tienda
+            </label>
+        </form>
+        <a href="/admin-preview/producto-editar" class="admin-boton">Editar</a>
+    </div>
+</article>
+
+<article class="admin-producto">
+    <div class="admin-foto placeholder"><i class="bi bi-flower1"></i></div>
+    <div class="admin-info">
+        <h2>Ramo de flores secas - S</h2>
+        <p class="admin-detalle">Calidad única</p>
+        <p><strong>Tamaño:</strong> S</p>
+        <p><strong>Precio:</strong> $20.000</p>
+        <form method="post">
+            <input type="hidden" name="producto_id" value="2">
+            <label class="admin-visible">
+                <input type="checkbox" name="visible" data-autoenviar checked> Visible en la tienda
+            </label>
+        </form>
+        <a href="/admin-preview/producto-editar" class="admin-boton">Editar</a>
+    </div>
+</article>
+{% endblock %}

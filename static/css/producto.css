@@ -1,0 +1,256 @@
+/* Los tamaños (--u, --fs-..., --esp, --ancho-producto) salen de main.css:
+   en pantalla grande miden lo mismo que antes y en pantallas más chicas
+   se achican en proporción. */
+
+/* ========== Layout de la página ========== */
+
+.pp{
+    font-family: var(--montserrat);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: max(24px, calc(var(--u) * 2.6));
+    width: 100%;
+    max-width: var(--ancho-producto);
+    margin: max(32px, calc(var(--u) * 3.16)) auto;
+    padding: 0 var(--esp);
+    align-items: start;
+}
+
+/* ========== Columna izquierda ========== */
+
+.pp-imagen{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: max(18px, calc(var(--u) * 1.6));
+    font-size: max(4.5rem, calc(var(--u) * 6.7));
+}
+
+.pp-detalles{
+    background: var(--rosa-claro);
+    border-radius: max(18px, calc(var(--u) * 1.6));
+    padding: max(16px, calc(var(--u) * 1.3)) max(20px, calc(var(--u) * 1.85));
+    margin-top: max(18px, calc(var(--u) * 1.6));
+}
+
+.pp-detalles h2{
+    font-family: var(--the-seasons);
+    text-align: center;
+    font-size: max(1.5rem, calc(var(--u) * 2));
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.pp-detalles p,
+.pp-detalles li{
+    font-size: var(--fs-texto);
+    line-height: 1.4;
+}
+
+.pp-detalles ul{
+    list-style: none;
+    padding-left: 25px;
+    margin: 12px 0 22px;
+}
+
+.pp-detalles li{
+    margin-bottom: 2px;
+}
+
+.pp-detalles li::before{
+    content: "· ";
+}
+
+.pp-nota{
+    font-size: max(0.8rem, calc(var(--u) * 1.1));
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+/* ========== Columna derecha ========== */
+
+.pp-der h1{
+    font-size: max(1.5rem, calc(var(--u) * 2.2));
+    font-weight: 700;
+}
+
+.pp-precio{
+    font-size: max(1.25rem, calc(var(--u) * 1.7));
+    margin: 10px 0 25px;
+}
+
+.pp-der fieldset{
+    border: none;
+    margin-bottom: 25px;
+    padding: 0;
+}
+
+.pp-der legend{
+    font-size: var(--fs-subtitulo);
+    margin-bottom: 14px;
+}
+
+/* colores */
+.pp-colores{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px 10px;
+}
+
+.pp-color{
+    font-size: max(0.85rem, calc(var(--u) * 1.2));
+    cursor: pointer;
+}
+
+.pp-color input{
+    accent-color: var(--rosa-oscuro);
+    width: 1.1em;
+    height: 1.1em;
+    margin-right: 6px;
+}
+
+/* calidad */
+.pp-calidades{
+    display: flex;
+    gap: 15px;
+}
+
+.pp-calidad{
+    position: relative;
+}
+
+.pp-calidad input{
+    position: absolute;
+    opacity: 0;
+}
+
+.pp-calidad span{
+    display: inline-block;
+    padding: max(6px, calc(var(--u) * 0.42)) max(22px, calc(var(--u) * 1.9));
+    border: 1.5px solid var(--rosa-oscuro);
+    border-radius: 999px;
+    font-size: var(--fs-boton);
+    cursor: pointer;
+}
+
+.pp-calidad input:checked + span{
+    background: var(--rosa-claro);
+}
+
+/* dedicatoria y adicionales */
+#form-compra > label{
+    display: block;
+    font-size: var(--fs-subtitulo);
+    margin-bottom: 10px;
+}
+
+.pp-der textarea,
+.pp-der input[type="text"]{
+    width: 100%;
+    border: 1.5px solid var(--rosa-oscuro);
+    border-radius: 8px;
+    background: var(--fondo);
+    padding: max(10px, calc(var(--u) * 0.74));
+    margin-bottom: max(16px, calc(var(--u) * 1.3));
+    font-family: inherit;
+    font-size: max(0.85rem, calc(var(--u) * 1.2));
+}
+
+.pp-der textarea{
+    min-height: max(120px, calc(var(--u) * 10.5));
+    resize: none;
+}
+
+/* cantidad + botón */
+.pp-compra{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.pp-cantidad span{
+    display: block;
+    font-size: max(0.8rem, calc(var(--u) * 0.93));
+    margin-bottom: 8px;
+}
+
+.pp-cantidad > div{
+    display: inline-flex;
+    border: 1px solid #999;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.pp-cantidad input{
+    width: max(44px, calc(var(--u) * 2.9));
+    height: max(38px, calc(var(--u) * 2.5));
+    text-align: center;
+    font-size: var(--fs-texto);
+    font-family: inherit;
+    border: none;
+    background: var(--rosa-claro);
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.pp-cantidad input::-webkit-outer-spin-button,
+.pp-cantidad input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.pp-cantidad button{
+    width: max(36px, calc(var(--u) * 2.4));
+    height: max(38px, calc(var(--u) * 2.5));
+    border: none;
+    background: var(--fondo);
+    font-size: var(--fs-boton);
+    cursor: pointer;
+}
+
+.pp-cantidad button:hover{
+    background: var(--rosa-claro);
+}
+
+#btn-agregar,
+.pp-whatsapp{
+    display: inline-block;
+    background: var(--rosa-oscuro);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: max(10px, calc(var(--u) * 0.74)) max(24px, calc(var(--u) * 2.1));
+    font-size: max(1rem, calc(var(--u) * 1.45));
+    cursor: pointer;
+}
+
+#btn-agregar:disabled{
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+.pp-aviso{
+    color: var(--rosa-oscuro);
+    margin-top: 10px;
+}
+
+/* productos por WhatsApp */
+#bloque-whatsapp{
+    margin-top: 30px;
+}
+
+#bloque-whatsapp p{
+    font-size: var(--fs-texto);
+    line-height: 1.4;
+    margin-bottom: 25px;
+}
+
+/* ========== Celular ========== */
+
+@media (max-width: 768px){
+    .pp{
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+}

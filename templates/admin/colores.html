@@ -1,0 +1,41 @@
+{% extends "admin/base.html" %}
+
+{% block titulo %}Colores{% endblock %}
+
+{% block contenido %}
+<section class="admin-bloque">
+    <h3>Agregar color</h3>
+    <form class="admin-agregar" method="post">
+        <input type="hidden" name="accion" value="agregar">
+        <input type="text" name="nombre" placeholder="Ej: Lila" required>
+        <button type="submit" class="admin-boton">Agregar</button>
+    </form>
+</section>
+
+<div class="admin-color-fila">
+    <span>Amarillo</span>
+    <form method="post">
+        <input type="hidden" name="accion" value="quitar">
+        <input type="hidden" name="color_id" value="1">
+        <button type="submit" class="admin-boton">Quitar</button>
+    </form>
+</div>
+
+<div class="admin-color-fila">
+    <span>Crema</span>
+    <form method="post">
+        <input type="hidden" name="accion" value="quitar">
+        <input type="hidden" name="color_id" value="2">
+        <button type="submit" class="admin-boton">Quitar</button>
+    </form>
+</div>
+
+<div class="admin-color-fila">
+    <span>Naranja</span>
+    <form method="post">
+        <input type="hidden" name="accion" value="quitar">
+        <input type="hidden" name="color_id" value="3">
+        <button type="submit" class="admin-boton">Quitar</button>
+    </form>
+</div>
+{% endblock %}

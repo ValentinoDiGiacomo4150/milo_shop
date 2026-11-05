@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos | Milo Mayne</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/productos.css') }}">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <header class="encabezado">
+            <div class="logo">
+                <a href="/"><img
+                        src="{{ url_for('static', filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO_principal_N.png') }}"
+                        alt="Milo Mayne"></a>
+            </div>
+            <nav class="menu">
+                <a href="/">Inicio</a>
+                <a href="/productos" class="activo">Productos</a>
+                <a href="/quien-soy">¿Quién soy?</a>
+                <a href="/que-puedo-hacer">¿Qué puedo hacer?</a>
+                <a href="/contacto">Contacto</a>
+            </nav>
+            <div class="iconos">
+                <a href="/carrito" class="enlace-carrito">
+                    <img src="{{ url_for('static', filename='images/logos/shopping-cart-01.png') }}" alt="Carrito">
+                    <span class="contador-carrito" {% if cart_count == 0 %}hidden{% endif %}>{{ cart_count }}</span>
+                </a>
+                <div class="cuenta-menu-container" style="position: relative; display: inline-block;">
+                    <a href="/cuenta" id="icono-cuenta-link" style="position: relative;">
+                        <img src="{{ url_for('static', filename='images/logos/user.png') }}" alt="Cuenta">
+                        <span id="punto-verde"
+                            style="display: none; position: absolute; top: 0; right: 0; width: 10px; height: 10px; background-color: #2ecc71; border-radius: 50%; border: 2px solid #fff;"></span>
+                    </a>
+
+                    <!-- Menú desplegable de cuenta -->
+                    <div id="dropdown-cuenta" class="dropdown-content"
+                        style="display: none; position: absolute; right: 0; background: white; border: 1px solid #ddd; padding: 12px; box-shadow: 0px 4px 12px rgba(0,0,0,0.1); border-radius: 8px; width: 220px; z-index: 100;">
+                        <p id="dropdown-nombre" style="font-weight: bold; margin: 0 0 4px 0; color: #333;"></p>
+                        <p id="dropdown-correo"
+                            style="font-size: 0.85em; color: #666; margin: 0 0 10px 0; word-break: break-all;"></p>
+                        <hr style="border: none; border-top: 1px solid #eee; margin: 8px 0;">
+                        <button id="btn-cerrar-sesion"
+                            style="width: 100%; background: #e74c3c; color: white; border: none; padding: 6px; border-radius: 4px; cursor: pointer;">Cerrar
+                            sesión</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+
+            <div class="titulo-pagina">
+                <h1>Todos los productos</h1>
+            </div>
+
+            <!-- RAMOS FLORES FRESCAS -->
+
+            <h2 class="titulo-categoria">Ramos de flores frescas</h2>
+
+            <div class="carrusel">
+                <button class="carrusel-flecha prev" aria-label="Anterior">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+
+                <div class="carrusel-pista">
+                    <article class="producto">
+                        <div class="producto-imagen placeholder"><i class="bi bi-flower1"></i></div>
+                        <div class="producto-detalles">
+                            <h3 class="producto-titulo"><a href="/producto?id=fresco-xs">Ramo XS</a></h3>
+                            <p class="producto-precio">$100</p>
+                            <a href="/producto?id=fresco-xs" class="producto-comprar">comprar</a>
+                        </div>
+                    </article>
+
+                    <article class="producto">
+                        <div class="producto-imagen placeholder"><i class="bi bi-flower1"></i></div>
+                        <div class="producto-detalles">
+                            <h3 class="producto-titulo"><a href="/producto?id=fresco-s">Ramo S</a></h3>
+                            <p class="producto-precio">$100</p>
+                            <a href="/producto?id=fresco-s" class="producto-comprar">comprar</a>
+                        </div>
+                    </article>
+
+                    <article class="producto">
+                        <div class="producto-imagen placeholder"><i class="bi bi-flower1"></i></div>
+                        <div class="producto-detalles">
+                            <h3 class="producto-titulo"><a href="/producto?id=fresco-m">Ramo M</a></h3>
+                            <p class="producto-precio">$100</p>
+                            <a href="/producto?id=fresco-m" class="producto-comprar">comprar</a>
+                        </div>
+                    </article>
+
+                    <article class="producto">
+                        <div class="producto-imagen placeholder"><i class="bi bi-flower1"></i></div>
+                        <div class="producto-detalles">
+                            <h3 class="producto-titulo"><a href="/producto?id=fresco-l">Ramo L</a></h3>
+                            <p class="producto-precio">$100</p>
+                            <a href="/producto?id=fresco-l" class="producto-comprar">comprar</a>
+                        </div>
+                    </article>
+
+                    <article class="producto">
+                        <div class="producto-imagen placeholder"><i class="bi bi-flower1"></i></div>
+                        <div class="producto-detalles">
+                            <h3 class="producto-titulo"><a href="/producto?id=fresco-xl">Ramo XL</a></h3>
+                            <p class="producto-precio">$100</p>
+                            <a href="/producto?id=fresco-xl" class="producto-comprar">comprar</a>
+                        </div>
+                    </article>
+                </div>
+
+                <button class="carrusel-flecha next" aria-label="Siguiente">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- RAMOS FLORES SECAS -->
+
+            <h2 class="titulo-categoria">Ramos de flores secas</h2>
+
+            <div class="carrusel">
+                <button class="carrusel-flecha prev" aria-label="Anterior">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+
+                <div class="carrusel-pista">
+                    <article class="producto">
+                        <div class="producto-imagen placeholder"><i class="bi bi-flower1"></i></div>
+                        <div class="producto-detalles">
+                            <h3 class="producto-titulo"><a href="/producto?id=seco-xs">Ramo XS</a></h3>
+                            <p class="producto-precio">$100</p>
+                            <a href="/producto?id=seco-xs" class="producto-comprar">comprar</a>
+                        </div>
+                    </article>
+
+                    <article class="producto">
+                        <div class="producto-imagen placeholder"><i class="bi bi-flower1"></i></div>
+                        <div class="producto-detalles">
+                            <h3 class="producto-titulo"><a href="/producto?id=seco-s">Ramo S</a></h3>
+                            <p class="producto-precio">$100</p>
+                            <a href="/producto?id=seco-s" class="producto-comprar">comprar</a>
+                        </div>
+                    </article>
+
+                    <article class="producto">
+                        <div class="producto-imagen placeholder"><i class="bi bi-flower1"></i></div>
+                        <div class="producto-detalles">
+                            <h3 class="producto-titulo"><a href="/producto?id=seco-m">Ramo M</a></h3>
+                            <p class="producto-precio">$100</p>
+                            <a href="/producto?id=seco-m" class="producto-comprar">comprar</a>
+                        </div>
+                    </article>
+
+                    <article class="producto">
+                        <div class="producto-imagen placeholder"><i class="bi bi-flower1"></i></div>
+                        <div class="producto-detalles">
+                            <h3 class="producto-titulo"><a href="/producto?id=seco-l">Ramo L</a></h3>
+                            <p class="producto-precio">$100</p>
+                            <a href="/producto?id=seco-l" class="producto-comprar">comprar</a>
+                        </div>
+                    </article>
+
+                    <article class="producto">
+                        <div class="producto-imagen placeholder"><i class="bi bi-flower1"></i></div>
+                        <div class="producto-detalles">
+                            <h3 class="producto-titulo"><a href="/producto?id=seco-xl">Ramo XL</a></h3>
+                            <p class="producto-precio">$100</p>
+                            <a href="/producto?id=seco-xl" class="producto-comprar">comprar</a>
+                        </div>
+                    </article>
+                </div>
+
+                <button class="carrusel-flecha next" aria-label="Siguiente">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- CORONAS DE FLORES -->
+
+            <h2 class="titulo-categoria">Coronas de flores</h2>
+
+            <div class="carrusel">
+                <div class="carrusel-pista">
+                    <article class="producto">
+                        <div class="producto-imagen placeholder"><i class="bi bi-flower1"></i></div>
+                        <div class="producto-detalles">
+                            <h3 class="producto-titulo"><a href="/producto?id=corona-fresca">Coronas de flores
+                                    frescas</a></h3>
+                            <p class="producto-precio">$100</p>
+                            <a href="/producto?id=corona-fresca" class="producto-comprar">comprar</a>
+                        </div>
+                    </article>
+
+                    <article class="producto">
+                        <div class="producto-imagen placeholder"><i class="bi bi-flower1"></i></div>
+                        <div class="producto-detalles">
+                            <h3 class="producto-titulo"><a href="/producto?id=corona-seca">Coronas de flores secas</a>
+                            </h3>
+                            <p class="producto-precio">$100</p>
+                            <a href="/producto?id=corona-seca" class="producto-comprar">comprar</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- OTROS PRODUCTOS -->
+
+            <h2 class="titulo-categoria">Otros productos</h2>
+
+            <div class="carrusel">
+                <button class="carrusel-flecha prev" aria-label="Anterior">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+
+                <div class="carrusel-pista">
+                    <article class="producto">
+                        <div class="producto-imagen placeholder"><i class="bi bi-flower1"></i></div>
+                        <div class="producto-detalles">
+                            <h3 class="producto-titulo"><a href="/producto?id=novia">Ramo de novia</a></h3>
+                            <p class="producto-precio">$100</p>
+                            <a href="/producto?id=novia" class="producto-comprar">comprar</a>
+                        </div>
+                    </article>
+
+                    <article class="producto">
+                        <div class="producto-imagen placeholder"><i class="bi bi-flower1"></i></div>
+                        <div class="producto-detalles">
+                            <h3 class="producto-titulo"><a href="/producto?id=boutonniere">Boutonniere</a></h3>
+                            <p class="producto-precio">$100</p>
+                            <a href="/producto?id=boutonniere" class="producto-comprar">comprar</a>
+                        </div>
+                    </article>
+
+                    <article class="producto">
+                        <div class="producto-imagen placeholder"><i class="bi bi-flower1"></i></div>
+                        <div class="producto-detalles">
+                            <h3 class="producto-titulo"><a href="/producto?id=tocados">Tocados</a></h3>
+                            <p class="producto-precio">$100</p>
+                            <a href="/producto?id=tocados" class="producto-comprar">comprar</a>
+                        </div>
+                    </article>
+
+                    <article class="producto">
+                        <div class="producto-imagen placeholder"><i class="bi bi-flower1"></i></div>
+                        <div class="producto-detalles">
+                            <h3 class="producto-titulo"><a href="/producto?id=pulseras">Pulseras</a></h3>
+                            <p class="producto-precio">$100</p>
+                            <a href="/producto?id=pulseras" class="producto-comprar">comprar</a>
+                        </div>
+                    </article>
+                </div>
+
+                <button class="carrusel-flecha next" aria-label="Siguiente">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+
+        </main>
+
+        <footer class="pie">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO-LOGO_2_N.png') }}"
+                    alt="Milo Mayne">
+            </div>
+            <div class="redes">
+                <a href="https://wa.me/5492616003474" target="_blank" rel="noopener">
+                    <img src="{{ url_for('static', filename='images/logos/whatsapp.png') }}" alt="WhatsApp">
+                </a>
+                <a href="https://www.instagram.com/mm.innovacionfloral" target="_blank" rel="noopener">
+                    <img src="{{ url_for('static', filename='images/logos/instagram.png') }}" alt="Instagram">
+                </a>
+                <a href="mailto:milomayne@gmail.com">
+                    <img src="{{ url_for('static', filename='images/logos/correo-electronico.png') }}"
+                        alt="Correo electrónico">
+                </a>
+            </div>
+            <p>Copyright © 2026 Milo Mayne. All Rights Reserved</p>
+        </footer>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/contador.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/productos.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sesion.js') }}"></script>
+</body>
+
+</html>

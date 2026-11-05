@@ -1,0 +1,243 @@
+/* Título de página */
+.admin-titulo {
+    background-color: var(--rosa-claro);
+    border-radius: 0 0 50px 50px;
+    text-align: center;
+    font-family: var(--the-seasons);
+}
+
+.admin-titulo h1 {
+    font-size: 2.4rem;
+    font-weight: 400;
+    padding: 12px 0 18px;
+}
+
+/* Contenedor */
+.admin-contenido {
+    flex: 1;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 28px 24px 48px;
+}
+
+/* Tarjeta de producto */
+.admin-producto {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #a9a9a9;
+}
+
+.admin-foto {
+    flex: 0 0 150px;
+    height: 150px;
+    border-radius: 50px;
+    overflow: hidden;
+    background-color: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.admin-foto i {
+    font-size: 3.5rem;
+    color: #7a7a7a;
+}
+
+.admin-info {
+    display: grid;
+    align-content: start;
+    font-size: 15px;
+}
+
+.admin-info h2 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.admin-info p {
+    margin-bottom: 4px;
+}
+
+.admin-info strong {
+    font-weight: 600;
+}
+
+.admin-detalle {
+    color: #515151;
+}
+
+.admin-visible {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.admin-visible input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--rosa-oscuro);
+}
+
+/* Botón */
+.admin-boton {
+    display: inline-block;
+    justify-self: start;
+    margin-top: 10px;
+    padding: 6px 24px;
+    border: none;
+    border-radius: 32px;
+    background-color: var(--rosa-oscuro);
+    color: #fff;
+    font-family: var(--montserrat);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.admin-boton:hover {
+    opacity: 0.85;
+}
+
+/* Formulario de edición */
+.admin-form-nombre {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.admin-bloque {
+    background-color: var(--rosa-claro);
+    border-radius: 40px;
+    padding: 22px 28px 26px;
+    margin-bottom: 20px;
+}
+
+.admin-bloque h3 {
+    color: var(--rosa-oscuro);
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.admin-etiqueta {
+    display: block;
+    margin: 12px 0 4px;
+    font-size: 14px;
+}
+
+.admin-form input[type="number"],
+.admin-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--rosa-oscuro);
+    border-radius: 8px;
+    background: #fff;
+    font-family: var(--montserrat);
+    font-size: 14px;
+}
+
+.admin-form textarea {
+    resize: vertical;
+}
+
+.admin-form .admin-foto {
+    width: 150px;
+    margin-bottom: 12px;
+}
+
+.admin-colores {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 8px 12px;
+}
+
+.admin-colores label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.admin-colores input {
+    accent-color: var(--rosa-oscuro);
+}
+
+.admin-acciones {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 24px;
+}
+
+.admin-cancelar {
+    color: var(--rosa-oscuro);
+    text-decoration: underline;
+}
+
+/* Banner */
+.admin-banner-actual {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.admin-form input[type="file"] {
+    font-family: var(--montserrat);
+    font-size: 14px;
+}
+
+/* Colores */
+.admin-agregar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.admin-agregar input[type="text"] {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid var(--rosa-oscuro);
+    border-radius: 8px;
+    background: #fff;
+    font-family: var(--montserrat);
+    font-size: 14px;
+}
+
+.admin-color-fila {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #a9a9a9;
+    font-size: 16px;
+}
+
+.admin-agregar .admin-boton,
+.admin-color-fila .admin-boton {
+    margin-top: 0;
+}
+
+.admin-ayuda {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.admin-form select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--rosa-oscuro);
+    border-radius: 8px;
+    background: #fff;
+    font-family: var(--montserrat);
+    font-size: 14px;
+}

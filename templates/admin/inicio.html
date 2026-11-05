@@ -1,0 +1,54 @@
+{% extends "admin/base.html" %}
+
+{% block titulo %}Inicio{% endblock %}
+
+{% block contenido %}
+<form class="admin-form" method="post" enctype="multipart/form-data">
+
+    <section class="admin-bloque">
+        <h3>Banner de promo</h3>
+        <img class="admin-banner-actual"
+             src="{{ url_for('static', filename='images/imagenes-main/promo-flores-amarillas.png') }}"
+             alt="Banner actual">
+        <label class="admin-etiqueta" for="banner">Subir un banner nuevo</label>
+        <input type="file" id="banner" name="banner" accept="image/*">
+        <label class="admin-visible">
+            <input type="checkbox" name="mostrar" checked> Mostrar en el inicio
+        </label>
+    </section>
+
+    <section class="admin-bloque">
+        <h3>Elecciones de autor</h3>
+        <p class="admin-ayuda">Elegí los 3 ramos que aparecen en esa sección del inicio.</p>
+
+        <label class="admin-etiqueta" for="eleccion_1">Elección 1</label>
+        <select id="eleccion_1" name="eleccion_1">
+            <option value="">— Sin elegir —</option>
+            <option value="1">Ramo de flores frescas - M</option>
+            <option value="2">Ramo de flores secas - S</option>
+            <option value="3">Corona de flores frescas</option>
+        </select>
+
+        <label class="admin-etiqueta" for="eleccion_2">Elección 2</label>
+        <select id="eleccion_2" name="eleccion_2">
+            <option value="">— Sin elegir —</option>
+            <option value="1">Ramo de flores frescas - M</option>
+            <option value="2">Ramo de flores secas - S</option>
+            <option value="3">Corona de flores frescas</option>
+        </select>
+
+        <label class="admin-etiqueta" for="eleccion_3">Elección 3</label>
+        <select id="eleccion_3" name="eleccion_3">
+            <option value="">— Sin elegir —</option>
+            <option value="1">Ramo de flores frescas - M</option>
+            <option value="2">Ramo de flores secas - S</option>
+            <option value="3">Corona de flores frescas</option>
+        </select>
+    </section>
+
+    <div class="admin-acciones">
+        <button type="submit" class="admin-boton">Guardar cambios</button>
+        <a href="/admin-preview/productos" class="admin-cancelar">Cancelar</a>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,156 @@
+/* Header, footer, fuentes, título de página y la escala de tamaños (--u, --fs-...)
+   salen de main.css. Este archivo tiene SOLO lo de la página Quién soy.
+   En quien_soy.html cargá main.css ANTES que este archivo. */
+
+/* ========== Textos ========== */
+
+.titulo-seccion{
+    font-family: var(--the-seasons);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--texto);
+}
+
+.titulo-perfil{
+    font-size: max(2rem, calc(var(--u) * 3.6));
+}
+
+/* "Mi" y "Mis" en rosa, sin cursiva */
+.palabra-rosa{
+    font-style: normal;
+    color: var(--rosa-oscuro);
+}
+
+.texto-perfil{
+    font-size: max(0.9rem, calc(var(--u) * 1.1));
+    line-height: 1.4;
+    color: #262626;
+}
+
+/* ========== Estructura ========== */
+
+.perfil{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: max(40px, calc(var(--u) * 3.5));
+    width: 100%;
+    max-width: calc(var(--u) * 72);
+    margin: 0 auto;
+    padding: max(32px, calc(var(--u) * 3)) max(20px, calc(var(--u) * 3.5));
+}
+
+/* ---------- Introducción ---------- */
+
+.introduccion{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.introduccion-cabecera{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.foto-introduccion{
+    display: block;
+    width: 100%;
+    aspect-ratio: 2.42 / 1;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ---------- Presentación (2 columnas x 2 filas) ---------- */
+
+.presentacion{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.presentacion-texto{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.presentacion-parrafos{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.foto-milo{
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+}
+
+.foto-bocetos{
+    display: block;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    object-position: center;
+}
+
+.trayectoria-listas{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.bloque-lista{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.lista-puntos{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 1.2em;
+    list-style: disc outside;
+}
+
+/* ========== Pantallas medianas y grandes ========== */
+
+@media (min-width: 768px){
+    .introduccion-cabecera{
+        flex-direction: row;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .introduccion-cabecera .titulo-perfil{
+        white-space: nowrap;
+    }
+
+    .introduccion-texto{
+        flex: 1;
+    }
+
+    /* columnas 40 / 57 con 3% de separación */
+    .presentacion{
+        grid-template-columns: 40fr 57fr;
+        column-gap: 3%;
+        row-gap: 32px;
+    }
+
+    /* los textos van sangrados respecto de las fotos */
+    .presentacion-texto,
+    .trayectoria-listas{
+        padding-left: max(24px, calc(var(--u) * 2.3));
+    }
+
+    .trayectoria-listas{
+        align-self: center;
+        gap: max(48px, calc(var(--u) * 4));
+    }
+}

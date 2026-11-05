@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración | Milo Mayne</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+
+    <header class="encabezado">
+        <div class="logo">
+            <a href="/admin-preview/productos">
+                <img src="{{ url_for('static', filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO_principal_N.png') }}" alt="Milo Mayne">
+            </a>
+        </div>
+        <nav class="menu">
+            <a href="/admin-preview/productos" {% if 'producto' in request.path %}class="activo"{% endif %}>Productos</a>
+            <a href="/admin-preview/inicio" {% if 'inicio' in request.path %}class="activo"{% endif %}>Inicio</a>
+            <a href="/admin-preview/colores" {% if 'colores' in request.path %}class="activo"{% endif %}>Colores</a>
+            <a href="/">Salir</a>
+        </nav>
+    </header>
+
+    <section class="admin-titulo">
+        <h1>{% block titulo %}{% endblock %}</h1>
+    </section>
+
+    <main class="admin-contenido">
+        {% block contenido %}{% endblock %}
+    </main>
+
+    <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+</body>
+</html>
