@@ -241,3 +241,137 @@
     font-family: var(--montserrat);
     font-size: 14px;
 }
+
+/* ===== Pedidos ===== */
+
+.admin-filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.admin-filtro {
+    padding: 6px 18px;
+    border: 1.5px solid var(--rosa-oscuro);
+    border-radius: 999px;
+    background: none;
+    font-family: var(--montserrat);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.admin-filtro.activo {
+    background-color: var(--rosa-oscuro);
+    color: #fff;
+}
+
+.admin-pedido {
+    background-color: var(--rosa-claro);
+    border-radius: 30px;
+    margin-bottom: 14px;
+}
+
+.admin-pedido summary {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 6px 16px;
+    padding: 16px 24px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.admin-pedido summary::-webkit-details-marker { display: none; }
+
+.admin-pedido-num { font-weight: 700; font-size: 17px; }
+.admin-pedido-quien { color: #515151; font-size: 14px; }
+.admin-pedido-total { font-weight: 600; }
+
+.admin-estado {
+    padding: 4px 14px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.admin-estado-pendiente { background-color: var(--rosa-oscuro); color: #fff; }
+.admin-estado-pagado    { background-color: var(--verde); }
+.admin-estado-enviado   { background-color: #dcdcdc; }
+.admin-estado-entregado { background-color: #fff; border-color: #8a8a8a; }
+
+.admin-pedido-cuerpo {
+    padding: 4px 24px 24px;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    font-size: 15px;
+}
+
+.admin-pedido-cuerpo h3 {
+    color: var(--rosa-oscuro);
+    font-size: 18px;
+    margin: 16px 0 8px;
+}
+
+.admin-pedido-cuerpo p { margin-bottom: 4px; }
+
+.admin-pedido-columnas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 24px;
+}
+
+.admin-pedido-item {
+    display: flex;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid #b9a9a9;
+}
+
+.admin-pedido-item .admin-foto {
+    flex: 0 0 90px;
+    height: 90px;
+    border-radius: 28px;
+}
+
+.admin-pedido-item .admin-foto i { font-size: 2rem; }
+
+.admin-pedido-item h4 { font-size: 16px; margin-bottom: 2px; }
+
+.admin-pedido-totales { margin-top: 16px; }
+
+.admin-pedido-totales p {
+    display: flex;
+    justify-content: space-between;
+    max-width: 320px;
+}
+
+.admin-pedido-total-final {
+    font-weight: 700;
+    font-size: 17px;
+    margin-top: 6px;
+}
+
+.admin-pedido-estado {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.admin-pedido-estado select {
+    padding: 8px 12px;
+    border: 1px solid var(--rosa-oscuro);
+    border-radius: 8px;
+    background: #fff;
+    font-family: var(--montserrat);
+    font-size: 14px;
+}
+
+.admin-vacio { text-align: center; padding: 24px 0; }
+
+@media (max-width: 600px) {
+    .admin-pedido summary { grid-template-columns: 1fr auto; }
+    .admin-pedido-columnas { grid-template-columns: 1fr; }
+}

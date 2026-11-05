@@ -1,117 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restablecer Contraseña - Milo Mayne</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/usuario.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO_principal_B_sf.png') }}" type="image/png">
-</head>
-<body>
-    <!-- Header principal de la tienda -->
-    <header class="encabezado">
-        <div class="logo">
-            <a href="/">
-                <img src="{{url_for('static', filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO_principal_N.png')}}" alt="Milo Mayne">
-            </a>
-        </div>
-        <nav class="menu">
-            <a href="/">Inicio</a>
-            <a href="/productos">Productos</a>
-            <a href="/quien-soy">¿Quién soy?</a>
-            <a href="/que-puedo-hacer">¿Qué puedo hacer?</a>
-            <a href="/contacto">Contacto</a>
-        </nav>
-    </header>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Restablecer Contraseña - Milo Mayne</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/usuario.css') }}">
+        <link rel="icon" href="{{ url_for('static', filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO_principal_B_sf.png') }}" type="image/png">
+    </head>
+    <body>
+        <!-- Header principal de la tienda -->
+        <header class="encabezado">
+            <div class="logo">
+                <a href="/">
+                    <img src="{{url_for('static', filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO_principal_N.png')}}" alt="Milo Mayne">
+                </a>
+            </div>
+            <nav class="menu">
+                <a href="/">Inicio</a>
+                <a href="/productos">Productos</a>
+                <a href="/quien-soy">¿Quién soy?</a>
+                <a href="/que-puedo-hacer">¿Qué puedo hacer?</a>
+                <a href="/contacto">Contacto</a>
+            </nav>
+        </header>
 
-    <!-- Contenido principal -->
-    <main class="usuario" style="display: flex; justify-content: center; align-items: center; min-height: 70vh;">
-        <section class="usuario-columna" style="max-width: 450px; width: 100%;">
-            <h2>Restablecer contraseña</h2>
-            <form id="form-restablecer" class="formulario">
+        <!-- Contenido principal -->
+        <main class="usuario" style="display: flex; justify-content: center; align-items: center; min-height: 70vh;">
+            <section class="usuario-columna" style="max-width: 450px; width: 100%;">
+                <h2>Restablecer contraseña</h2>
+                <form id="form-restablecer" class="formulario">
 
-                <label for="nueva-clave">Nueva contraseña (mínimo 6 caracteres)</label>
-                <div class="input-password-container" style="position: relative; display: flex; align-items: center; margin-bottom: 15px;">
-                    <input type="password" id="nueva-clave" name="clave" autocomplete="new-password" required minlength="6"
-                        style="width: 100%; padding-right: 40px;">
-                    <button type="button" class="btn-toggle-pass" onclick="togglePasswordVisibility('nueva-clave', this)"
-                        style="position: absolute; right: 10px; background: none; border: none; cursor: pointer; padding: 0; font-size: 16px;">
-                        👁️
-                    </button>
-                </div>
+                    <label for="nueva-clave">Nueva contraseña (mínimo 6 caracteres)</label>
+                    <div class="input-password-container" style="position: relative; display: flex; align-items: center; margin-bottom: 15px;">
+                        <input type="password" id="nueva-clave" name="clave" autocomplete="new-password" required minlength="6"
+                            style="width: 100%; padding-right: 40px;">
+                        <button type="button" class="btn-toggle-pass" onclick="togglePasswordVisibility('nueva-clave', this)"
+                            style="position: absolute; right: 10px; background: none; border: none; cursor: pointer; padding: 0; font-size: 16px;">
+                            👁️
+                        </button>
+                    </div>
 
-                <label for="confirmar-clave">Repetir nueva contraseña</label>
-                <div class="input-password-container" style="position: relative; display: flex; align-items: center; margin-bottom: 20px;">
-                    <input type="password" id="confirmar-clave" name="confirmar_clave" autocomplete="new-password" required minlength="6"
-                        style="width: 100%; padding-right: 40px;">
-                    <button type="button" class="btn-toggle-pass" onclick="togglePasswordVisibility('confirmar-clave', this)"
-                        style="position: absolute; right: 10px; background: none; border: none; cursor: pointer; padding: 0; font-size: 16px;">
-                        👁️
-                    </button>
-                </div>
+                    <label for="confirmar-clave">Repetir nueva contraseña</label>
+                    <div class="input-password-container" style="position: relative; display: flex; align-items: center; margin-bottom: 20px;">
+                        <input type="password" id="confirmar-clave" name="confirmar_clave" autocomplete="new-password" required minlength="6"
+                            style="width: 100%; padding-right: 40px;">
+                        <button type="button" class="btn-toggle-pass" onclick="togglePasswordVisibility('confirmar-clave', this)"
+                            style="position: absolute; right: 10px; background: none; border: none; cursor: pointer; padding: 0; font-size: 16px;">
+                            👁️
+                        </button>
+                    </div>
 
-                <button type="submit">Actualizar contraseña</button>
-            </form>
-        </section>
-    </main>
+                    <button type="submit">Actualizar contraseña</button>
+                </form>
+            </section>
+        </main>
 
-    <!-- Footer -->
-    <footer class="pie">
-        <div class="logo">
-            <img src="{{url_for('static', filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO-LOGO_2_N.png')}}" alt="Milo Mayne">
-        </div>
-        <p>Copyright © 2026 Milo Mayne. All Rights Reserved</p>
-    </footer>
+        <!-- Footer -->
+        <footer class="pie">
+            <div class="logo">
+                <img src="{{url_for('static', filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO-LOGO_2_N.png')}}" alt="Milo Mayne">
+            </div>
+            <p>Copyright © 2026 Milo Mayne. All Rights Reserved</p>
+        </footer>
 
-    <!-- Script de validación asíncrona y alternancia de contraseña -->
-    <script>
-        // Función para mostrar/ocultar contraseña
-        function togglePasswordVisibility(inputId, btn) {
-            const input = document.getElementById(inputId);
-            if (input.type === 'password') {
-                input.type = 'text';
-                btn.textContent = '🙈';
-            } else {
-                input.type = 'password';
-                btn.textContent = '👁️';
-            }
-        }
-
-        // Manejo del formulario de restablecimiento
-        document.getElementById('form-restablecer').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const clave = document.getElementById('nueva-clave').value;
-            const confirmarClave = document.getElementById('confirmar-clave').value;
-            const token = "{{ token }}";
-
-            if (clave.length < 6) {
-                alert("La contraseña debe tener al menos 6 caracteres.");
-                return;
-            }
-
-            if (clave !== confirmarClave) {
-                alert("Las contraseñas no coinciden. Por favor, verifícalas.");
-                return;
-            }
-
-            try {
-                const response = await fetch(`/api/restablecer/${token}`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ clave })
-                });
-                const data = await response.json();
-                alert(data.message);
-
-                if (data.success) {
-                    window.location.href = '/cuenta';
+        <!-- Script de validación asíncrona y alternancia de contraseña -->
+        <script>
+            // Función para mostrar/ocultar contraseña
+            function togglePasswordVisibility(inputId, btn) {
+                const input = document.getElementById(inputId);
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    btn.textContent = '🙈';
+                } else {
+                    input.type = 'password';
+                    btn.textContent = '👁️';
                 }
-            } catch (err) {
-                console.error("Error al restablecer:", err);
-                alert("Ocurrió un error al procesar la solicitud.");
             }
-        });
-    </script>
-</body>
+
+            // Manejo del formulario de restablecimiento
+            document.getElementById('form-restablecer').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const clave = document.getElementById('nueva-clave').value;
+                const confirmarClave = document.getElementById('confirmar-clave').value;
+                const token = "{{ token }}";
+
+                if (clave.length < 6) {
+                    alert("La contraseña debe tener al menos 6 caracteres.");
+                    return;
+                }
+
+                if (clave !== confirmarClave) {
+                    alert("Las contraseñas no coinciden. Por favor, verifícalas.");
+                    return;
+                }
+
+                try {
+                    const response = await fetch(`/api/restablecer/${token}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ clave })
+                    });
+                    const data = await response.json();
+                    alert(data.message);
+
+                    if (data.success) {
+                        window.location.href = '/cuenta';
+                    }
+                } catch (err) {
+                    console.error("Error al restablecer:", err);
+                    alert("Ocurrió un error al procesar la solicitud.");
+                }
+            });
+        </script>
+    </body>
 </html>

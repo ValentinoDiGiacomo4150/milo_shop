@@ -1,143 +1,145 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Producto | Milo Mayne</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/producto.css') }}">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Producto | Milo Mayne</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/producto.css') }}">
+    </head>
 
-<body>
+    <body>
 
-    <div class="wrapper">
+        <div class="wrapper">
 
-        <header class="encabezado">
-            <div class="logo">
-                <a href="/"><img
-                        src="{{ url_for('static', filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO_principal_N.png') }}"
-                        alt="Milo Mayne"></a>
-            </div>
-            <nav class="menu">
-                <a href="/">Inicio</a>
-                <a href="/productos" class="activo">Productos</a>
-                <a href="/quien-soy">¿Quién soy?</a>
-                <a href="/que-puedo-hacer">¿Qué puedo hacer?</a>
-                <a href="/contacto">Contacto</a>
-            </nav>
-            <div class="iconos">
-                <a href="/carrito" class="enlace-carrito">
-                    <img src="{{ url_for('static', filename='images/logos/shopping-cart-01.png') }}" alt="Carrito">
-                    <span class="contador-carrito" {% if cart_count == 0 %}hidden{% endif %}>{{ cart_count }}</span>
-                </a>
-                <div class="cuenta-menu-container" style="position: relative; display: inline-block;">
-                    <a href="/cuenta" id="icono-cuenta-link" style="position: relative;">
-                        <img src="{{ url_for('static', filename='images/logos/user.png') }}" alt="Cuenta">
-                        <span id="punto-verde"
-                            style="display: none; position: absolute; top: 0; right: 0; width: 10px; height: 10px; background-color: #2ecc71; border-radius: 50%; border: 2px solid #fff;"></span>
-                    </a>
-
-                    <!-- Menú desplegable de cuenta -->
-                    <div id="dropdown-cuenta" class="dropdown-content"
-                        style="display: none; position: absolute; right: 0; background: white; border: 1px solid #ddd; padding: 12px; box-shadow: 0px 4px 12px rgba(0,0,0,0.1); border-radius: 8px; width: 220px; z-index: 100;">
-                        <p id="dropdown-nombre" style="font-weight: bold; margin: 0 0 4px 0; color: #333;"></p>
-                        <p id="dropdown-correo"
-                            style="font-size: 0.85em; color: #666; margin: 0 0 10px 0; word-break: break-all;"></p>
-                        <hr style="border: none; border-top: 1px solid #eee; margin: 8px 0;">
-                        <button id="btn-cerrar-sesion"
-                            style="width: 100%; background: #e74c3c; color: white; border: none; padding: 6px; border-radius: 4px; cursor: pointer;">Cerrar
-                            sesión</button>
-                    </div>
+            <header class="encabezado">
+                <div class="logo">
+                    <a href="/"><img
+                            src="{{ url_for('static', filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO_principal_N.png') }}"
+                            alt="Milo Mayne"></a>
                 </div>
-            </div> <!-- <-- ACÁ SE CIERRA CORRECTAMENTE EL DIV DE ICONOS -->
-        </header>
+                <nav class="menu">
+                    <a href="/">Inicio</a>
+                    <a href="/productos" class="activo">Productos</a>
+                    <a href="/quien-soy">¿Quién soy?</a>
+                    <a href="/que-puedo-hacer">¿Qué puedo hacer?</a>
+                    <a href="/contacto">Contacto</a>
+                </nav>
+                <div class="iconos">
+                    <a href="/carrito" class="enlace-carrito">
+                        <img src="{{ url_for('static', filename='images/logos/shopping-cart-01.png') }}" alt="Carrito">
+                        <span class="contador-carrito" {% if cart_count == 0 %}hidden{% endif %}>{{ cart_count }}</span>
+                    </a>
+                    <div class="cuenta-menu-container" style="position: relative; display: inline-block;">
+                        <a href="/cuenta" id="icono-cuenta-link" style="position: relative;">
+                            <img src="{{ url_for('static', filename='images/logos/user.png') }}" alt="Cuenta">
+                            <span id="punto-verde"
+                                style="display: none; position: absolute; top: 0; right: 0; width: 10px; height: 10px; background-color: #2ecc71; border-radius: 50%; border: 2px solid #fff;"></span>
+                        </a>
 
-        <main class="pp"> <!-- pp = pagina-producto -->
-            <div class="pp-izq">
-                <div class="pp-imagen placeholder"><i class="bi bi-flower1"></i></div>
-                <section class="pp-detalles">
-                    <h2>Detalles</h2>
-                    <div id="detalles"></div>
-                </section>
-            </div>
-
-            <div class="pp-der">
-                <h1 id="titulo"></h1>
-                <p id="precio" class="pp-precio"></p>
-
-                <!-- CORREGIDO: Añadido action y method para que guarde en la base de datos -->
-                <form id="form-compra" action="/carrito/agregar" method="POST">
-                    <fieldset id="bloque-colores">
-                        <legend>Elegí el color de tu ramo</legend>
-                        <div id="colores" class="pp-colores"></div>
-                    </fieldset>
-
-                    <fieldset id="bloque-calidad" hidden>
-                        <legend>Elegí la calidad</legend>
-                        <div id="calidades" class="pp-calidades"></div>
-                    </fieldset>
-
-                    <label for="dedicatoria">Escribí tu dedicatoria:</label>
-                    <textarea id="dedicatoria" rows="5"></textarea>
-
-                    <label for="adicionales">Adicionales:</label>
-                    <input type="text" id="adicionales">
-
-                    <div class="pp-compra">
-                        <div class="pp-cantidad">
-                            <span>CANTIDAD</span>
-                            <div>
-                                <button type="button" id="menos">−</button>
-                                <input type="number" id="cantidad" value="1" min="1">
-                                <button type="button" id="mas">+</button>
-                            </div>
+                        <!-- Menú desplegable de cuenta -->
+                        <div id="dropdown-cuenta" class="dropdown-content"
+                            style="display: none; position: absolute; right: 0; background: white; border: 1px solid #ddd; padding: 12px; box-shadow: 0px 4px 12px rgba(0,0,0,0.1); border-radius: 8px; width: 220px; z-index: 100;">
+                            <p id="dropdown-nombre" style="font-weight: bold; margin: 0 0 4px 0; color: #333;"></p>
+                            <p id="dropdown-correo"
+                                style="font-size: 0.85em; color: #666; margin: 0 0 10px 0; word-break: break-all;"></p>
+                            <hr style="border: none; border-top: 1px solid #eee; margin: 8px 0;">
+                            <button id="btn-cerrar-sesion"
+                                style="width: 100%; background: #e74c3c; color: white; border: none; padding: 6px; border-radius: 4px; cursor: pointer;">Cerrar
+                                sesión</button>
                         </div>
-                        <button type="submit" id="btn-agregar" disabled>
-                            <i class="bi bi-plus-lg"></i> Agregar al carrito
-                        </button>
                     </div>
-                    <p id="aviso-color" class="pp-aviso">Elegí al menos un color para continuar.</p>
-                </form>
+                </div> <!-- <-- ACÁ SE CIERRA CORRECTAMENTE EL DIV DE ICONOS -->
+            </header>
 
-                <div id="bloque-whatsapp" hidden>
-                    <p>Este producto se coordina directamente con el florista.</p>
-                    <a id="btn-whatsapp" class="pp-whatsapp" target="_blank" rel="noopener">
-                        <i class="bi bi-whatsapp"></i> Coordinar por WhatsApp
+            <main class="pp"> <!-- pp = pagina-producto -->
+                <div class="pp-izq">
+                    <div class="pp-imagen placeholder"><i class="bi bi-flower1"></i></div>
+                    <section class="pp-detalles">
+                        <h2>Detalles</h2>
+                        <div id="detalles"></div>
+                    </section>
+                </div>
+
+                <div class="pp-der">
+                    <h1 id="titulo"></h1>
+                    <p id="precio" class="pp-precio"></p>
+
+                    <!-- CORREGIDO: Añadido action y method para que guarde en la base de datos -->
+                    <form id="form-compra" action="/carrito/agregar" method="POST">
+                        <fieldset id="bloque-colores">
+                            <legend>Elegí el color de tu ramo</legend>
+                            <div id="colores" class="pp-colores"></div>
+                        </fieldset>
+
+                        <fieldset id="bloque-calidad" hidden>
+                            <legend>Elegí la calidad</legend>
+                            <div id="calidades" class="pp-calidades"></div>
+                        </fieldset>
+
+                        <label for="dedicatoria">Escribí tu dedicatoria:</label>
+                        <textarea id="dedicatoria" rows="5"></textarea>
+
+                        <label for="adicionales">Adicionales:</label>
+                        <input type="text" id="adicionales">
+
+                        <div class="pp-compra">
+                            <div class="pp-cantidad">
+                                <span>CANTIDAD</span>
+                                <div>
+                                    <button type="button" id="menos">−</button>
+                                    <input type="number" id="cantidad" value="1" min="1">
+                                    <button type="button" id="mas">+</button>
+                                </div>
+                            </div>
+                            <button type="submit" id="btn-agregar" disabled>
+                                <i class="bi bi-plus-lg"></i> Agregar al carrito
+                            </button>
+                        </div>
+                        <p id="aviso-color" class="pp-aviso">Elegí al menos un color para continuar.</p>
+                    </form>
+
+                    <div id="bloque-whatsapp" hidden>
+                        <p>Este producto se coordina directamente con el florista.</p>
+                        <a id="btn-whatsapp" class="pp-whatsapp" target="_blank" rel="noopener">
+                            <i class="bi bi-whatsapp"></i> Coordinar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="pie">
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO-LOGO_2_N.png') }}"
+                        alt="Milo Mayne">
+                </div>
+                <div class="redes">
+                    <a href="https://wa.me/5492616003474" target="_blank" rel="noopener">
+                        <img src="{{ url_for('static', filename='images/logos/whatsapp.png') }}" alt="WhatsApp">
+                    </a>
+                    <a href="https://www.instagram.com/mm.innovacionfloral" target="_blank" rel="noopener">
+                        <img src="{{ url_for('static', filename='images/logos/instagram.png') }}" alt="Instagram">
+                    </a>
+                    <a href="mailto:milomayne@gmail.com">
+                        <img src="{{ url_for('static', filename='images/logos/correo-electronico.png') }}"
+                            alt="Correo electrónico">
                     </a>
                 </div>
-            </div>
-        </main>
+                <p>Copyright © 2026 Milo Mayne. All Rights Reserved</p>
+            </footer>
 
-        <footer class="pie">
-            <div class="logo">
-                <img src="{{ url_for('static', filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO-LOGO_2_N.png') }}"
-                    alt="Milo Mayne">
-            </div>
-            <div class="redes">
-                <a href="https://wa.me/5492616003474" target="_blank" rel="noopener">
-                    <img src="{{ url_for('static', filename='images/logos/whatsapp.png') }}" alt="WhatsApp">
-                </a>
-                <a href="https://www.instagram.com/mm.innovacionfloral" target="_blank" rel="noopener">
-                    <img src="{{ url_for('static', filename='images/logos/instagram.png') }}" alt="Instagram">
-                </a>
-                <a href="mailto:milomayne@gmail.com">
-                    <img src="{{ url_for('static', filename='images/logos/correo-electronico.png') }}"
-                        alt="Correo electrónico">
-                </a>
-            </div>
-            <p>Copyright © 2026 Milo Mayne. All Rights Reserved</p>
-        </footer>
+        </div>
 
-    </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{{ url_for('static', filename='js/contador.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/producto-data.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/producto.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/sesion.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/menu_hamburguesa.js') }}"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ url_for('static', filename='js/contador.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/producto-data.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/producto.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/sesion.js') }}"></script>
-</body>
+    </body>
 
 </html>

@@ -26,6 +26,23 @@ document.querySelectorAll('input[type="file"]').forEach(input => {
 });
 
 // 3) Los interruptores de la lista se guardan solos al tocarlos
-document.querySelectorAll('input[data-autoenviar]').forEach(check => {
+document.querySelectorAll('[data-autoenviar]').forEach(check => {
     check.addEventListener('change', () => check.form.submit());
+});
+
+// 4) Filtrar pedidos por estado
+const filtros = document.querySelectorAll('.admin-filtro');
+filtros.forEach(boton => {
+    boton.addEventListener('click', () => {
+        filtros.forEach(b => b.classList.toggle('activo', b === boton));
+        const estado = boton.dataset.filtro;
+        let visibles = 0;
+        document.querySelectorAll('.admin-pedido').forEach(p => {
+            const ver = estado === 'todos' || p.dataset.estado === estado;
+            p.hidden = !ver;
+            if (ver) visibles++;
+        });
+        const vacio = document.querySelector('.admin-vacio');
+        if (vacio) vacio.hidden = visibles > 0;
+    });
 });

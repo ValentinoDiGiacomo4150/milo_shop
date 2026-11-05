@@ -655,6 +655,14 @@ def pagina_no_encontrada(e):
         return "Página de administración no encontrada", 404
     return redirect(url_for("inicio"))
 
+# -------------------------------------------------------------
+# pedidos del admin
+# -------------------------------------------------------------
+
+@app.route('/admin-preview/pedidos')
+def preview_admin_pedidos():
+    return render_template('admin/pedidos.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

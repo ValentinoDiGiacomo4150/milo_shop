@@ -1,0 +1,186 @@
+{% extends "admin/base.html" %}
+
+{% block titulo %}Pedidos{% endblock %}
+
+{% block contenido %}
+
+<!-- Filtro por estado (filtra con JS; Se debe reemplazar por ?estado=... en el servidor) -->
+<nav class="admin-filtros" aria-label="Filtrar pedidos">
+    <button type="button" class="admin-filtro activo" data-filtro="todos">Todos</button>
+    <button type="button" class="admin-filtro" data-filtro="pendiente">Pendientes</button>
+    <button type="button" class="admin-filtro" data-filtro="pagado">Pagados</button>
+    <button type="button" class="admin-filtro" data-filtro="enviado">Enviados</button>
+    <button type="button" class="admin-filtro" data-filtro="entregado">Entregados</button>
+</nav>
+
+<!-- ===== Pedido (se repite uno por pedido; el más nuevo primero) ===== -->
+<details class="admin-pedido" data-estado="pendiente">
+    <summary>
+        <span class="admin-pedido-num">Pedido #1042</span>
+        <span class="admin-pedido-quien">Lucía Gómez · 04/11/2026</span>
+        <span class="admin-pedido-total">$36.850</span>
+        <span class="admin-estado admin-estado-pendiente">Pendiente</span>
+    </summary>
+
+    <div class="admin-pedido-cuerpo">
+        <div class="admin-pedido-columnas">
+            <section>
+                <h3>Cliente</h3>
+                <p><strong>Nombre:</strong> Lucía Gómez</p>
+                <p><strong>Correo:</strong> lucia@mail.com</p>
+                <p><strong>Teléfono:</strong> 261 555-1234</p>
+            </section>
+            <section>
+                <h3>Envío</h3>
+                <p><strong>Tipo:</strong> Envío a domicilio - Correo argentino clásico</p>
+                <p><strong>Dirección:</strong> San Martín 123, Mendoza</p>
+                <p><strong>Código postal:</strong> 5500</p>
+            </section>
+        </div>
+
+        <h3>Productos</h3>
+        <article class="admin-pedido-item">
+            <div class="admin-foto placeholder"><i class="bi bi-flower1"></i></div>
+            <div class="admin-info">
+                <h4>Ramo de flores frescas</h4>
+                <p class="admin-detalle">Premium</p>
+                <p><strong>Tamaño:</strong> M</p>
+                <p><strong>Color:</strong> Rosa, Blanco</p>
+                <p><strong>Dedicatoria:</strong> Feliz cumpleaños, mamá</p>
+                <p><strong>Adicionales:</strong> Caja de bombones</p>
+                <p><strong>Cantidad:</strong> 1 · <strong>$30.200</strong></p>
+            </div>
+        </article>
+
+        <div class="admin-pedido-totales">
+            <p>Subtotal <span>$30.200</span></p>
+            <p>Adicionales <span>$2.500</span></p>
+            <p>Envío <span>$4.150</span></p>
+            <p class="admin-pedido-total-final">Total <span>$36.850</span></p>
+        </div>
+
+        <form method="post" class="admin-pedido-estado">
+            <input type="hidden" name="pedido_id" value="1042">
+            <label for="estado-1042">Estado del pedido</label>
+            <select id="estado-1042" name="estado" data-autoenviar>
+                <option value="pendiente" selected>Pendiente</option>
+                <option value="pagado">Pagado</option>
+                <option value="enviado">Enviado</option>
+                <option value="entregado">Entregado</option>
+            </select>
+        </form>
+    </div>
+</details>
+
+<details class="admin-pedido" data-estado="pagado">
+    <summary>
+        <span class="admin-pedido-num">Pedido #1041</span>
+        <span class="admin-pedido-quien">Martín Pérez · 03/11/2026</span>
+        <span class="admin-pedido-total">$43.000</span>
+        <span class="admin-estado admin-estado-pagado">Pagado</span>
+    </summary>
+
+    <div class="admin-pedido-cuerpo">
+        <div class="admin-pedido-columnas">
+            <section>
+                <h3>Cliente</h3>
+                <p><strong>Nombre:</strong> Martín Pérez</p>
+                <p><strong>Correo:</strong> martin@mail.com</p>
+                <p><strong>Teléfono:</strong> 261 555-9876</p>
+            </section>
+            <section>
+                <h3>Envío</h3>
+                <p><strong>Tipo:</strong> Punto de retiro</p>
+            </section>
+        </div>
+
+        <h3>Productos</h3>
+        <article class="admin-pedido-item">
+            <div class="admin-foto placeholder"><i class="bi bi-flower1"></i></div>
+            <div class="admin-info">
+                <h4>Ramo de flores secas</h4>
+                <p class="admin-detalle">Calidad única</p>
+                <p><strong>Tamaño:</strong> S</p>
+                <p><strong>Color:</strong> Natural</p>
+                <p><strong>Cantidad:</strong> 2 · <strong>$40.000</strong></p>
+            </div>
+        </article>
+
+        <div class="admin-pedido-totales">
+            <p>Subtotal <span>$40.000</span></p>
+            <p>Adicionales <span>$0</span></p>
+            <p>Envío <span>$3.000</span></p>
+            <p class="admin-pedido-total-final">Total <span>$43.000</span></p>
+        </div>
+
+        <form method="post" class="admin-pedido-estado">
+            <input type="hidden" name="pedido_id" value="1041">
+            <label for="estado-1041">Estado del pedido</label>
+            <select id="estado-1041" name="estado" data-autoenviar>
+                <option value="pendiente">Pendiente</option>
+                <option value="pagado" selected>Pagado</option>
+                <option value="enviado">Enviado</option>
+                <option value="entregado">Entregado</option>
+            </select>
+        </form>
+    </div>
+</details>
+
+<details class="admin-pedido" data-estado="entregado">
+    <summary>
+        <span class="admin-pedido-num">Pedido #1040</span>
+        <span class="admin-pedido-quien">Sofía Ruiz · 29/10/2026</span>
+        <span class="admin-pedido-total">$34.350</span>
+        <span class="admin-estado admin-estado-entregado">Entregado</span>
+    </summary>
+
+    <div class="admin-pedido-cuerpo">
+        <div class="admin-pedido-columnas">
+            <section>
+                <h3>Cliente</h3>
+                <p><strong>Nombre:</strong> Sofía Ruiz</p>
+                <p><strong>Correo:</strong> sofia@mail.com</p>
+                <p><strong>Teléfono:</strong> 261 555-4567</p>
+            </section>
+            <section>
+                <h3>Envío</h3>
+                <p><strong>Tipo:</strong> Envío a domicilio - Correo argentino clásico</p>
+                <p><strong>Dirección:</strong> Belgrano 456, Godoy Cruz</p>
+                <p><strong>Código postal:</strong> 5501</p>
+            </section>
+        </div>
+
+        <h3>Productos</h3>
+        <article class="admin-pedido-item">
+            <div class="admin-foto placeholder"><i class="bi bi-flower1"></i></div>
+            <div class="admin-info">
+                <h4>Ramo de flores frescas</h4>
+                <p class="admin-detalle">Estación</p>
+                <p><strong>Tamaño:</strong> M</p>
+                <p><strong>Color:</strong> Amarillo</p>
+                <p><strong>Cantidad:</strong> 1 · <strong>$30.200</strong></p>
+            </div>
+        </article>
+
+        <div class="admin-pedido-totales">
+            <p>Subtotal <span>$30.200</span></p>
+            <p>Adicionales <span>$0</span></p>
+            <p>Envío <span>$4.150</span></p>
+            <p class="admin-pedido-total-final">Total <span>$34.350</span></p>
+        </div>
+
+        <form method="post" class="admin-pedido-estado">
+            <input type="hidden" name="pedido_id" value="1040">
+            <label for="estado-1040">Estado del pedido</label>
+            <select id="estado-1040" name="estado" data-autoenviar>
+                <option value="pendiente">Pendiente</option>
+                <option value="pagado">Pagado</option>
+                <option value="enviado">Enviado</option>
+                <option value="entregado" selected>Entregado</option>
+            </select>
+        </form>
+    </div>
+</details>
+
+<p class="admin-vacio" hidden>No hay pedidos con ese estado.</p>
+{% endblock %}
