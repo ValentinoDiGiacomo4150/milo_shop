@@ -1,0 +1,86 @@
+{% extends "admin/base.html" %}
+
+{% block titulo %}Pedidos{% endblock %}
+
+{% block contenido %}
+
+<!-- Filtro por estado (filtra con JS; Se debe reemplazar por ?estado=... en el servidor) -->
+<nav class="admin-filtros" aria-label="Filtrar pedidos">
+    <button type="button" class="admin-filtro activo" data-filtro="todos">Todos</button>
+    <button type="button" class="admin-filtro" data-filtro="pendiente">Pendientes</button>
+    <button type="button" class="admin-filtro" data-filtro="pagado">Pagados</button>
+    <button type="button" class="admin-filtro" data-filtro="enviado">Enviados</button>
+    <button type="button" class="admin-filtro" data-filtro="entregado">Entregados</button>
+</nav>
+
+<!-- ===== Pedido (bucle dinámico desde la Base de Datos) ===== -->
+{% for pedido in pedidos %}
+<details class="admin-pedido" data-estado="{{ pedido.estado }}">
+    <summary>
+        <span class="admin-pedido-num">Pedido #{{ pedido.id }}</span>
+        <span class="admin-pedido-quien">{{ pedido.nombre_cliente }} · {{ pedido.fecha.strftime('%d/%m/%Y') if pedido.fecha else '' }}</span>
+        <span class="admin-pedido-total">${{ pedido.total }}</span>
+        <span class="admin-estado admin-estado-{{ pedido.estado }}">{{ pedido.estado | title }}</span>
+    </summary>
+
+    <div class="admin-pedido-cuerpo">
+        <div class="admin-pedido-columnas">
+            <section>
+                <h3>Cliente</h3>
+                <p><strong>Nombre:</strong> {{ pedido.nombre_cliente }}</p>
+                <p><strong>Correo:</strong> {{ pedido.correo }}</p>
+                <p><strong>Teléfono:</strong> {{ pedido.telefono }}</p>
+            </section>
+            <section>
+                <h3>Envío</h3>
+                <p><strong>Tipo:</strong> {{ pedido.tipo_envio }}</p>
+                {% if pedido.direccion %}
+                <p><strong>Dirección:</strong> {{ pedido.direccion }}</p>
+                {% endif %}
+                {% if pedido.codigo_postal %}
+                <p><strong>Código postal:</strong> {{ pedido.codigo_postal }}</p>
+                {% endif %}
+            </section>
+        </div>
+
+        <h3>Productos</h3>
+        {% for item in pedido.items %}
+        <article class="admin-pedido-item">
+            <div class="admin-foto placeholder"><i class="bi bi-flower1"></i></div>
+            <div class="admin-info">
+                <h4>{{ item.nombre_producto }}</h4>
+                {% if item.detalle %}<p class="admin-detalle">{{ item.detalle }}</p>{% endif %}
+                {% if item.tamano %}<p><strong>Tamaño:</strong> {{ item.tamano }}</p>{% endif %}
+                {% if item.color %}<p><strong>Color:</strong> {{ item.color }}</p>{% endif %}
+                {% if item.dedicatoria %}<p><strong>Dedicatoria:</strong> {{ item.dedicatoria }}</p>{% endif %}
+                {% if item.adicionales %}<p><strong>Adicionales:</strong> {{ item.adicionales }}</p>{% endif %}
+                <p><strong>Cantidad:</strong> {{ item.cantidad }} · <strong>${{ item.subtotal }}</strong></p>
+            </div>
+        </article>
+        {% endfor %}
+
+        <div class="admin-pedido-totales">
+            <p>Subtotal <span>${{ pedido.subtotal }}</span></p>
+            <p>Adicionales <span>${{ pedido.adicionales | default(0) }}</span></p>
+            <p>Envío <span>${{ pedido.envio | default(0) }}</span></p>
+            <p class="admin-pedido-total-final">Total <span>${{ pedido.total }}</span></p>
+        </div>
+
+        <form method="post" class="admin-pedido-estado">
+            <input type="hidden" name="pedido_id" value="{{ pedido.id }}">
+            <label for="estado-{{ pedido.id }}">Estado del pedido</label>
+            <select id="estado-{{ pedido.id }}" name="estado" data-autoenviar>
+                <option value="pendiente" {% if pedido.estado == 'pendiente' %}selected{% endif %}>Pendiente</option>
+                <option value="pagado" {% if pedido.estado == 'pagado' %}selected{% endif %}>Pagado</option>
+                <option value="enviado" {% if pedido.estado == 'enviado' %}selected{% endif %}>Enviado</option>
+                <option value="entregado" {% if pedido.estado == 'entregado' %}selected{% endif %}>Entregado</option>
+            </select>
+        </form>
+    </div>
+</details>
+{% else %}
+<p style="text-align: center; color: #7f8c8d; padding: 40px; font-size: 1.1em;">No hay pedidos registrados en este momento.</p>
+{% endfor %}
+
+<p class="admin-vacio" hidden>No hay pedidos con ese estado.</p>
+{% endblock %}

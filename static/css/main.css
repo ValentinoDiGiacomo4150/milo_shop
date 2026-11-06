@@ -1,0 +1,443 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+@font-face {
+    font-family: 'Tan Pearl';
+    src: url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.otf') format('opentype'), url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.ttf') format('truetype'), url('../fuentes/TAN-Pearl-Font/TAN-Pearl-Regular.woff2') format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'The Seasons';
+    src: url('../fuentes/The.Seasons/The%20Seasons%20Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gendy';
+    src: url('../fuentes/gendy/Gendy.otf') format('opentype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Glacial Indifference';
+    src: url('../fuentes/glacial-indifference/GlacialIndifference-Regular.otf') format('opentype');
+    font-display: swap;
+}
+
+:root {
+    --fondo: #f4f2ef;
+    --rosa-claro: #f4dbdb;
+    --rosa-oscuro: #cd4662;
+    --verde: #aec289;
+    --montserrat: 'Montserrat', Arial, sans-serif;
+    --the-seasons: 'The Seasons', Georgia, serif;
+    --tan-pearl: 'Than Pearl', Georgia, serif;
+    --glacial-indifference: 'Glacial Indifference', Arial, sans-serif;
+    --gendy: 'Gendy', cursive;
+        /* alias para los CSS de producto y productos */
+    --clr-main: var(--fondo);
+    --clr-rosaclaro: var(--rosa-claro);
+    --clr-rosaoscuro: var(--rosa-oscuro);
+    --clr-verde: var(--verde);
+    --texto: #111;
+
+    /* ---------- Escala proporcional al ancho de la pantalla ----------
+       1 unidad (--u) = 1% del ancho de pantalla, con tope en pantallas grandes (1900px).
+       Para agrandar o achicar TODO el sitio de una vez, cambiá el 1vw:
+       1.1vw = 10% más grande, 0.9vw = 10% más chico. */
+    --u: min(1vw, 19px);
+
+    /* tamaños de texto */
+    --fs-titulo-pagina: max(2rem, calc(var(--u) * 3.16));     /* banner rosa de cada página */
+    --fs-titulo-seccion: max(1.5rem, calc(var(--u) * 2.5));   /* Recomendados, categorías... */
+    --fs-subtitulo: max(1rem, calc(var(--u) * 1.5));          /* título de tarjeta, etiquetas */
+    --fs-texto: max(0.875rem, calc(var(--u) * 1.26));         /* precios y párrafos */
+    --fs-boton: max(0.9rem, calc(var(--u) * 1.35));           /* botones "comprar" */
+    --fs-menu: clamp(16px, calc(var(--u) * 1.3), 19px);       /* menú del header */
+
+    /* separaciones y anchos */
+    --esp: max(16px, calc(var(--u) * 2.1));                   /* entre tarjetas y márgenes */
+    --ancho-home: calc(var(--u) * 63);                        /* Recomendados y Elecciones de autor */
+    --ancho-carrusel: calc(var(--u) * 68);                    /* carruseles de Productos */
+    --ancho-producto: calc(var(--u) * 63);                    /* página de un producto */
+}
+
+/* en pantallas angostas los contenedores ocupan todo el ancho */
+@media (max-width: 900px) {
+    :root {
+        --ancho-home: 100%;
+        --ancho-carrusel: 100%;
+        --ancho-producto: 100%;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--montserrat);
+    background: var(--fondo);
+    color: #000000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+h1, h2, h3, h4, h5, h6, p, a, input, textarea{
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+button{
+    font-family: inherit;
+}
+
+/*  Header  */
+
+.encabezado {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--rosa-claro);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 14px 40px;
+    gap: 30px;
+    font-family: var(--montserrat);
+    color: #000;
+}
+
+.encabezado a {
+    color: inherit;
+}
+
+.encabezado .menu {
+    display: flex;
+    gap: 28px;
+    font-size: var(--fs-menu);
+}
+
+.encabezado .menu a.activo {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.encabezado .iconos {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
+}
+
+.encabezado .iconos img {
+    display: block;
+    height: 24px;
+    width: 24px;
+}
+
+.encabezado .logo {
+    display: block;
+}
+
+.encabezado .logo img {
+    display: block;
+    height: 52px;
+    width: 80px;
+}
+
+.nombre-usuario {
+    font-family: var(--montserrat);
+    font-size: var(--fs-menu);
+    font-weight: 400;
+}
+
+.btn-salir {
+    border: none;
+    background: none;
+    font-family: var(--montserrat);
+    font-size: clamp(14px, calc(var(--u) * 1.1), 16px);
+    color: var(--rosa-oscuro);
+    text-decoration: underline;
+    cursor: pointer;
+}
+.mensaje-error {
+    margin-bottom: 16px;
+    font-family: var(--montserrat);
+    font-size: 14px;
+    color: var(--rosa-oscuro);
+}
+
+/*logos*/
+
+.logo {
+    display: block;
+}
+
+.logo img {
+    display: block;
+    height: 60px;
+    width: 92px;
+}
+
+.pie .logo img {
+    margin: -15px 0 -25px -50px;
+    height: 184px;
+    width: 223px;
+}
+
+/*  Título de página (banner rosa)  */
+
+.titulo-pagina {
+    background-color: var(--rosa-claro);
+    border-radius: 0 0 50px 50px;
+    text-align: center;
+    padding: max(10px, calc(var(--u) * 1)) 24px max(18px, calc(var(--u) * 1.5));
+}
+
+.titulo-pagina h1 {
+    font-family: var(--the-seasons);
+    font-size: var(--fs-titulo-pagina);
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+/*  Seccion inicio  */
+
+.inicio-pagina{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    column-gap: var(--esp);
+    padding: 10px 40px max(40px, calc(var(--u) * 4.2));
+    background-color: var(--rosa-claro);
+    border-radius: 0 0 60px 60px;
+}
+
+.inicio-texto{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.inicio-texto h2{
+    font-family: var(--the-seasons);
+    font-size: max(2rem, calc(var(--u) * 2.95));
+    font-weight: 400;
+    line-height: 1.15;
+    max-width: 14em;
+    margin-bottom: max(12px, calc(var(--u) * 1));
+}
+
+.inicio-texto h3 {
+    font-family: var(--the-seasons);
+    font-size: var(--fs-subtitulo);
+    font-weight: 400;
+    margin-bottom: max(24px, calc(var(--u) * 2.6));
+}
+
+.abajo{
+    background: none;
+    border: none;
+    font-size: max(3rem, calc(var(--u) * 4.6));
+    line-height: 1;
+    padding: 0;
+    cursor: pointer;
+}
+
+.contenedor-inicio{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    min-width: 0;
+}
+
+.inicio-pagina-fotos{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 3 / 4;
+}
+
+.inicio-pagina-fotos:nth-child(3){
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 6;
+}
+
+/*  Recomendados y Elecciones de autor  */
+
+.titulo-recomendados,
+.titulo-eleccionesautor {
+    font-family: var(--the-seasons);
+    text-align: center;
+    font-size: var(--fs-titulo-seccion);
+    font-weight: 400;
+    margin: max(36px, calc(var(--u) * 3.16)) 0 max(24px, calc(var(--u) * 2.1));
+    margin-top: max(64px, calc(var(--u) * 5.5));
+}
+
+.contenedor-recomendados,
+.contenedor-eleccionesautor{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--esp);
+    width: 100%;
+    max-width: var(--ancho-home);
+    margin: 0 auto;
+    padding: 0 var(--esp);
+}
+
+/* imagen o placeholder: cuadrado con esquinas redondeadas */
+.recomendado-imagen,
+.eleccionesautor-imagen{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;        /* para cuando pongan fotos reales */
+    border-radius: 12px;
+    display: block;
+}
+
+/* placeholder gris con la flor en el centro */
+.placeholder{
+    background-color: #D9D9D9;
+    display: grid;
+    place-items: center;
+    color: #7a7a7a;
+    font-size: max(2.5rem, calc(var(--u) * 3.4));
+}
+
+.recomendados-detalles,
+.eleccionesautor-detalles{
+    padding: 14px 10px 0;
+}
+
+.recomendado-titulo,
+.eleccionesautor-titulo {
+    font-size: var(--fs-subtitulo);
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.recomendado-precio,
+.eleccionesautor-precio{
+    font-size: var(--fs-texto);
+    margin-bottom: 10px;
+}
+
+.recomendado-comprar,
+.eleccionesautor-comprar{
+    display: inline-block;
+    background-color: var(--rosa-claro);
+    border: none;
+    border-radius: 999px;
+    padding: 4px 16px;
+    font-size: var(--fs-boton);
+    cursor: pointer;
+}
+
+.recomendado-comprar:hover,
+.eleccionesautor-comprar:hover{
+    background-color: var(--rosa-oscuro);
+    color: #fff;
+}
+
+.recomendado-imagen,
+.eleccionesautor-imagen{
+    aspect-ratio: 1 / 1;
+    background-color: #D9D9D9;
+}
+
+/*  Promo  */
+
+.promo{
+    display: flex;
+    justify-content: center;       /* centra la imagen */
+    padding: max(60px, calc(var(--u) * 7.9)) 20px;
+}
+
+.promo img{
+    width: 100%;
+    max-width: min(650px, calc(var(--u) * 50));   /* tamaño de la tarjeta */
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 25px 25px 0 #BDBDBD;   /* x, y, desenfoque 0, color */
+}
+
+/*  Footer*/
+
+.pie {
+    background-color: var(--verde);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 80px;
+    padding: 28px 40px;
+    font-family: var(--montserrat);
+    font-size: 13px;
+    color: #000;
+}
+
+.pie a {
+    color: inherit;
+}
+
+.pie .logo {
+    display: block;
+}
+
+.pie .redes {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.pie .redes img {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+.pie .redes a:nth-child(3) img { /* mail */
+    height: 30px;
+    width: 24px;
+}
+
+.enlace-carrito{
+    position: relative;
+    display: block;
+}
+
+.contador-carrito{
+    position: absolute;
+    top: -6px;
+    right: -9px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 999px;
+    background-color: var(--rosa-oscuro);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 18px;
+    text-align: center;
+}
+
+.contador-carrito[hidden]{
+    display: none;
+}

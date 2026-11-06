@@ -1,0 +1,334 @@
+/* Header, footer, fuentes, título de página y la escala de tamaños (--u, --fs-...)
+   salen de main.css. Este archivo tiene SOLO lo de la página Habilidades.
+   En habilidades.html cargá main.css ANTES que este archivo. */
+
+/* ========== Textos ========== */
+
+.titulo-seccion{
+    font-family: var(--the-seasons);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--texto);
+}
+
+.signo-rojo{
+    color: var(--rosa-oscuro);
+}
+
+.subtitulo-habilidad{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+    font-size: var(--fs-subtitulo);
+    font-weight: 700;
+}
+
+.punto{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--texto);
+}
+
+.texto-habilidad{
+    font-size: max(0.9rem, calc(var(--u) * 1.1));
+    line-height: 1.6;
+    color: #262626;
+}
+
+/* ========== Estructura ========== */
+
+.habilidades{
+    display: flex;
+    flex-direction: column;
+    gap: max(64px, calc(var(--u) * 5.5));
+    width: 100%;
+    max-width: calc(var(--u) * 66);
+    margin: 0 auto;
+    padding: max(40px, calc(var(--u) * 3.4)) 16px;
+}
+
+/* ---------- Qué puedo hacer ---------- */
+
+.que-puedo-hacer{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.que-puedo-hacer-texto{
+    display: flex;
+    flex-direction: column;
+    padding-top: 8px;
+}
+
+.titulo-habilidades{
+    margin-bottom: max(20px, calc(var(--u) * 1.7));
+    font-size: max(2.5rem, calc(var(--u) * 3.6));
+}
+
+.lista-habilidades{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.habilidad .texto-habilidad{
+    padding-left: 16px;
+}
+
+.foto-principal{
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ---------- Ramos de novia ---------- */
+
+.ramos-novia{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+.ramos-novia-contenido{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.ramos-novia-cabecera{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-items: center;
+}
+
+.ramos-novia-descripcion{
+    margin-top: 24px;
+    padding-right: 8px;
+}
+
+.ramos-novia-titulo{
+    text-align: center;
+}
+
+.titulo-ramos{
+    font-size: max(2rem, calc(var(--u) * 3.2));
+}
+
+.ramos-novia-galeria{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.ramo-foto,
+.ramo-panorama,
+.ramo-lateral{
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.ramo-foto{ height: max(160px, calc(var(--u) * 17)); }
+.ramo-panorama{ height: max(80px, calc(var(--u) * 5.8)); }
+.ramo-lateral{ height: max(200px, calc(var(--u) * 17.3)); }
+
+.ramos-novia-lateral{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ---------- Arreglos personales ---------- */
+
+.arreglos-personales{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: stretch;
+    width: 100%;
+}
+
+.arreglos-columna{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.arreglos-texto{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.arreglos-cabecera{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.titulo-arreglos{
+    font-size: max(1.75rem, calc(var(--u) * 2.6));
+}
+
+.arreglos-par{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.arreglo-foto{
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.arreglo-foto-base{ height: max(140px, calc(var(--u) * 10.5)); }
+.arreglo-foto-superior{ height: max(130px, calc(var(--u) * 10)); }
+
+.arreglo-foto-alta{
+    flex: 1;
+    min-height: max(200px, calc(var(--u) * 14));
+}
+
+.arreglo-foto-alta-derecha{
+    min-height: max(220px, calc(var(--u) * 14.7));
+}
+
+/* ---------- Ambientaciones ---------- */
+
+.ambientaciones{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: stretch;
+    width: 100%;
+}
+
+.ambientaciones-izquierda{
+    display: flex;
+}
+
+.ambientaciones-centro{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.titulo-ambientaciones{
+    font-size: max(2rem, calc(var(--u) * 2.9));
+    line-height: 1;
+}
+
+.ambientaciones-par{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.ambientaciones-derecha{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.ambientaciones-derecha .texto-habilidad{
+    padding-top: 8px;
+}
+
+.ambientacion-foto{
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.ambientacion-foto-ancha{
+    height: max(150px, calc(var(--u) * 11.8));
+    min-height: 0;
+}
+
+/* ========== Pantallas medianas y grandes ========== */
+
+@media (min-width: 768px){
+    .habilidades{
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .que-puedo-hacer{
+        grid-template-columns: repeat(12, 1fr);
+        column-gap: max(24px, calc(var(--u) * 2.5));
+    }
+
+    .que-puedo-hacer-foto,
+    .que-puedo-hacer-texto{
+        grid-column: span 6;
+    }
+
+    .foto-principal{
+        height: max(320px, calc(var(--u) * 29));
+    }
+
+    .ramos-novia{
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .ramos-novia-contenido{ grid-column: span 8; }
+    .ramos-novia-lateral{ grid-column: span 4; }
+
+    .ramos-novia-cabecera{
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .ramos-novia-descripcion{
+        grid-column: span 7;
+        margin-top: max(24px, calc(var(--u) * 2));
+    }
+
+    .ramos-novia-titulo{
+        grid-column: span 5;
+        text-align: right;
+    }
+
+    .ramos-novia-galeria{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .arreglos-personales{
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .arreglos-columna{
+        grid-column: span 4;
+    }
+
+    .ambientaciones{
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .ambientaciones-izquierda,
+    .ambientaciones-derecha{
+        grid-column: span 3;
+    }
+
+    .ambientaciones-centro{
+        grid-column: span 6;
+    }
+}

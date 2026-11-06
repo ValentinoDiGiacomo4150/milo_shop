@@ -1,0 +1,163 @@
+/* Header, footer, fuentes y la escala (--u, --fs-...) salen de main.css.
+   En usuario.html cargá main.css (ya NO carrito.css) ANTES que este archivo. */
+
+.usuario{
+    flex: 1;
+    display: flex;
+    gap: max(24px, calc(var(--u) * 2.1));
+    align-items: flex-start;
+    width: 100%;
+    max-width: calc(var(--u) * 55);
+    margin: 0 auto;
+    padding: max(36px, calc(var(--u) * 3.4)) 32px max(48px, calc(var(--u) * 4.2));
+}
+
+.usuario-columna{
+    flex: 1;
+    min-width: 0;
+}
+
+.usuario-columna h2{
+    font-size: max(1.5rem, calc(var(--u) * 2));
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.formulario{
+    background-color: var(--rosa-claro);
+    border-radius: 20px;
+    padding: 28px 24px 32px;
+}
+
+.formulario label{
+    display: block;
+    margin-bottom: 8px;
+    font-size: var(--fs-subtitulo);
+    font-weight: 600;
+}
+
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario input[type="password"]{
+    display: block;
+    width: 100%;
+    height: max(38px, calc(var(--u) * 2));
+    margin-bottom: 20px;
+    padding: 0 8px;
+    border: 1px solid var(--rosa-oscuro);
+    border-radius: 8px;
+    font-family: var(--montserrat);
+    font-size: max(0.9rem, calc(var(--u) * 0.85));
+    outline: none;
+}
+
+.formulario .recordar{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.formulario .recordar input{
+    -webkit-appearance: none;
+    appearance: none;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    border: 1px solid #8a8a8a;
+    border-radius: 3px;
+    background-color: #faf6f6;
+    cursor: pointer;
+}
+
+.formulario .recordar input{
+    position: relative;
+}
+
+.formulario .recordar input:checked{
+    background-color: var(--rosa-oscuro);
+    border-color: var(--rosa-oscuro);
+}
+
+.formulario .recordar input:checked::after{
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.formulario button{
+    border: none;
+    border-radius: 20px;
+    padding: 9px 22px;
+    background-color: var(--rosa-oscuro);
+    font-size: var(--fs-boton);
+    color: white;
+    cursor: pointer;
+}
+
+/* "¿Olvidaste tu contraseña?" */
+
+.formulario .olvide{
+    display: block;
+    width: fit-content;
+    margin: 16px 0 0 4px;
+    font-size: max(0.85rem, calc(var(--u) * 0.85));
+    color: var(--rosa-oscuro);
+    text-decoration: underline;
+}
+
+.formulario .olvide:hover{
+    opacity: .75;
+}
+
+/* aviso de "iniciaste sesión" / "cuenta creada" */
+
+.mensaje-ok{
+    padding: 12px 24px;
+    background-color: var(--verde);
+    text-align: center;
+    font-size: var(--fs-texto);
+    font-weight: 600;
+}
+
+@media (max-width: 700px){
+    .usuario{
+        flex-direction: column;
+        padding: 32px 20px 48px;
+    }
+}
+.campo-password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.campo-password-container input {
+    width: 100%;
+    padding-right: 45px; /* Deja espacio para que el texto no se pise con el botón */
+}
+
+.btn-toggle-password {
+    position: absolute;
+    right: -8px;                  /* Distancia desde el borde derecho */
+    top: 50%;                     /* Centrado vertical */
+    transform: translateY(-75%);  /* Ajuste de eje para centrado perfecto */
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    z-index: 10;
+}

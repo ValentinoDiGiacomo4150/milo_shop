@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Milo Mayne</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    </head>
+
+    <body>
+
+        <!-- Header / Menú Principal -->
+        <header class="encabezado">
+            <div class="logo">
+                <a href="/"><img
+                        src="{{ url_for('static', filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO_principal_N.png') }}"
+                        alt="Milo Mayne"></a>
+            </div>
+            <nav class="menu">
+                <a href="/" class="activo">Inicio</a>
+                <a href="/productos">Productos</a>
+                <a href="/quien-soy">¿Quién soy?</a>
+                <a href="/que-puedo-hacer">¿Qué puedo hacer?</a>
+                <a href="/contacto">Contacto</a>
+            </nav>
+            <div class="iconos">
+                <a href="/carrito" class="enlace-carrito">
+                    <img src="{{ url_for('static', filename='images/logos/shopping-cart-01.png') }}" alt="Carrito">
+                    <span class="contador-carrito" {% if cart_count == 0 %}hidden{% endif %}>{{ cart_count }}</span>
+                </a>
+                <div class="cuenta-menu-container" style="position: relative; display: inline-block;">
+                    <a href="/cuenta" id="icono-cuenta-link" style="position: relative;">
+                        <img src="{{ url_for('static', filename='images/logos/user.png') }}" alt="Cuenta">
+                        <span id="punto-verde"
+                            style="display: none; position: absolute; top: 0; right: 0; width: 10px; height: 10px; background-color: #2ecc71; border-radius: 50%; border: 2px solid #fff;"></span>
+                    </a>
+
+                    <!-- Menú desplegable de cuenta -->
+                    <div id="dropdown-cuenta" class="dropdown-content"
+                        style="display: none; position: absolute; right: 0; background: white; border: 1px solid #ddd; padding: 12px; box-shadow: 0px 4px 12px rgba(0,0,0,0.1); border-radius: 8px; width: 220px; z-index: 100;">
+                        <p id="dropdown-nombre" style="font-weight: bold; margin: 0 0 4px 0; color: #333;"></p>
+                        <p id="dropdown-correo"
+                            style="font-size: 0.85em; color: #666; margin: 0 0 10px 0; word-break: break-all;"></p>
+                        <hr style="border: none; border-top: 1px solid #eee; margin: 8px 0;">
+                        <button id="btn-cerrar-sesion"
+                            style="width: 100%; background: #e74c3c; color: white; border: none; padding: 6px; border-radius: 4px; cursor: pointer;">Cerrar
+                            sesión</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+
+            <!-- Presentación de Inicio -->
+            <div class="inicio-pagina">
+                <div class="inicio-texto">
+                    <h2>Conocé todos los tipos de ramos disponibles</h2>
+                    <h3>Lorem ipsum dolor sit amet</h3>
+                    <button class="abajo"><i class="bi bi-arrow-down"></i></button>
+                </div>
+
+                <div class="contenedor-inicio">
+                    <img class="inicio-pagina-fotos" src="{{ url_for('static', filename='images/imagenes-main/imagen-inicio-01.jpg') }}" alt="">
+                    <img class="inicio-pagina-fotos" src="{{ url_for('static', filename='images/imagenes-main/imagen-inicio-02.jpg') }}" alt="">
+                    <img class="inicio-pagina-fotos" src="{{ url_for('static', filename='images/imagenes-main/imagen-inicio-03.jpg') }}" alt="">
+                </div>
+            </div>
+
+            <!-- Sección Recomendados -->
+            <h2 class="titulo-recomendados">Recomendados</h2>
+
+            <div class="contenedor-recomendados">
+                {% if recomendados %}
+                {% for p in recomendados %}
+                <div class="recomendados">
+                    <img class="recomendado-imagen" src="{{ url_for('static', filename=p.imagen if p.imagen else 'images/placeholder.jpg') }}"
+                        alt="{{ p.nombre }}">
+                    <div class="recomendados-detalles">
+                        <h3 class="recomendado-titulo">{{ p.nombre }}</h3>
+                        <p class="recomendado-precio">${{ p.precio_ars }}</p>
+                        <a class="recomendado-comprar" href="/producto?id={{ p.id }}">comprar</a>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="recomendados">
+                    <div class="recomendado-imagen placeholder">
+                        <i class="bi bi-flower1"></i>
+                    </div>
+                    <div class="recomendados-detalles">
+                        <h3 class="recomendado-titulo">Ramo ejemplo 1</h3>
+                        <p class="recomendado-precio">$100</p>
+                        <button class="recomendado-comprar">comprar</button>
+                    </div>
+                </div>
+
+                <div class="recomendados">
+                    <div class="recomendado-imagen placeholder">
+                        <i class="bi bi-flower1"></i>
+                    </div>
+                    <div class="recomendados-detalles">
+                        <h3 class="recomendado-titulo">Ramo ejemplo 2</h3>
+                        <p class="recomendado-precio">$100</p>
+                        <button class="recomendado-comprar">comprar</button>
+                    </div>
+                </div>
+
+                <div class="recomendados">
+                    <div class="recomendado-imagen placeholder">
+                        <i class="bi bi-flower1"></i>
+                    </div>
+                    <div class="recomendados-detalles">
+                        <h3 class="recomendado-titulo">Ramo ejemplo 3</h3>
+                        <p class="recomendado-precio">$100</p>
+                        <button class="recomendado-comprar">comprar</button>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Sección Elecciones de Autor Dinámica -->
+            <h2 class="titulo-eleccionesautor">Elecciones de autor</h2>
+
+            <div class="contenedor-eleccionesautor">
+                {% if elecciones %}
+                {% for p in elecciones %}
+                <div class="elecciones-de-autor">
+                    <img class="eleccionesautor-imagen" src="{{ url_for('static', filename=p.imagen if p.imagen else 'images/placeholder.jpg') }}"
+                        alt="{{ p.nombre }}">
+                    <div class="eleccionesautor-detalles">
+                        <h3 class="eleccionesautor-titulo">{{ p.nombre }}</h3>
+                        <p class="eleccionesautor-precio">${{ p.precio_ars }}</p>
+                        <a class="eleccionesautor-comprar" href="/producto?id={{ p.id }}">comprar</a>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="elecciones-de-autor">
+                    <div class="eleccionesautor-imagen placeholder">
+                        <i class="bi bi-flower1"></i>
+                    </div>
+                    <div class="eleccionesautor-detalles">
+                        <h3 class="eleccionesautor-titulo">Ramo ejemplo 4</h3>
+                        <p class="eleccionesautor-precio">$100</p>
+                        <button class="eleccionesautor-comprar">comprar</button>
+                    </div>
+                </div>
+
+                <div class="elecciones-de-autor">
+                    <div class="eleccionesautor-imagen placeholder">
+                        <i class="bi bi-flower1"></i>
+                    </div>
+                    <div class="eleccionesautor-detalles">
+                        <h3 class="eleccionesautor-titulo">Ramo ejemplo 5</h3>
+                        <p class="eleccionesautor-precio">$100</p>
+                        <button class="eleccionesautor-comprar">comprar</button>
+                    </div>
+                </div>
+
+                <div class="elecciones-de-autor">
+                    <div class="eleccionesautor-imagen placeholder">
+                        <i class="bi bi-flower1"></i>
+                    </div>
+                    <div class="eleccionesautor-detalles">
+                        <h3 class="eleccionesautor-titulo">Ramo ejemplo 6</h3>
+                        <p class="eleccionesautor-precio">$100</p>
+                        <button class="eleccionesautor-comprar">comprar</button>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Banner promocional dinámico controlado desde el Admin -->
+            {% if config and config.mostrar_banner %}
+            <div class="promo">
+                <img src="{{ url_for('static', filename=config.banner if config and config.banner else 'images/imagenes-main/promo-flores-amarillas.png') }}" alt="Promoción Milo Mayne">
+            </div>
+            {% endif %}
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="pie">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO-LOGO_2_N.png') }}"
+                    alt="Milo Mayne">
+            </div>
+            <div class="redes">
+                <a href="https://wa.me/5492616003474" target="_blank" rel="noopener">
+                    <img src="{{ url_for('static', filename='images/logos/whatsapp.png') }}" alt="WhatsApp">
+                </a>
+                <a href="https://www.instagram.com/mm.innovacionfloral" target="_blank" rel="noopener">
+                    <img src="{{ url_for('static', filename='images/logos/instagram.png') }}" alt="Instagram">
+                </a>
+                <a href="mailto:milomayne@gmail.com">
+                    <img src="{{ url_for('static', filename='images/logos/correo-electronico.png') }}"
+                        alt="Correo electrónico">
+                </a>
+            </div>
+            <p>Copyright © 2026 Milo Mayne. All Rights Reserved</p>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/sesion.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/contador.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/menu_hamburguesa.js') }}"></script>
+
+    </body>
+
+</html>

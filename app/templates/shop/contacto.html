@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/carrito.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contacto.css')}}">
+</head>
+<body>
+    <!--header-->
+    <header class="encabezado">
+        <div class="logo">
+            <a href="/"><img src="{{url_for('static',filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO_principal_N.png')}}" alt="Milo Mayne"></a>
+        </div>
+        <nav class="menu">
+            <a href="/">Inicio</a>
+            <a href="/productos">Productos</a>
+            <a href="/quien-soy">¿Quién soy?</a>
+            <a href="/que-puedo-hacer">¿Qué puedo hacer?</a>
+            <a href="/contacto" class="activo" aria-current="page">Contacto</a>
+        </nav>
+        <div class="iconos">
+            <a href="/carrito"><img src="{{url_for('static',filename='images/logos/shopping-cart-01.png')}}" alt="Carrito"></a>
+            <a href="/cuenta"><img src="{{url_for('static',filename='images/logos/user.png')}}" alt="Cuenta"></a>
+        </div>
+    </header>
+
+    <section class="titulo-pagina">
+        <h1>Datos de contacto</h1>
+    </section>
+
+    <main class="contacto">
+        <ul class="contacto-lista">
+            <li>
+                <a href="https://www.instagram.com/mm.innovacionfloral" target="_blank" rel="noopener">
+                    <img src="{{url_for('static',filename='images/logos/instagram.png')}}" alt="Instagram">
+                    <span>@mm.innovacionfloral</span>
+                </a>
+            </li>
+            <li>
+                <a href="mailto:milomayne@gmail.com">
+                    <img src="{{url_for('static',filename='images/logos/correo-electronico.png')}}" alt="Correo electrónico">
+                    <span>milomayne@gmail.com</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wa.me/5492616003474" target="_blank" rel="noopener">
+                    <img src="{{url_for('static',filename='images/logos/whatsapp.png')}}" alt="WhatsApp">
+                    <span>261 600 34-74</span>
+                </a>
+            </li>
+        </ul>
+    </main>
+
+    <!--footer-->
+    <footer class="pie">
+        <div class="logo">
+            <img src="{{url_for('static',filename='images/logos/Milo Mayne_IsoLogo_26_R_MM_ISO-LOGO_2_N.png')}}" alt="Milo Mayne">
+        </div>
+        <div class="redes">
+            <a href="#"><img src="{{url_for('static',filename='images/logos/whatsapp.png')}}"></a>
+            <a href="#"><img src="{{url_for('static',filename='images/logos/instagram.png')}}"></a>
+            <a href="#"><img src="{{url_for('static',filename='images/logos/correo-electronico.png')}}"></a>
+        </div>
+        <p>Copyright © 2026 Milo Mayne. All Rights Reserved</p>
+    </footer>
+    <script src="{{url_for('static', filename='js/carrito.js')}}"></script>
+    <script src="{{url_for('static', filename='js/sesion.js')}}"></script>
+</body>
+</html>

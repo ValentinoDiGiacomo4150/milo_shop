@@ -1,0 +1,70 @@
+{% extends "admin/base.html" %}
+
+{% block titulo %}Inicio{% endblock %}
+
+{% block contenido %}
+<form class="admin-form" method="post" enctype="multipart/form-data">
+
+    <!-- Sección del Banner Promocional -->
+    <section class="admin-bloque">
+        <h3>Banner de promo</h3>
+        <img class="admin-banner-actual"
+             src="{{ url_for('static', filename=config.banner if config and config.banner else 'images/imagenes-main/promo-flores-amarillas.png') }}"
+             alt="Banner actual"
+             style="max-width: 100%; height: auto; border-radius: 6px; margin-bottom: 10px;">
+
+        <label class="admin-etiqueta" for="banner">Subir un banner nuevo</label>
+        <input type="file" id="banner" name="banner" accept="image/*">
+
+        <label class="admin-visible">
+            <input type="checkbox" name="mostrar" {% if not config or config.mostrar_banner %}checked{% endif %}> Mostrar en el inicio
+        </label>
+    </section>
+
+    <!-- Sección de Elecciones de Autor -->
+    <section class="admin-bloque">
+        <h3>Elecciones de autor</h3>
+        <p class="admin-ayuda">Elegí los 3 ramos que aparecen en esa sección del inicio.</p>
+
+        <!-- Elección 1 -->
+        <label class="admin-etiqueta" for="eleccion_1">Elección 1</label>
+        <select id="eleccion_1" name="eleccion_1">
+            <option value="">— Sin elegir —</option>
+            {% for producto in productos %}
+            <option value="{{ producto.id }}" {% if config and config.eleccion_1 == producto.id %}selected{% endif %}>
+                {{ producto.nombre }}
+            </option>
+            {% endfor %}
+        </select>
+
+        <!-- Elección 2 -->
+        <label class="admin-etiqueta" for="eleccion_2">Elección 2</label>
+        <select id="eleccion_2" name="eleccion_2">
+            <option value="">— Sin elegir —</option>
+            {% for producto in productos %}
+            <option value="{{ producto.id }}" {% if config and config.eleccion_2 == producto.id %}selected{% endif %}>
+                {{ producto.nombre }}
+            </option>
+            {% endfor %}
+        </select>
+
+        <!-- Elección 3 -->
+        <label class="admin-etiqueta" for="eleccion_3">Elección 3</label>
+        <select id="eleccion_3" name="eleccion_3">
+            <option value="">— Sin elegir —</option>
+            {% for producto in productos %}
+            <option value="{{ producto.id }}" {% if config and config.eleccion_3 == producto.id %}selected{% endif %}>
+                {{ producto.nombre }}
+            </option>
+            {% endfor %}
+        </select>
+    </section>
+
+    <!-- Acciones del Formulario -->
+    <div class="admin-acciones">
+        <button type="submit" class="admin-boton">Guardar cambios</button>
+        <a href="{{ url_for('admin_bp.listar_productos') }}" class="admin-cancelar">Cancelar</a>
+    </div>
+
+</form>
+{% endblock %}

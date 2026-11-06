@@ -1,0 +1,48 @@
+/* Header, footer, fuentes, título de página y la escala (--u) salen de main.css.
+   En contacto.html cargá main.css (ya NO carrito.css) ANTES que este archivo. */
+
+.contacto{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: max(40px, calc(var(--u) * 4)) 24px;
+}
+
+.pie{
+    margin-top: 0;
+}
+
+.contacto-lista{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: max(24px, calc(var(--u) * 2));
+}
+
+.contacto-lista a{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #000;
+    font-size: max(1.15rem, calc(var(--u) * 1.6));
+    font-weight: 400;
+}
+
+.contacto-lista img{
+    width: max(40px, calc(var(--u) * 3));
+    height: max(40px, calc(var(--u) * 3));
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.contacto-lista a:hover span,
+.contacto-lista a:focus-visible span{
+    color: var(--rosa-oscuro);
+}
+
+.contacto-lista a:focus-visible{
+    outline: 2px solid var(--rosa-oscuro);
+    outline-offset: 4px;
+    border-radius: 4px;
+}

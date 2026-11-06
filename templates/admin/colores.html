@@ -1,0 +1,30 @@
+{% extends "admin/base.html" %}
+
+{% block titulo %}Colores{% endblock %}
+
+{% block contenido %}
+<section class="admin-bloque">
+    <h3>Agregar color</h3>
+    <form class="admin-agregar" method="post">
+        <input type="hidden" name="accion" value="agregar">
+        <input type="text" name="nombre" placeholder="Ej: Lila" required>
+        <button type="submit" class="admin-boton">Agregar</button>
+    </form>
+</section>
+
+<section class="admin-bloque" style="margin-top: 20px;">
+    <h3>Colores existentes</h3>
+    {% for color in colores %}
+    <div class="admin-color-fila">
+        <span>{{ color.nombre }}</span>
+        <form method="post">
+            <input type="hidden" name="accion" value="quitar">
+            <input type="hidden" name="color_id" value="{{ color.id }}">
+            <button type="submit" class="admin-boton">Quitar</button>
+        </form>
+    </div>
+    {% else %}
+    <p style="text-align: center; color: #7f8c8d; padding: 15px;">No hay colores cargados todavía.</p>
+    {% endfor %}
+</section>
+{% endblock %}

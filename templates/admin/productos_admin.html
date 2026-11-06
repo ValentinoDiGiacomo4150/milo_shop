@@ -1,0 +1,53 @@
+{% extends "admin/base.html" %}
+
+{% block titulo %}Productos{% endblock %}
+
+{% block contenido %}
+
+<div style="margin-bottom: 25px;">
+    <a href="{{ url_for('admin_bp.editar_producto') }}" class="admin-boton btn-nuevo" style="background-color: #27ae60; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; font-weight: bold;">
+        <i class="bi bi-plus-circle"></i> Nuevo Producto
+    </a>
+</div>
+
+{% for producto in productos %}
+<article class="admin-producto">
+    {% if producto.imagen %}
+        <div class="admin-foto">
+            <img src="{{ url_for('static', filename=producto.imagen) }}" alt="{{ producto.nombre }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+        </div>
+    {% else %}
+        <div class="admin-foto placeholder"><i class="bi bi-flower1"></i></div>
+    {% endif %}
+
+    <div class="admin-info">
+        <h2>{{ producto.nombre }}</h2>
+        <p class="admin-detalle">{{ producto.descripcion }}</p>
+        <p><strong>Identificador (ID):</strong> {{ producto.id }}</p>
+        <p><strong>Precio ARS:</strong> ${{ producto.precio_ars }}</p>
+        <p><strong>Stock disponible:</strong> {{ producto.stock }}</p>
+
+        <!-- Formulario para alternar visibilidad al hacer clic -->
+        <form action="{{ url_for('admin_bp.toggle_producto', id=producto.id) }}" method="POST" style="display:inline;">
+            <label class="admin-visible">
+                <input type="checkbox" name="visible" onchange="this.form.submit()" {% if producto.activo %}checked{% endif %}> Visible en la tienda
+            </label>
+        </form>
+
+        <div style="margin-top: 10px; display: flex; gap: 10px;">
+            <a href="{{ url_for('admin_bp.editar_producto', id=producto.id) }}" class="admin-boton">Editar</a>
+
+            <!-- Botón Eliminar con alerta de confirmación -->
+            <form action="{{ url_for('admin_bp.eliminar_producto', id=producto.id) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este producto?');" style="display:inline;">
+                <button type="submit" class="admin-boton" style="background-color: #e74c3c; color: white; border: none; cursor: pointer; padding: 8px 12px; border-radius: 4px;">Eliminar</button>
+            </form>
+        </div>
+    </div>
+</article>
+{% else %}
+    <p style="text-align: center; color: #7f8c8d; font-size: 1.1em; margin-top: 40px;">
+        No hay productos cargados todavía en la base de datos. Hacé clic en "Nuevo Producto" para empezar.
+    </p>
+{% endfor %}
+
+{% endblock %}

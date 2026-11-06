@@ -1,0 +1,130 @@
+{% extends "admin/base.html" %}
+{% block titulo %}{% if producto %}Editar producto{% else %}Nuevo producto{% endif %}{% endblock %}
+
+{% block contenido %}
+<form class="admin-form" method="post" enctype="multipart/form-data">
+  <h2 class="admin-form-nombre">
+    {% if producto %}{{ producto.nombre }}{% else %}Nuevo Producto{% endif %}
+  </h2>
+
+  <!-- 1. NOMBRE DEL PRODUCTO -->
+  <section class="admin-bloque">
+    <h3>Información General</h3>
+    <label class="admin-etiqueta" for="nombre">Nombre del producto</label>
+    <input
+      type="text"
+      id="nombre"
+      name="nombre"
+      value="{% if producto %}{{ producto.nombre }}{% endif %}"
+      placeholder="Ej: Ramo de flores frescas - M"
+      required
+      style="width: 100%; padding: 10px 12px; border: 1px solid #d46a6a; border-radius: 8px; font-size: 1rem; box-sizing: border-box; background-color: #ffffff; outline: none;"
+    />
+  </section>
+
+  <!-- 2. FOTO -->
+  <section class="admin-bloque">
+    <h3>Foto</h3>
+    <div class="admin-foto placeholder">
+      {% if producto and producto.imagen %}
+      <img
+        src="{{ url_for('static', filename=producto.imagen) }}"
+        alt="Imagen del producto"
+        style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px"
+      />
+      {% else %}
+      <i class="bi bi-flower1"></i>
+      {% endif %}
+    </div>
+    <input type="file" name="foto" accept="image/*" />
+  </section>
+
+  <!-- 3. PRECIOS Y STOCK -->
+  <section class="admin-bloque">
+    <h3>Precios y Stock</h3>
+
+    <label class="admin-etiqueta" for="precio_ars">Precio en Pesos (ARS $)</label>
+    <input
+      type="number"
+      step="0.01"
+      id="precio_ars"
+      name="precio_ars"
+      value="{% if producto %}{{ producto.precio_ars }}{% endif %}"
+      placeholder="Ej: 30200"
+      min="0"
+      required
+    />
+
+    <label class="admin-etiqueta" for="precio_usd">Precio en Dólares (USD $)</label>
+    <input
+      type="number"
+      step="0.01"
+      id="precio_usd"
+      name="precio_usd"
+      value="{% if producto and producto.precio_usd %}{{ producto.precio_usd }}{% endif %}"
+      placeholder="Ej: 30.00"
+      min="0"
+    />
+
+    <label class="admin-etiqueta" for="stock">Cantidad de Stock</label>
+    <input
+      type="number"
+      id="stock"
+      name="stock"
+      value="{% if producto %}{{ producto.stock }}{% else %}10{% endif %}"
+      min="0"
+      required
+    />
+  </section>
+
+  <!-- 4. DESCRIPCIÓN / DETALLES -->
+  <section class="admin-bloque">
+    <h3>Descripción del Producto</h3>
+    <label class="admin-etiqueta" for="descripcion_estacion">Descripción</label>
+    <textarea
+      id="descripcion_estacion"
+      name="descripcion_estacion"
+      rows="4"
+      placeholder="Mix de flores de estación..."
+    >{% if producto %}{{ producto.descripcion }}{% endif %}</textarea>
+  </section>
+
+  <!-- 5. COLORES DISPONIBLES (Dinámicos desde la BD y con persistencia de selección) -->
+  <section class="admin-bloque">
+    <h3>Colores disponibles</h3>
+    <div class="admin-colores">
+      {% for color in colores_disponibles %}
+      <label>
+        <input
+          type="checkbox"
+          name="colores"
+          value="{{ color.nombre }}"
+          {% if producto and producto.colores and color.nombre in producto.colores %}checked{% endif %}
+        />
+        {{ color.nombre }}
+      </label>
+      {% else %}
+      <p style="color: #7f8c8d; font-size: 0.9em">
+        No hay colores configurados. Podés agregarlos desde la sección Colores del panel.
+      </p>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- VISIBILIDAD -->
+  <label class="admin-visible" style="margin-top: 15px; display: block;">
+    <input
+      type="checkbox"
+      name="visible"
+      {% if not producto or producto.activo %}checked{% endif %}
+    />
+    Visible en la tienda
+  </label>
+
+  <!-- ACCIONES -->
+  <div class="admin-acciones" style="margin-top: 20px;">
+    <button type="submit" class="admin-boton">Guardar cambios</button>
+    <a href="{{ url_for('admin_bp.listar_productos') }}" class="admin-cancelar">Cancelar</a>
+  </div>
+</form>
+{% endblock %}
